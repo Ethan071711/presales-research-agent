@@ -88,8 +88,9 @@ $env:PRESALES_DATABASE_URL = 'postgresql://postgres@127.0.0.1:55432/postgres?ssl
 | 索引 | 实际建立 pgvector HNSW 索引，并用 EXPLAIN 验证索引路径；小表默认可能使用顺序扫描 |
 | 完整联调 | 本地 Qwen 生成、HTTP、SSE 最终事件、官方 MCP 客户端、报价 2850.00 元、跨租户拒绝和经理审核通过 |
 | 网页 | 桌面 1440×1100、手机 390×844；无横向溢出和页面脚本错误 |
+| 启动器 | 实际启动数据库及应用，验证健康接口；模拟中断后两个端口均已关闭 |
 
-原始记录：[检索逐题结果](results/retrieval_20261024.json)、[完整联调](results/live_smoke_20261024.json)、[网页检查](results/browser_qa_20261024.json)。
+原始记录：[检索逐题结果](results/retrieval_20261024.json)、[完整联调](results/live_smoke_20261024.json)、[网页检查](results/browser_qa_20261024.json)、[启动器检查](results/launcher_qa_20261024.json)。
 
 **这些题来自同一套小型模拟资料，包含模板改写，100% 的基础命中不代表真实客户泛化能力。** Recall@5 只衡量资料是否进入前五，不是选型准确率或生成回答正确率。引用校验只验证来源 ID 属于检索结果，不能替代逐句事实核对。PGlite 也不等于生产 PostgreSQL 的并发、可用性或性能验证。
 

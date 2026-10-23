@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-24",
+  "real_child_processes_started": 2,
+  "application_health": {
+    "status": "ok",
+    "backend": "pgvector-hnsw-acl-partitions",
+    "demo_mode": true,
+    "model": "local-transformers",
+    "paid_api_calls": 0
+  },
+  "browser_open_requested": [
+    "http://127.0.0.1:8128"
+  ],
+  "after_interruption_api_port_open": false,
+  "after_interruption_db_port_open": false
+}

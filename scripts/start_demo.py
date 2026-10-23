@@ -57,13 +57,22 @@ def main():
                 webbrowser.open('http://127.0.0.1:8128')
                 break
             time.sleep(.25)
+        else:
+            raise SystemExit('Timed out waiting for the application. Check the terminal output.')
         app.wait()
     except KeyboardInterrupt:
         pass
     finally:
         for child in reversed(children):
             if child.poll() is None:
-                child.terminate()
+                if os.name == 'nt':
+                    # Windows venv python.exe may be a redirector. Stop the process tree
+                    # rooted at our own child, so the real interpreter cannot remain orphaned.
+                    subprocess.run(['taskkill', '/PID', str(child.pid), '/T', '/F'],
+                                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                                   creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+                else:
+                    child.terminate()
                 try:
                     child.wait(timeout=8)
                 except subprocess.TimeoutExpired:
