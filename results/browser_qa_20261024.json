@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-24",
+  "desktop_viewport": [
+    1440,
+    1100
+  ],
+  "mobile_viewport": [
+    390,
+    844
+  ],
+  "quote_expected_yuan": "2850.00",
+  "research_report": "passed",
+  "sse_final_event": "passed",
+  "role_switch_clears_unauthorized_content": "passed",
+  "manager_review": "passed",
+  "desktop_overflow": false,
+  "mobile_overflow": false,
+  "page_errors": []
+}

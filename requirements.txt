@@ -1,0 +1,15 @@
+fastapi==0.146.0
+uvicorn==0.54.0
+pydantic==2.14.1
+PyJWT==2.15.1
+prometheus-client==0.26.0
+psycopg[binary]==3.3.6
+# The maintenance-line SDK is intentional; the code uses its v1 client/server APIs.
+mcp==1.30.0
+langgraph==1.2.16
+sentence-transformers==6.1.0
+transformers==5.20.1
+torch==2.11.0
+numpy>=1.26,<3
+httpx==0.28.1
+pytest==9.1.1

@@ -1,0 +1,962 @@
+[
+  {
+    "id": "product-DEMO-SW-B",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥交换机基础版",
+    "text": "星桥交换机基础版（型号 DEMO-SW-B），类别为交换机，适用于办公室有线网络汇聚。端口数量：24口。含税模拟单价 1000 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-SW-B"
+  },
+  {
+    "id": "product-DEMO-SW-P",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥交换机增强版",
+    "text": "星桥交换机增强版（型号 DEMO-SW-P），类别为交换机，适用于办公室有线网络汇聚。端口数量：24口。含税模拟单价 1800 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-SW-P"
+  },
+  {
+    "id": "product-DEMO-SW-H",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥交换机高可用版",
+    "text": "星桥交换机高可用版（型号 DEMO-SW-H），类别为交换机，适用于办公室有线网络汇聚。端口数量：24口。含税模拟单价 3000 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-SW-H"
+  },
+  {
+    "id": "product-DEMO-AP-B",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥无线接入点基础版",
+    "text": "星桥无线接入点基础版（型号 DEMO-AP-B），类别为无线接入点，适用于会议室和开放办公区无线覆盖。建议覆盖人数：40人。含税模拟单价 1120 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-AP-B"
+  },
+  {
+    "id": "product-DEMO-AP-P",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥无线接入点增强版",
+    "text": "星桥无线接入点增强版（型号 DEMO-AP-P），类别为无线接入点，适用于会议室和开放办公区无线覆盖。建议覆盖人数：40人。含税模拟单价 1920 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-AP-P"
+  },
+  {
+    "id": "product-DEMO-AP-H",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥无线接入点高可用版",
+    "text": "星桥无线接入点高可用版（型号 DEMO-AP-H），类别为无线接入点，适用于会议室和开放办公区无线覆盖。建议覆盖人数：40人。含税模拟单价 3120 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-AP-H"
+  },
+  {
+    "id": "product-DEMO-GW-B",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥安全网关基础版",
+    "text": "星桥安全网关基础版（型号 DEMO-GW-B），类别为安全网关，适用于出口安全过滤和站点互联。防火墙吞吐：1000Mbps。含税模拟单价 1240 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-GW-B"
+  },
+  {
+    "id": "product-DEMO-GW-P",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥安全网关增强版",
+    "text": "星桥安全网关增强版（型号 DEMO-GW-P），类别为安全网关，适用于出口安全过滤和站点互联。防火墙吞吐：1000Mbps。含税模拟单价 2040 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-GW-P"
+  },
+  {
+    "id": "product-DEMO-GW-H",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥安全网关高可用版",
+    "text": "星桥安全网关高可用版（型号 DEMO-GW-H），类别为安全网关，适用于出口安全过滤和站点互联。防火墙吞吐：1000Mbps。含税模拟单价 3240 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-GW-H"
+  },
+  {
+    "id": "product-DEMO-ES-B",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥边缘服务器基础版",
+    "text": "星桥边缘服务器基础版（型号 DEMO-ES-B），类别为边缘服务器，适用于本地轻量推理与应用部署。内存容量：32GB。含税模拟单价 1360 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-ES-B"
+  },
+  {
+    "id": "product-DEMO-ES-P",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥边缘服务器增强版",
+    "text": "星桥边缘服务器增强版（型号 DEMO-ES-P），类别为边缘服务器，适用于本地轻量推理与应用部署。内存容量：32GB。含税模拟单价 2160 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-ES-P"
+  },
+  {
+    "id": "product-DEMO-ES-H",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥边缘服务器高可用版",
+    "text": "星桥边缘服务器高可用版（型号 DEMO-ES-H），类别为边缘服务器，适用于本地轻量推理与应用部署。内存容量：32GB。含税模拟单价 3360 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-ES-H"
+  },
+  {
+    "id": "product-DEMO-NAS-B",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥网络存储基础版",
+    "text": "星桥网络存储基础版（型号 DEMO-NAS-B），类别为网络存储，适用于团队共享文件和备份。可用存储：8TB。含税模拟单价 1480 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-NAS-B"
+  },
+  {
+    "id": "product-DEMO-NAS-P",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥网络存储增强版",
+    "text": "星桥网络存储增强版（型号 DEMO-NAS-P），类别为网络存储，适用于团队共享文件和备份。可用存储：8TB。含税模拟单价 2280 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-NAS-P"
+  },
+  {
+    "id": "product-DEMO-NAS-H",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥网络存储高可用版",
+    "text": "星桥网络存储高可用版（型号 DEMO-NAS-H），类别为网络存储，适用于团队共享文件和备份。可用存储：8TB。含税模拟单价 3480 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-NAS-H"
+  },
+  {
+    "id": "product-DEMO-UPS-B",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥不间断电源基础版",
+    "text": "星桥不间断电源基础版（型号 DEMO-UPS-B），类别为不间断电源，适用于关键设备短时供电保护。额定功率：1500VA。含税模拟单价 1600 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-UPS-B"
+  },
+  {
+    "id": "product-DEMO-UPS-P",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥不间断电源增强版",
+    "text": "星桥不间断电源增强版（型号 DEMO-UPS-P），类别为不间断电源，适用于关键设备短时供电保护。额定功率：1500VA。含税模拟单价 2400 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-UPS-P"
+  },
+  {
+    "id": "product-DEMO-UPS-H",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥不间断电源高可用版",
+    "text": "星桥不间断电源高可用版（型号 DEMO-UPS-H），类别为不间断电源，适用于关键设备短时供电保护。额定功率：1500VA。含税模拟单价 3600 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-UPS-H"
+  },
+  {
+    "id": "product-DEMO-VC-B",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥视频终端基础版",
+    "text": "星桥视频终端基础版（型号 DEMO-VC-B），类别为视频终端，适用于远程会议音视频接入。摄像分辨率：4K。含税模拟单价 1720 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-VC-B"
+  },
+  {
+    "id": "product-DEMO-VC-P",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥视频终端增强版",
+    "text": "星桥视频终端增强版（型号 DEMO-VC-P），类别为视频终端，适用于远程会议音视频接入。摄像分辨率：4K。含税模拟单价 2520 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-VC-P"
+  },
+  {
+    "id": "product-DEMO-VC-H",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥视频终端高可用版",
+    "text": "星桥视频终端高可用版（型号 DEMO-VC-H），类别为视频终端，适用于远程会议音视频接入。摄像分辨率：4K。含税模拟单价 3720 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-VC-H"
+  },
+  {
+    "id": "product-DEMO-MON-B",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥设备监控授权基础版",
+    "text": "星桥设备监控授权基础版（型号 DEMO-MON-B），类别为设备监控授权，适用于设备状态、告警与运行监控。授权设备数：50台。含税模拟单价 1840 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-MON-B"
+  },
+  {
+    "id": "product-DEMO-MON-P",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥设备监控授权增强版",
+    "text": "星桥设备监控授权增强版（型号 DEMO-MON-P），类别为设备监控授权，适用于设备状态、告警与运行监控。授权设备数：50台。含税模拟单价 2640 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-MON-P"
+  },
+  {
+    "id": "product-DEMO-MON-H",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "product",
+    "title": "星桥设备监控授权高可用版",
+    "text": "星桥设备监控授权高可用版（型号 DEMO-MON-H），类别为设备监控授权，适用于设备状态、告警与运行监控。授权设备数：50台。含税模拟单价 3840 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
+    "product_id": "DEMO-MON-H"
+  },
+  {
+    "id": "policy-delivery",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "交付周期",
+    "text": "交付周期：标准产品确认订单后5个工作日发货；缺货时转人工核对。",
+    "product_id": null
+  },
+  {
+    "id": "policy-validity",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "报价有效期",
+    "text": "报价有效期：演示报价有效期为7个自然日，逾期必须重新核价。",
+    "product_id": null
+  },
+  {
+    "id": "policy-tax",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "税费口径",
+    "text": "税费口径：模拟价格含税，以人民币计价；不含运输与安装服务。",
+    "product_id": null
+  },
+  {
+    "id": "policy-warranty",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "保修政策",
+    "text": "保修政策：设备模拟保修期12个月，人为损坏需人工判定。",
+    "product_id": null
+  },
+  {
+    "id": "policy-payment",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "付款规则",
+    "text": "付款规则：模拟订单采用50%预付款，余款在发货前付清。",
+    "product_id": null
+  },
+  {
+    "id": "policy-discount",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "折扣审批",
+    "text": "折扣审批：普通销售最低可按95折报价；更低折扣必须经理审批。",
+    "product_id": null
+  },
+  {
+    "id": "policy-compat",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "交换机与接入点兼容",
+    "text": "交换机与接入点兼容：基础交换机不供PoE电；无线接入点需独立电源或增强交换机。",
+    "product_id": null
+  },
+  {
+    "id": "policy-redundancy",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "高可用部署",
+    "text": "高可用部署：高可用方案至少需要两台网关及双路供电，不接受单机高可用承诺。",
+    "product_id": null
+  },
+  {
+    "id": "policy-install",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "安装边界",
+    "text": "安装边界：安装调试是独立服务，现场勘测后由人工确认费用。",
+    "product_id": null
+  },
+  {
+    "id": "policy-backup",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "备份建议",
+    "text": "备份建议：网络存储不替代异地备份；建议采用本地加异地双副本。",
+    "product_id": null
+  },
+  {
+    "id": "policy-scope",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "需求澄清",
+    "text": "需求澄清：选型前确认人数、场地、预算和交付时间；缺少约束应先澄清。",
+    "product_id": null
+  },
+  {
+    "id": "policy-returns",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "退换规则",
+    "text": "退换规则：演示未发货订单可申请取消，已安装设备需要人工评估退换。",
+    "product_id": null
+  },
+  {
+    "id": "policy-budget",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "预算控制",
+    "text": "预算控制：超出客户预算不得自动提交方案，应列明差额并转人工确认。",
+    "product_id": null
+  },
+  {
+    "id": "policy-privacy",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "客户资料保护",
+    "text": "客户资料保护：客户需求和报价按租户隔离，不允许销售读取其他客户组织的资料。",
+    "product_id": null
+  },
+  {
+    "id": "policy-approval",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "人工审核",
+    "text": "人工审核：缺少证据、特殊兼容、高额报价及越权折扣必须先人工审核。",
+    "product_id": null
+  },
+  {
+    "id": "policy-simulation",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "policy",
+    "title": "演示数据说明",
+    "text": "演示数据说明：星桥品牌、产品、客户、价格和评测题均为2026年10月新制模拟资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-00",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant00",
+    "text": "机密审批记录tenant00：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-00",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role00",
+    "text": "机密审批记录role00：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-01",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant01",
+    "text": "机密审批记录tenant01：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-01",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role01",
+    "text": "机密审批记录role01：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-02",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant02",
+    "text": "机密审批记录tenant02：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-02",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role02",
+    "text": "机密审批记录role02：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-03",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant03",
+    "text": "机密审批记录tenant03：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-03",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role03",
+    "text": "机密审批记录role03：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-04",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant04",
+    "text": "机密审批记录tenant04：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-04",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role04",
+    "text": "机密审批记录role04：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-05",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant05",
+    "text": "机密审批记录tenant05：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-05",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role05",
+    "text": "机密审批记录role05：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-06",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant06",
+    "text": "机密审批记录tenant06：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-06",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role06",
+    "text": "机密审批记录role06：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-07",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant07",
+    "text": "机密审批记录tenant07：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-07",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role07",
+    "text": "机密审批记录role07：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-08",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant08",
+    "text": "机密审批记录tenant08：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-08",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role08",
+    "text": "机密审批记录role08：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-09",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant09",
+    "text": "机密审批记录tenant09：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-09",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role09",
+    "text": "机密审批记录role09：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-10",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant10",
+    "text": "机密审批记录tenant10：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-10",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role10",
+    "text": "机密审批记录role10：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-11",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant11",
+    "text": "机密审批记录tenant11：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-11",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role11",
+    "text": "机密审批记录role11：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-12",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant12",
+    "text": "机密审批记录tenant12：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-12",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role12",
+    "text": "机密审批记录role12：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-13",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant13",
+    "text": "机密审批记录tenant13：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-13",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role13",
+    "text": "机密审批记录role13：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-14",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant14",
+    "text": "机密审批记录tenant14：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-14",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role14",
+    "text": "机密审批记录role14：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-15",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant15",
+    "text": "机密审批记录tenant15：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-15",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role15",
+    "text": "机密审批记录role15：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-16",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant16",
+    "text": "机密审批记录tenant16：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-16",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role16",
+    "text": "机密审批记录role16：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-17",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant17",
+    "text": "机密审批记录tenant17：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-17",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role17",
+    "text": "机密审批记录role17：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-18",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant18",
+    "text": "机密审批记录tenant18：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-18",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role18",
+    "text": "机密审批记录role18：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-tenant-19",
+    "tenant": "demo-b",
+    "roles": [
+      "sales"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录tenant19",
+    "text": "机密审批记录tenant19：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  },
+  {
+    "id": "restricted-role-19",
+    "tenant": "demo-a",
+    "roles": [
+      "manager"
+    ],
+    "kind": "restricted",
+    "title": "机密审批记录role19",
+    "text": "机密审批记录role19：仅允许对应租户或经理查看的模拟内部资料。",
+    "product_id": null
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "name": "presales-research-agent-local-db",
+  "private": true,
+  "type": "module",
+  "scripts": {"db": "node scripts/local_postgres.mjs"},
+  "dependencies": {
+    "@electric-sql/pglite": "0.5.11",
+    "@electric-sql/pglite-pgvector": "0.0.12",
+    "@electric-sql/pglite-socket": "0.2.14"
+  }
+}

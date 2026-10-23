@@ -1,0 +1,410 @@
+[
+  {
+    "id": "DEMO-SW-B",
+    "name": "星桥交换机基础版",
+    "family": "交换机",
+    "tier": "基础版",
+    "unit_price": 1000,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "端口数量：24口",
+    "purpose": "办公室有线网络汇聚",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-SW-P",
+    "name": "星桥交换机增强版",
+    "family": "交换机",
+    "tier": "增强版",
+    "unit_price": 1800,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "端口数量：24口",
+    "purpose": "办公室有线网络汇聚",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-SW-H",
+    "name": "星桥交换机高可用版",
+    "family": "交换机",
+    "tier": "高可用版",
+    "unit_price": 3000,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "端口数量：24口",
+    "purpose": "办公室有线网络汇聚",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-AP-B",
+    "name": "星桥无线接入点基础版",
+    "family": "无线接入点",
+    "tier": "基础版",
+    "unit_price": 1120,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "建议覆盖人数：40人",
+    "purpose": "会议室和开放办公区无线覆盖",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-AP-P",
+    "name": "星桥无线接入点增强版",
+    "family": "无线接入点",
+    "tier": "增强版",
+    "unit_price": 1920,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "建议覆盖人数：40人",
+    "purpose": "会议室和开放办公区无线覆盖",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-AP-H",
+    "name": "星桥无线接入点高可用版",
+    "family": "无线接入点",
+    "tier": "高可用版",
+    "unit_price": 3120,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "建议覆盖人数：40人",
+    "purpose": "会议室和开放办公区无线覆盖",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-GW-B",
+    "name": "星桥安全网关基础版",
+    "family": "安全网关",
+    "tier": "基础版",
+    "unit_price": 1240,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "防火墙吞吐：1000Mbps",
+    "purpose": "出口安全过滤和站点互联",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-GW-P",
+    "name": "星桥安全网关增强版",
+    "family": "安全网关",
+    "tier": "增强版",
+    "unit_price": 2040,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "防火墙吞吐：1000Mbps",
+    "purpose": "出口安全过滤和站点互联",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-GW-H",
+    "name": "星桥安全网关高可用版",
+    "family": "安全网关",
+    "tier": "高可用版",
+    "unit_price": 3240,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "防火墙吞吐：1000Mbps",
+    "purpose": "出口安全过滤和站点互联",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-ES-B",
+    "name": "星桥边缘服务器基础版",
+    "family": "边缘服务器",
+    "tier": "基础版",
+    "unit_price": 1360,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "内存容量：32GB",
+    "purpose": "本地轻量推理与应用部署",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-ES-P",
+    "name": "星桥边缘服务器增强版",
+    "family": "边缘服务器",
+    "tier": "增强版",
+    "unit_price": 2160,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "内存容量：32GB",
+    "purpose": "本地轻量推理与应用部署",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-ES-H",
+    "name": "星桥边缘服务器高可用版",
+    "family": "边缘服务器",
+    "tier": "高可用版",
+    "unit_price": 3360,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "内存容量：32GB",
+    "purpose": "本地轻量推理与应用部署",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-NAS-B",
+    "name": "星桥网络存储基础版",
+    "family": "网络存储",
+    "tier": "基础版",
+    "unit_price": 1480,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "可用存储：8TB",
+    "purpose": "团队共享文件和备份",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-NAS-P",
+    "name": "星桥网络存储增强版",
+    "family": "网络存储",
+    "tier": "增强版",
+    "unit_price": 2280,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "可用存储：8TB",
+    "purpose": "团队共享文件和备份",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-NAS-H",
+    "name": "星桥网络存储高可用版",
+    "family": "网络存储",
+    "tier": "高可用版",
+    "unit_price": 3480,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "可用存储：8TB",
+    "purpose": "团队共享文件和备份",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-UPS-B",
+    "name": "星桥不间断电源基础版",
+    "family": "不间断电源",
+    "tier": "基础版",
+    "unit_price": 1600,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "额定功率：1500VA",
+    "purpose": "关键设备短时供电保护",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-UPS-P",
+    "name": "星桥不间断电源增强版",
+    "family": "不间断电源",
+    "tier": "增强版",
+    "unit_price": 2400,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "额定功率：1500VA",
+    "purpose": "关键设备短时供电保护",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-UPS-H",
+    "name": "星桥不间断电源高可用版",
+    "family": "不间断电源",
+    "tier": "高可用版",
+    "unit_price": 3600,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "额定功率：1500VA",
+    "purpose": "关键设备短时供电保护",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-VC-B",
+    "name": "星桥视频终端基础版",
+    "family": "视频终端",
+    "tier": "基础版",
+    "unit_price": 1720,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "摄像分辨率：4K",
+    "purpose": "远程会议音视频接入",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-VC-P",
+    "name": "星桥视频终端增强版",
+    "family": "视频终端",
+    "tier": "增强版",
+    "unit_price": 2520,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "摄像分辨率：4K",
+    "purpose": "远程会议音视频接入",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-VC-H",
+    "name": "星桥视频终端高可用版",
+    "family": "视频终端",
+    "tier": "高可用版",
+    "unit_price": 3720,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "摄像分辨率：4K",
+    "purpose": "远程会议音视频接入",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-MON-B",
+    "name": "星桥设备监控授权基础版",
+    "family": "设备监控授权",
+    "tier": "基础版",
+    "unit_price": 1840,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "授权设备数：50台",
+    "purpose": "设备状态、告警与运行监控",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-MON-P",
+    "name": "星桥设备监控授权增强版",
+    "family": "设备监控授权",
+    "tier": "增强版",
+    "unit_price": 2640,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "授权设备数：50台",
+    "purpose": "设备状态、告警与运行监控",
+    "stock": 25
+  },
+  {
+    "id": "DEMO-MON-H",
+    "name": "星桥设备监控授权高可用版",
+    "family": "设备监控授权",
+    "tier": "高可用版",
+    "unit_price": 3840,
+    "currency": "CNY",
+    "tenant": "demo-a",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "spec": "授权设备数：50台",
+    "purpose": "设备状态、告警与运行监控",
+    "stock": 25
+  }
+]
