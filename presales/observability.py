@@ -10,6 +10,8 @@ from prometheus_client import CollectorRegistry, Counter, Histogram, generate_la
 class Metrics:
     def __init__(self):
         self.registry = CollectorRegistry()
+        self.requests = Counter('presales_http_requests_total','HTTP requests, denominator for rejected-request rate',registry=self.registry)
+        self.attempts = Counter('presales_stage_attempts_total','Stage attempts, denominator for fallback rate',['cause'],registry=self.registry)
         self.runs = Counter('presales_runs_total', 'Research runs by final status', ['status'], registry=self.registry)
         self.fallbacks = Counter('presales_fallbacks_total', 'Fallbacks by cause', ['cause'], registry=self.registry)
         self.denied = Counter('presales_denied_total', 'Denied requests', ['kind'], registry=self.registry)
@@ -86,3 +88,9 @@ class RunStore:
         # A process crash is visible after restart; do not silently label the run successful.
         with self.connect() as c:
             c.execute("UPDATE runs SET status='interrupted' WHERE status='running'")
+
+    def claim_resume(self,run_id,actor):
+        with self.connect() as c:
+            changed=c.execute("UPDATE runs SET status='running' WHERE id=? AND tenant=? AND subject=? AND status='interrupted'",
+                              (run_id,actor.tenant,actor.subject))
+            return changed.rowcount==1

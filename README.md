@@ -1,103 +1,101 @@
-# 售前研究与选配报价助手
+# 家用储能选型与报价助手
 
-把售前问题拆为检索任务，在调用者权限范围内查资料、检查缺口、整理带来源的草稿，再由人员审核。报价工具从模拟目录读取单价，用代码计算金额，不让模型填写价格或授予权限。
+为“已有光伏的家庭想加电池”整理售前方案：收集相制、容量和功率需求，筛选公开套餐，检索来源、检查冲突，再生成待人工确认的研究与报价草稿。
 
-这是 **2026 年 10 月在 AI 辅助下新建的实习相关能力重建演示**，不是公司原始源码或生产系统。星桥品牌、24 个产品、80 份资料及 200 条评测均为新制合成材料，不含原公司的客户数据。当前测量结果不代表原实习的历史业务成绩。
+![家用储能工作台](docs/images/desktop.png)
 
-![桌面演示](docs/images/desktop.png)
+产品事实参考 [PA Power 产品页](https://papower.com.au/products)，核对日期 **2026-10-24**。19 组公开套餐中，14 组可作初筛候选，5 组因来源冲突或配置歧义暂停推荐。保留原品牌、原始数值和来源，不把套餐标签当成完整电气设计。公开资料引用不表示与供应商存在合作关系；不包含原公司的源码、客户或订单数据。
 
-## 已实现
+## 一次完整流程
 
-| 环节 | 实现 |
-|---|---|
-| 研究流程 | LangGraph：拆解 → 并发派发检索 → 证据检查 → 缺口扩展 → 汇总；最多 2 轮 |
-| 检索 | BGE 中文向量；PostgreSQL/pgvector；按租户和角色分区，每个可访问分区建立 HNSW 索引，再合并前五结果 |
-| 三层兜底 | 限制输入、查询数、轮次和输出长度；模型/检索失败自动降级；草稿进入人工审核 |
-| 工具 | 官方 MCP Python SDK 暴露 `search_knowledge` 与 `create_quote`，HTTP 请求验证 JWT |
-| 配单 | 固定目录价、整数分计算、折扣审批提示、库存/预算检查、基础交换机与 AP 兼容提示 |
-| 过程展示 | FastAPI + SSE + 原生网页；SQLite 留存运行、事件和经理审核决定 |
-| 监控 | Prometheus 模型耗时、输入/输出 token、降级、鉴权拒绝及检索计数；本地模式付费 API 成本为零 |
+1. 输入家庭相制、最低容量标签和套餐功率、品牌偏好、旧光伏及备电需求。
+2. 确定性代码筛选候选，列出原始来源。相制未知先澄清；旧逆变器兼容、备电回路与网关交安装方核实。
+3. 研究图拆解问题、派发检索、检查证据和缺口，最多补查一轮，再整理带引用的草稿。
+4. 从一个完整套餐生成询价/报价草稿。官网没有公开价格时金额为 `null`，显示“待供应商询价”。配置有效私有价格单后，分别处理设备小计、含税安装价、有效期和预算。
+5. 同组织经理填写意见并确认或退回草稿，过程留存；不会向供应商发送表单、报价、消息或订单。
 
 ```mermaid
 flowchart LR
- A[需求] --> B[拆解问题]
- B --> C[选择允许访问的资料分区]
- C --> D[分区内向量检索]
- D --> E{证据是否充足}
- E -- 有缺口且未到轮次上限 --> F[精炼查询]
- F --> C
- E -- 已完成或达到上限 --> G[带来源的草稿]
- G --> H[同租户经理人工审核]
- I[产品及数量] --> J[确定性报价工具]
- J --> K[金额与待确认事项]
+ A[家庭需求] --> B[相制 / 容量 / 功率初筛]
+ B --> C[候选套餐与来源]
+ C --> D[分解检索问题]
+ D --> E[允许访问的分区内检索]
+ E --> F{证据与冲突检查}
+ F -- 有缺口且未到上限 --> G[精炼查询]
+ G --> E
+ F -- 结束 --> H[带引用草稿]
+ H --> I[人工确认或退回]
+ C --> J[报价工具]
+ J --> K[有效价格或待询价]
 ```
 
-## 先运行基础演示
+## 关键实现
 
-在 Windows Python 3.13 上完成验证。首次安装需要网络和模型下载空间；已有缓存可以离线使用。以下命令在仓库目录执行，不要求激活 PowerShell 脚本。
+| 能力 | 实现 |
+|---|---|
+| 家庭选型 | 相制、容量、功率、品牌筛选；冲突隔离；不自动拼接跨品牌系统 |
+| Deep Research | LangGraph：拆解 → 并发派发检索 → 证据检查 → 缺口精炼 → 汇总，最多两轮 |
+| 三层处理 | 输入/轮次/队列限制；模型与检索异常降级；草稿人工确认 |
+| 检索与权限 | BGE 向量 + pgvector/HNSW；先选择已授权租户/角色分区，再取 Top K |
+| 持久化 | LangGraph SQLite 节点检查点；重启后原身份可恢复中断任务；另存事件和审核记录 |
+| MCP 工具 | 官方 SDK：`search_knowledge`、`select_battery`、`create_quote`；JWT 身份来自验证后的令牌 |
+| 过程和监控 | SSE、来源链接、运行 Trace；Prometheus 记录模型 token、延迟、付费成本、降级和拒绝计数及对应分母 |
+| 报价 | AUD、整数澳分；价格按组织隔离；过期作废；含税安装总价和部分费用分开 |
+
+![研究与来源](docs/images/research.png)
+
+## 在 Windows 运行
+
+已验证 Python 3.13、Node.js、Windows。首次安装需要网络和模型下载空间。
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe run.py
-```
-
-打开 http://127.0.0.1:8128 。默认是**资料摘录模式**，使用真实 BGE 向量模型、内存精确检索，不调用生成式模型或付费 API。它用于先检查页面、配单和工作流，不能称为 HNSW 模式。
-
-## 使用 PostgreSQL 与 HNSW
-
-本机无需安装 Docker 或系统服务。Node.js 下的 PGlite 提供 PostgreSQL/WASM、pgvector 扩展及本地 TCP 接口；Python 使用同一套 psycopg/SQL 查询。
-
-```powershell
 npm ci
 .\.venv\Scripts\python.exe scripts/start_demo.py
 ```
 
-启动器打开浏览器，并在退出时只停止自己创建的子进程。Windows 也可双击 `start_demo.cmd`。若已启动基础演示，先在其终端按 Ctrl+C 退出，避免占用 8128 端口。
+也可双击 `start_demo.cmd`。启动器打开 http://127.0.0.1:8128 ，退出时停止它自己创建的进程。默认使用本地 PGlite/PostgreSQL + pgvector/HNSW、BGE 向量和资料摘录，无需付费模型 API。
 
-有现成 PostgreSQL/pgvector 开发库时，可设置 `PRESALES_DATABASE_URL` 后运行 `run.py`。启动会重建本项目 `presales_documents` 表的合成内容，因此应使用专用开发库。
+如暂不安装 Node，直接运行 `run.py`，且不设 `PRESALES_DATABASE_URL`，会采用内存精确检索；这个模式不称为 HNSW。已有 PostgreSQL/pgvector 时可设置自己的 `PRESALES_DATABASE_URL`，**请使用专用开发库**：启动会重载本项目 `presales_documents` 表。
 
-## 可选本地生成模型
+可选本地 Qwen 生成：
 
 ```powershell
 $env:PRESALES_MODEL_MODE = 'local'
 .\.venv\Scripts\python.exe scripts/start_demo.py
 ```
 
-默认加载 `Qwen/Qwen3-4B-Instruct-2507`，首次需下载模型；验证机器为 RTX 4070 Ti。它在拆解和汇总时实际生成文本。生成失败或引用检查失败时保留资料摘录结果，并在过程记录中显示降级。默认启动不加载此模型；项目没有自动选择付费云模型的分支。
+默认生成模型是 `Qwen/Qwen3-4B-Instruct-2507`，需要相应内存/显存。它参与拆解和成文；失败或引用 ID 检查不通过则自动退回资料摘录。模型不能设置价格、租户或角色。项目只提供本地与摘录两种模式，没有自动调用付费云 API 的分支。
 
-配置项见 [.env.example](.env.example)。文件不会被隐式加载，请在终端设置环境变量。
+配置见 [.env.example](.env.example)，文件不会被隐式加载。公开目录无价格；获得真实供应商价格单后，可按 [数据与来源](docs/数据与来源.md) 设置 `PRESALES_PRICEBOOK`。不要把私有价格单提交到仓库。
 
-## 重现验证
+## 实际验证
+
+| 验证 | 当前结果 |
+|---|---|
+| 自动测试 | 30 项通过，包含价格状态/有效期/预算、冲突隔离、JWT、检索前 ACL、异常降级、SSE、MCP、进程中断模拟及 API 恢复 |
+| 资料检索 | 200 条新编选型资料题，目标来源 Recall@5 为 200/200 |
+| 越权 | 另设 40 条攻击题；全部 240 次检索的返回内容中，越权记录为 0 |
+| 数据库 | 实际创建 pgvector HNSW 索引，并用 EXPLAIN 验证索引路径 |
+| 完整联调 | 实际本地 Qwen、HTTP/SSE、官方 MCP 客户端三个工具、空价处理、跨组织拒绝及人工审核通过 |
+| 页面 | 1440×1100 桌面与 390×844 手机；无横向溢出及脚本错误；身份切换清除先前无权读取的结果 |
+
+逐题及联调记录在 [results](results/)；其中每个文件标有测量时间和口径。这些是本次公开资料版本的新测试，不是历史实习业务统计。200 条题与小型资料库同源，包含模板改写，100% 命中不能解释为真实客户泛化能力、推荐准确率或回答事实正确率。
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -q
-# 另一个终端运行 npm run db，或已通过 start_demo.py 启动本地数据库
+# 先用另一个终端运行 npm run db，或已通过启动器开启数据库
 $env:PRESALES_DATABASE_URL = 'postgresql://postgres@127.0.0.1:55432/postgres?sslmode=disable'
 .\.venv\Scripts\python.exe scripts/evaluate.py
-# 应用正在运行时：用官方 MCP 客户端和 HTTP/SSE 做完整检查
+# 应用运行时检查 HTTP、SSE 和官方 MCP 客户端
 .\.venv\Scripts\python.exe scripts/smoke_live.py
+# 可选网页检查，需要已安装 Playwright 和 Edge
+node scripts/browser_check.cjs
 ```
 
-当前记录：
+更多讲解：[五分钟演示与代码导览](docs/演示与代码导览.md)、[数据与来源](docs/数据与来源.md)。
 
-| 验证 | 结果与口径 |
-|---|---|
-| 自动测试 | 26 项：鉴权、检索前 ACL、金额/边界、降级、持久记录、审核、SSE 与 MCP |
-| 200 条基础评测 | 160 条可回答检索题 Recall@5 为 160/160；40 条越权攻击题没有返回受限资料 |
-| 索引 | 实际建立 pgvector HNSW 索引，并用 EXPLAIN 验证索引路径；小表默认可能使用顺序扫描 |
-| 完整联调 | 本地 Qwen 生成、HTTP、SSE 最终事件、官方 MCP 客户端、报价 2850.00 元、跨租户拒绝和经理审核通过 |
-| 网页 | 桌面 1440×1100、手机 390×844；无横向溢出和页面脚本错误 |
-| 启动器 | 实际启动数据库及应用，验证健康接口；模拟中断后两个端口均已关闭 |
+本机演示入口可切换模拟身份；JWT 为预发令牌，未实现完整 OAuth 或企业登录。API 只监听回环地址。PGlite 单连接执行 SQL，不代表生产并发/高可用；小表默认也可能走顺序扫描。引用检查验证 ID 属于检索结果，逐句事实仍需人员核对。电气设计、施工合规、实时价格/库存、补贴及回本测算应另行取得有效资料。
 
-原始记录：[检索逐题结果](results/retrieval_20261024.json)、[完整联调](results/live_smoke_20261024.json)、[网页检查](results/browser_qa_20261024.json)、[启动器检查](results/launcher_qa_20261024.json)。
-
-**这些题来自同一套小型模拟资料，包含模板改写，100% 的基础命中不代表真实客户泛化能力。** Recall@5 只衡量资料是否进入前五，不是选型准确率或生成回答正确率。引用校验只验证来源 ID 属于检索结果，不能替代逐句事实核对。PGlite 也不等于生产 PostgreSQL 的并发、可用性或性能验证。
-
-## 演示与阅读
-
-先看 [五分钟演示与代码导览](docs/演示与代码导览.md)，再看 [重建范围](docs/重建范围.md)。
-
-本机演示入口允许选择模拟身份，JWT 是预发演示令牌，**没有实现完整 OAuth 登录服务**；MCP 运行在 Streamable HTTP 上。API 只绑定回环地址。部署到共享环境前必须关闭演示身份入口，并接入真实身份来源；当前版本按本机演示交付。
-
-MIT 许可仅覆盖本仓库新建内容；依赖、模型及其各自许可仍归相应权利人。实现依据：[pgvector](https://github.com/pgvector/pgvector)、[MCP Python SDK v1](https://py.sdk.modelcontextprotocol.io/v1/)、[PGlite Socket](https://pglite.dev/docs/pglite-socket)、[LangGraph](https://docs.langchain.com/oss/python/langgraph/graph-api)。
+MIT 覆盖新代码及新编说明；第三方依赖、模型与引用资料保留各自权利。实现参考：[pgvector](https://github.com/pgvector/pgvector)、[MCP Python SDK v1](https://py.sdk.modelcontextprotocol.io/v1/)、[LangGraph](https://docs.langchain.com/oss/python/langgraph/persistence)、[PGlite Socket](https://pglite.dev/docs/pglite-socket)。

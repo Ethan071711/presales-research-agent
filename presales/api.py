@@ -2,6 +2,7 @@ import asyncio
 import json
 import os
 from concurrent.futures import ThreadPoolExecutor
+from threading import BoundedSemaphore
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Annotated, Literal
@@ -20,6 +21,7 @@ from .auth import Actor, issue_token, local_signing_key, verify_token
 from .observability import Metrics, RunStore
 from .quotation import CATALOG, quote
 from .research import Research
+from .selection import Household, select_packages
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -32,13 +34,12 @@ class Question(BaseModel):
 class Line(BaseModel):
     model_config = ConfigDict(extra='forbid')
     product_id: str = Field(min_length=1, max_length=60)
-    quantity: int = Field(strict=True, ge=1, le=100)
+    quantity: int = Field(strict=True, ge=1, le=1)
 
 
 class QuoteRequest(BaseModel):
     model_config = ConfigDict(extra='forbid')
-    items: list[Line] = Field(min_length=1, max_length=20)
-    discount: str = Field(default='1.00', pattern=r'^(0\.[0-9]{1,2}|1(\.0{1,2})?)$')
+    items: list[Line] = Field(min_length=1, max_length=1)
     budget: float | None = Field(default=None, ge=0, allow_inf_nan=False)
 
 
@@ -52,13 +53,14 @@ class DemoIdentity(BaseModel):
     role: Literal['viewer', 'sales', 'manager'] = 'sales'
 
 
-def create_app(store, storage_dir: Path, model=None, demo_mode=True, metrics=None):
+def create_app(store, storage_dir: Path, model=None, demo_mode=True, metrics=None, pricebook=None):
     metrics = metrics or Metrics()
     key = local_signing_key(storage_dir)
     runs = RunStore(storage_dir/'runs.sqlite3')
     runs.recover_interrupted()
-    worker = Research(store, metrics, model=model)
+    worker = Research(store, metrics, model=model, checkpoint_path=storage_dir/'checkpoints.sqlite3')
     pool = ThreadPoolExecutor(max_workers=4)
+    slots = BoundedSemaphore(8)
     bearer = HTTPBearer(auto_error=False)
     resource_url = 'http://127.0.0.1:8128/tools/mcp'
 
@@ -73,7 +75,7 @@ def create_app(store, storage_dir: Path, model=None, demo_mode=True, metrics=Non
                 metrics.denied.labels('mcp-auth').inc()
                 return None
 
-    mcp = FastMCP('Presales research demo', stateless_http=True, json_response=True,
+    mcp = FastMCP('Household battery presales', stateless_http=True, json_response=True,
                   token_verifier=JWTVerifier(), auth=AuthSettings(
                       issuer_url='http://127.0.0.1:8128/demo', resource_server_url=resource_url,
                       required_scopes=['presales:tools'], validate_token_resource=False))
@@ -87,14 +89,19 @@ def create_app(store, storage_dir: Path, model=None, demo_mode=True, metrics=Non
     @mcp.tool()
     def search_knowledge(query: Annotated[str, Field(min_length=2, max_length=1000)],
                          k: Annotated[int, Field(ge=1, le=10)] = 5) -> dict:
-        """Search synthetic documents. Tenant/role come only from the verified bearer token."""
+        """Search source-attributed battery facts with the authenticated identity's ACL."""
         metrics.retrievals.inc()
         return {'hits': [h.as_dict() for h in store.search(query, tool_actor(), k)]}
 
     @mcp.tool()
-    def create_quote(items: list[Line], discount: str = '1.00', budget: float | None = None) -> dict:
-        """Calculate a DRAFT from catalog prices; discounts/compatibility can require review."""
-        return quote([x.model_dump() for x in items], tool_actor(), discount, budget)
+    def create_quote(items: list[Line], budget: float | None = None) -> dict:
+        """Prepare one household-package draft. Missing supplier price remains null."""
+        return quote([x.model_dump() for x in items], tool_actor(), budget, pricebook)
+
+    @mcp.tool()
+    def select_battery(profile:Household) -> dict:
+        """Filter advertised packages by phase, capacity and power; quarantine source conflicts."""
+        return select_packages(profile,tool_actor())
 
     @asynccontextmanager
     async def lifespan(app):
@@ -102,8 +109,13 @@ def create_app(store, storage_dir: Path, model=None, demo_mode=True, metrics=Non
             yield
         pool.shutdown(wait=True, cancel_futures=True)
 
-    app = FastAPI(title='Presales research reconstruction', version='0.1.0', lifespan=lifespan)
+    app = FastAPI(title='Household battery selection and quotation', version='0.2.0', lifespan=lifespan)
     app.state.runs, app.state.metrics, app.state.key, app.state.mcp = runs, metrics, key, mcp
+
+    @app.middleware('http')
+    async def count_requests(request,call_next):
+        metrics.requests.inc()
+        return await call_next(request)
 
     def identity(credentials: HTTPAuthorizationCredentials | None = Depends(bearer)):
         try:
@@ -147,31 +159,50 @@ def create_app(store, storage_dir: Path, model=None, demo_mode=True, metrics=Non
         metrics.retrievals.inc()
         return {'hits': [h.as_dict() for h in store.search(value.question, actor)]}
 
+    @app.post('/selection')
+    def selection(value:Household,actor:Actor=Depends(identity)):
+        return select_packages(value,actor)
+
     @app.post('/quotes')
     def quotation(value: QuoteRequest, actor: Actor = Depends(identity)):
         try:
-            return quote([x.model_dump() for x in value.items], actor, value.discount, value.budget)
+            return quote([x.model_dump() for x in value.items], actor, value.budget, pricebook)
         except PermissionError as error:
             metrics.denied.labels('quote-role').inc()
             raise HTTPException(403, str(error))
         except (ValueError, ArithmeticError) as error:
             raise HTTPException(422, str(error))
 
-    def perform(run_id, question, actor):
+    def perform(run_id, question, actor, resume=False):
         try:
-            result = worker.run(question, actor, lambda stage, data: runs.event(run_id, stage, data))
+            result = worker.run(question, actor, lambda stage, data: runs.event(run_id, stage, data), run_id, resume)
             runs.event(run_id, 'finished', {'status': result['status']})
             runs.finish(run_id, result['status'], result)
         except Exception as error:
             metrics.runs.labels('failed').inc()
             runs.event(run_id, 'finished', {'status': 'failed', 'kind': type(error).__name__})
             runs.finish(run_id, 'failed', {'error': '运行未完成，请检查服务日志', 'kind': type(error).__name__})
+        finally:
+            slots.release()
 
     @app.post('/research', status_code=202)
     def research(value: Question, actor: Actor = Depends(identity)):
+        if not slots.acquire(blocking=False):
+            raise HTTPException(503,'研究队列已满，请稍后重试')
         run_id = runs.create(actor, value.question)
         pool.submit(perform, run_id, value.question, actor)
         return {'run_id': run_id, 'status': 'running'}
+
+    @app.post('/runs/{run_id}/resume',status_code=202)
+    def resume_run(run_id:str,actor:Actor=Depends(identity)):
+        value=visible_run(run_id,actor)
+        if not slots.acquire(blocking=False):
+            raise HTTPException(503,'研究队列已满，请稍后重试')
+        if not runs.claim_resume(run_id,actor):
+            slots.release()
+            raise HTTPException(409,'只允许原任务身份恢复中断的运行')
+        pool.submit(perform,run_id,value['question'],actor,True)
+        return {'run_id':run_id,'status':'running'}
 
     @app.get('/runs/{run_id}')
     def get_run(run_id: str, actor: Actor = Depends(identity)):

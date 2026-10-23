@@ -8,6 +8,7 @@ os.environ['LANGCHAIN_TRACING_V2'] = 'false'
 from presales.api import create_app
 from presales.model import LocalModel
 from presales.observability import Metrics
+from presales.quotation import load_pricebook
 from presales.retrieval import Embedder, MemoryStore, PostgresStore, cached_vectors
 
 ROOT = Path(__file__).resolve().parent
@@ -27,7 +28,8 @@ def build_app():
     if mode not in {'extractive', 'local'}:
         raise ValueError('PRESALES_MODEL_MODE must be extractive or local')
     model = LocalModel(os.getenv('PRESALES_LOCAL_MODEL', 'Qwen/Qwen3-4B-Instruct-2507'), metrics) if mode == 'local' else None
-    return create_app(store, ROOT/'.storage', model, os.getenv('PRESALES_DEMO_MODE', '1') == '1', metrics)
+    return create_app(store, ROOT/'.storage', model, os.getenv('PRESALES_DEMO_MODE', '1') == '1', metrics,
+                      load_pricebook(os.getenv('PRESALES_PRICEBOOK')))
 
 
 if __name__ == '__main__':

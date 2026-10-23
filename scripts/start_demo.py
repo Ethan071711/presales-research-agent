@@ -49,7 +49,7 @@ def main():
                 raise SystemExit('Timed out waiting for local DB.')
         app = subprocess.Popen([sys.executable, 'run.py'], env=env)
         children.append(app)
-        print('Starting http://127.0.0.1:8128 — all products/prices are synthetic.')
+        print('Starting http://127.0.0.1:8128 — public household-battery facts; missing prices stay null.')
         for _ in range(240):
             if app.poll() is not None:
                 raise SystemExit('Application failed to start; check the terminal output.')

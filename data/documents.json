@@ -1,523 +1,791 @@
 [
   {
-    "id": "product-DEMO-SW-B",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥交换机基础版",
-    "text": "星桥交换机基础版（型号 DEMO-SW-B），类别为交换机，适用于办公室有线网络汇聚。端口数量：24口。含税模拟单价 1000 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-SW-B"
-  },
-  {
-    "id": "product-DEMO-SW-P",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥交换机增强版",
-    "text": "星桥交换机增强版（型号 DEMO-SW-P），类别为交换机，适用于办公室有线网络汇聚。端口数量：24口。含税模拟单价 1800 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-SW-P"
-  },
-  {
-    "id": "product-DEMO-SW-H",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥交换机高可用版",
-    "text": "星桥交换机高可用版（型号 DEMO-SW-H），类别为交换机，适用于办公室有线网络汇聚。端口数量：24口。含税模拟单价 3000 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-SW-H"
-  },
-  {
-    "id": "product-DEMO-AP-B",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥无线接入点基础版",
-    "text": "星桥无线接入点基础版（型号 DEMO-AP-B），类别为无线接入点，适用于会议室和开放办公区无线覆盖。建议覆盖人数：40人。含税模拟单价 1120 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-AP-B"
-  },
-  {
-    "id": "product-DEMO-AP-P",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥无线接入点增强版",
-    "text": "星桥无线接入点增强版（型号 DEMO-AP-P），类别为无线接入点，适用于会议室和开放办公区无线覆盖。建议覆盖人数：40人。含税模拟单价 1920 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-AP-P"
-  },
-  {
-    "id": "product-DEMO-AP-H",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥无线接入点高可用版",
-    "text": "星桥无线接入点高可用版（型号 DEMO-AP-H），类别为无线接入点，适用于会议室和开放办公区无线覆盖。建议覆盖人数：40人。含税模拟单价 3120 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-AP-H"
-  },
-  {
-    "id": "product-DEMO-GW-B",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥安全网关基础版",
-    "text": "星桥安全网关基础版（型号 DEMO-GW-B），类别为安全网关，适用于出口安全过滤和站点互联。防火墙吞吐：1000Mbps。含税模拟单价 1240 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-GW-B"
-  },
-  {
-    "id": "product-DEMO-GW-P",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥安全网关增强版",
-    "text": "星桥安全网关增强版（型号 DEMO-GW-P），类别为安全网关，适用于出口安全过滤和站点互联。防火墙吞吐：1000Mbps。含税模拟单价 2040 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-GW-P"
-  },
-  {
-    "id": "product-DEMO-GW-H",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥安全网关高可用版",
-    "text": "星桥安全网关高可用版（型号 DEMO-GW-H），类别为安全网关，适用于出口安全过滤和站点互联。防火墙吞吐：1000Mbps。含税模拟单价 3240 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-GW-H"
-  },
-  {
-    "id": "product-DEMO-ES-B",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥边缘服务器基础版",
-    "text": "星桥边缘服务器基础版（型号 DEMO-ES-B），类别为边缘服务器，适用于本地轻量推理与应用部署。内存容量：32GB。含税模拟单价 1360 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-ES-B"
-  },
-  {
-    "id": "product-DEMO-ES-P",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥边缘服务器增强版",
-    "text": "星桥边缘服务器增强版（型号 DEMO-ES-P），类别为边缘服务器，适用于本地轻量推理与应用部署。内存容量：32GB。含税模拟单价 2160 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-ES-P"
-  },
-  {
-    "id": "product-DEMO-ES-H",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥边缘服务器高可用版",
-    "text": "星桥边缘服务器高可用版（型号 DEMO-ES-H），类别为边缘服务器，适用于本地轻量推理与应用部署。内存容量：32GB。含税模拟单价 3360 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-ES-H"
-  },
-  {
-    "id": "product-DEMO-NAS-B",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥网络存储基础版",
-    "text": "星桥网络存储基础版（型号 DEMO-NAS-B），类别为网络存储，适用于团队共享文件和备份。可用存储：8TB。含税模拟单价 1480 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-NAS-B"
-  },
-  {
-    "id": "product-DEMO-NAS-P",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥网络存储增强版",
-    "text": "星桥网络存储增强版（型号 DEMO-NAS-P），类别为网络存储，适用于团队共享文件和备份。可用存储：8TB。含税模拟单价 2280 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-NAS-P"
-  },
-  {
-    "id": "product-DEMO-NAS-H",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥网络存储高可用版",
-    "text": "星桥网络存储高可用版（型号 DEMO-NAS-H），类别为网络存储，适用于团队共享文件和备份。可用存储：8TB。含税模拟单价 3480 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-NAS-H"
-  },
-  {
-    "id": "product-DEMO-UPS-B",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥不间断电源基础版",
-    "text": "星桥不间断电源基础版（型号 DEMO-UPS-B），类别为不间断电源，适用于关键设备短时供电保护。额定功率：1500VA。含税模拟单价 1600 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-UPS-B"
-  },
-  {
-    "id": "product-DEMO-UPS-P",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥不间断电源增强版",
-    "text": "星桥不间断电源增强版（型号 DEMO-UPS-P），类别为不间断电源，适用于关键设备短时供电保护。额定功率：1500VA。含税模拟单价 2400 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-UPS-P"
-  },
-  {
-    "id": "product-DEMO-UPS-H",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥不间断电源高可用版",
-    "text": "星桥不间断电源高可用版（型号 DEMO-UPS-H），类别为不间断电源，适用于关键设备短时供电保护。额定功率：1500VA。含税模拟单价 3600 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-UPS-H"
-  },
-  {
-    "id": "product-DEMO-VC-B",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥视频终端基础版",
-    "text": "星桥视频终端基础版（型号 DEMO-VC-B），类别为视频终端，适用于远程会议音视频接入。摄像分辨率：4K。含税模拟单价 1720 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-VC-B"
-  },
-  {
-    "id": "product-DEMO-VC-P",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥视频终端增强版",
-    "text": "星桥视频终端增强版（型号 DEMO-VC-P），类别为视频终端，适用于远程会议音视频接入。摄像分辨率：4K。含税模拟单价 2520 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-VC-P"
-  },
-  {
-    "id": "product-DEMO-VC-H",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥视频终端高可用版",
-    "text": "星桥视频终端高可用版（型号 DEMO-VC-H），类别为视频终端，适用于远程会议音视频接入。摄像分辨率：4K。含税模拟单价 3720 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-VC-H"
-  },
-  {
-    "id": "product-DEMO-MON-B",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥设备监控授权基础版",
-    "text": "星桥设备监控授权基础版（型号 DEMO-MON-B），类别为设备监控授权，适用于设备状态、告警与运行监控。授权设备数：50台。含税模拟单价 1840 元，库存25件。等级为基础版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-MON-B"
-  },
-  {
-    "id": "product-DEMO-MON-P",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥设备监控授权增强版",
-    "text": "星桥设备监控授权增强版（型号 DEMO-MON-P），类别为设备监控授权，适用于设备状态、告警与运行监控。授权设备数：50台。含税模拟单价 2640 元，库存25件。等级为增强版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-MON-P"
-  },
-  {
-    "id": "product-DEMO-MON-H",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "kind": "product",
-    "title": "星桥设备监控授权高可用版",
-    "text": "星桥设备监控授权高可用版（型号 DEMO-MON-H），类别为设备监控授权，适用于设备状态、告警与运行监控。授权设备数：50台。含税模拟单价 3840 元，库存25件。等级为高可用版；价格只用于演示，不构成商业报价。",
-    "product_id": "DEMO-MON-H"
-  },
-  {
-    "id": "policy-delivery",
+    "id": "package-fox-single-ep11-5-20.72",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "交付周期",
-    "text": "交付周期：标准产品确认订单后5个工作日发货；缺货时转人工核对。",
-    "product_id": null
+    "kind": "package",
+    "title": "Fox KH + EP11 · 5 kW / 20.72 kWh · 单相",
+    "text": "Fox KH + EP11，官网列出的单相套餐：功率标签 5 kW，电池容量标签 20.72 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。",
+    "product_id": "fox-single-ep11-5-20.72",
+    "sources": [
+      {
+        "id": "fox-single-ep11",
+        "url": "https://papower.com.au/products/home-ess?card=fox-single-ep11",
+        "title": "Fox KH + EP11 — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
   },
   {
-    "id": "policy-validity",
+    "id": "package-fox-single-ep11-8-31.08",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "报价有效期",
-    "text": "报价有效期：演示报价有效期为7个自然日，逾期必须重新核价。",
-    "product_id": null
+    "kind": "package",
+    "title": "Fox KH + EP11 · 8 kW / 31.08 kWh · 单相",
+    "text": "Fox KH + EP11，官网列出的单相套餐：功率标签 8 kW，电池容量标签 31.08 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。",
+    "product_id": "fox-single-ep11-8-31.08",
+    "sources": [
+      {
+        "id": "fox-single-ep11",
+        "url": "https://papower.com.au/products/home-ess?card=fox-single-ep11",
+        "title": "Fox KH + EP11 — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
   },
   {
-    "id": "policy-tax",
+    "id": "package-fox-single-ep11-10-41.44",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "税费口径",
-    "text": "税费口径：模拟价格含税，以人民币计价；不含运输与安装服务。",
-    "product_id": null
+    "kind": "package",
+    "title": "Fox KH + EP11 · 10 kW / 41.44 kWh · 单相",
+    "text": "Fox KH + EP11，官网列出的单相套餐：功率标签 10 kW，电池容量标签 41.44 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。",
+    "product_id": "fox-single-ep11-10-41.44",
+    "sources": [
+      {
+        "id": "fox-single-ep11",
+        "url": "https://papower.com.au/products/home-ess?card=fox-single-ep11",
+        "title": "Fox KH + EP11 — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
   },
   {
-    "id": "policy-warranty",
+    "id": "package-fox-three-ep11-5-20.72",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "保修政策",
-    "text": "保修政策：设备模拟保修期12个月，人为损坏需人工判定。",
-    "product_id": null
+    "kind": "package",
+    "title": "Fox KH + EP11 · 5 kW / 20.72 kWh · 三相",
+    "text": "Fox KH + EP11，官网列出的三相套餐：功率标签 5 kW，电池容量标签 20.72 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。",
+    "product_id": "fox-three-ep11-5-20.72",
+    "sources": [
+      {
+        "id": "fox-three-ep11",
+        "url": "https://papower.com.au/products/home-ess?card=fox-three-ep11",
+        "title": "Fox KH + EP11 — three",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      },
+      {
+        "id": "fox-kh-manufacturer",
+        "url": "https://www.fox-ess.com/wp-content/uploads/2024/12/EN-KH-KA-Datasheet-V2.0-20241127.pdf",
+        "title": "Fox ESS KH/KA datasheet (AU)",
+        "checked_on": "2026-10-24",
+        "publisher": "Fox ESS",
+        "usage": "KH/KA stated single-phase; URL currently serves AU V1.6, 2025/10/09."
+      }
+    ],
+    "review_flags": [
+      "官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。"
+    ]
   },
   {
-    "id": "policy-payment",
+    "id": "package-fox-three-ep11-8-31.08",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "付款规则",
-    "text": "付款规则：模拟订单采用50%预付款，余款在发货前付清。",
-    "product_id": null
+    "kind": "package",
+    "title": "Fox KH + EP11 · 8 kW / 31.08 kWh · 三相",
+    "text": "Fox KH + EP11，官网列出的三相套餐：功率标签 8 kW，电池容量标签 31.08 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。",
+    "product_id": "fox-three-ep11-8-31.08",
+    "sources": [
+      {
+        "id": "fox-three-ep11",
+        "url": "https://papower.com.au/products/home-ess?card=fox-three-ep11",
+        "title": "Fox KH + EP11 — three",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      },
+      {
+        "id": "fox-kh-manufacturer",
+        "url": "https://www.fox-ess.com/wp-content/uploads/2024/12/EN-KH-KA-Datasheet-V2.0-20241127.pdf",
+        "title": "Fox ESS KH/KA datasheet (AU)",
+        "checked_on": "2026-10-24",
+        "publisher": "Fox ESS",
+        "usage": "KH/KA stated single-phase; URL currently serves AU V1.6, 2025/10/09."
+      }
+    ],
+    "review_flags": [
+      "官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。"
+    ]
   },
   {
-    "id": "policy-discount",
+    "id": "package-fox-three-ep11-10-41.44",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "折扣审批",
-    "text": "折扣审批：普通销售最低可按95折报价；更低折扣必须经理审批。",
-    "product_id": null
+    "kind": "package",
+    "title": "Fox KH + EP11 · 10 kW / 41.44 kWh · 三相",
+    "text": "Fox KH + EP11，官网列出的三相套餐：功率标签 10 kW，电池容量标签 41.44 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。",
+    "product_id": "fox-three-ep11-10-41.44",
+    "sources": [
+      {
+        "id": "fox-three-ep11",
+        "url": "https://papower.com.au/products/home-ess?card=fox-three-ep11",
+        "title": "Fox KH + EP11 — three",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      },
+      {
+        "id": "fox-kh-manufacturer",
+        "url": "https://www.fox-ess.com/wp-content/uploads/2024/12/EN-KH-KA-Datasheet-V2.0-20241127.pdf",
+        "title": "Fox ESS KH/KA datasheet (AU)",
+        "checked_on": "2026-10-24",
+        "publisher": "Fox ESS",
+        "usage": "KH/KA stated single-phase; URL currently serves AU V1.6, 2025/10/09."
+      }
+    ],
+    "review_flags": [
+      "官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。"
+    ]
   },
   {
-    "id": "policy-compat",
+    "id": "package-fox-single-cq7-10-27.84",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "交换机与接入点兼容",
-    "text": "交换机与接入点兼容：基础交换机不供PoE电；无线接入点需独立电源或增强交换机。",
-    "product_id": null
+    "kind": "package",
+    "title": "Fox KH + CQ7 · 10 kW / 27.84 kWh · 单相",
+    "text": "Fox KH + CQ7，官网列出的单相套餐：功率标签 10 kW，电池容量标签 27.84 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。",
+    "product_id": "fox-single-cq7-10-27.84",
+    "sources": [
+      {
+        "id": "fox-single-cq7",
+        "url": "https://papower.com.au/products/home-ess?card=fox-single-cq7",
+        "title": "Fox KH + CQ7 — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
   },
   {
-    "id": "policy-redundancy",
+    "id": "package-fox-single-cq7-10-41.76",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "高可用部署",
-    "text": "高可用部署：高可用方案至少需要两台网关及双路供电，不接受单机高可用承诺。",
-    "product_id": null
+    "kind": "package",
+    "title": "Fox KH + CQ7 · 10 kW / 41.76 kWh · 单相",
+    "text": "Fox KH + CQ7，官网列出的单相套餐：功率标签 10 kW，电池容量标签 41.76 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。",
+    "product_id": "fox-single-cq7-10-41.76",
+    "sources": [
+      {
+        "id": "fox-single-cq7",
+        "url": "https://papower.com.au/products/home-ess?card=fox-single-cq7",
+        "title": "Fox KH + CQ7 — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
   },
   {
-    "id": "policy-install",
+    "id": "package-fox-three-cq7-10-27.84",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "安装边界",
-    "text": "安装边界：安装调试是独立服务，现场勘测后由人工确认费用。",
-    "product_id": null
+    "kind": "package",
+    "title": "Fox H3 + CQ7 · 10 kW / 27.84 kWh · 三相",
+    "text": "Fox H3 + CQ7，官网列出的三相套餐：功率标签 10 kW，电池容量标签 27.84 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。",
+    "product_id": "fox-three-cq7-10-27.84",
+    "sources": [
+      {
+        "id": "fox-three-cq7",
+        "url": "https://papower.com.au/products/home-ess?card=fox-three-cq7",
+        "title": "Fox H3 + CQ7 — three",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
   },
   {
-    "id": "policy-backup",
+    "id": "package-sigen-single-10-28.84",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "备份建议",
-    "text": "备份建议：网络存储不替代异地备份；建议采用本地加异地双副本。",
-    "product_id": null
+    "kind": "package",
+    "title": "SigenStor · 10 kW / 28.84 kWh · 单相",
+    "text": "SigenStor，官网列出的单相套餐：功率标签 10 kW，电池容量标签 28.84 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。",
+    "product_id": "sigen-single-10-28.84",
+    "sources": [
+      {
+        "id": "sigen-single",
+        "url": "https://papower.com.au/products/home-ess?card=sigen-single",
+        "title": "SigenStor — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
   },
   {
-    "id": "policy-scope",
+    "id": "package-sigen-single-10-36",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "需求澄清",
-    "text": "需求澄清：选型前确认人数、场地、预算和交付时间；缺少约束应先澄清。",
-    "product_id": null
+    "kind": "package",
+    "title": "SigenStor · 10 kW / 36 kWh · 单相",
+    "text": "SigenStor，官网列出的单相套餐：功率标签 10 kW，电池容量标签 36 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。",
+    "product_id": "sigen-single-10-36",
+    "sources": [
+      {
+        "id": "sigen-single",
+        "url": "https://papower.com.au/products/home-ess?card=sigen-single",
+        "title": "SigenStor — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
   },
   {
-    "id": "policy-returns",
+    "id": "package-sigen-three-10-28.84",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "退换规则",
-    "text": "退换规则：演示未发货订单可申请取消，已安装设备需要人工评估退换。",
-    "product_id": null
+    "kind": "package",
+    "title": "SigenStor · 10 kW / 28.84 kWh · 三相",
+    "text": "SigenStor，官网列出的三相套餐：功率标签 10 kW，电池容量标签 28.84 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。",
+    "product_id": "sigen-three-10-28.84",
+    "sources": [
+      {
+        "id": "sigen-three",
+        "url": "https://papower.com.au/products/home-ess?card=sigen-three",
+        "title": "SigenStor — three",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
   },
   {
-    "id": "policy-budget",
+    "id": "package-sigen-three-15-36",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "预算控制",
-    "text": "预算控制：超出客户预算不得自动提交方案，应列明差额并转人工确认。",
-    "product_id": null
+    "kind": "package",
+    "title": "SigenStor · 15 kW / 36 kWh · 三相",
+    "text": "SigenStor，官网列出的三相套餐：功率标签 15 kW，电池容量标签 36 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。",
+    "product_id": "sigen-three-15-36",
+    "sources": [
+      {
+        "id": "sigen-three",
+        "url": "https://papower.com.au/products/home-ess?card=sigen-three",
+        "title": "SigenStor — three",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
   },
   {
-    "id": "policy-privacy",
+    "id": "package-tesla-powerwall-10-27",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "客户资料保护",
-    "text": "客户资料保护：客户需求和报价按租户隔离，不允许销售读取其他客户组织的资料。",
-    "product_id": null
+    "kind": "package",
+    "title": "Powerwall 3 advertised package · 10 kW / 27 kWh · 相制不明",
+    "text": "Powerwall 3 advertised package，官网列出的相制不明套餐：功率标签 10 kW，电池容量标签 27 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。官网套餐写法未明确对应台数、逆变器配置及相制，暂停推荐；不得把套餐容量当作单机容量。",
+    "product_id": "tesla-powerwall-10-27",
+    "sources": [
+      {
+        "id": "tesla-powerwall",
+        "url": "https://papower.com.au/products/home-ess?card=tesla-powerwall",
+        "title": "Powerwall 3 advertised package — unknown",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [
+      "官网套餐写法未明确对应台数、逆变器配置及相制，暂停推荐；不得把套餐容量当作单机容量。"
+    ]
   },
   {
-    "id": "policy-approval",
+    "id": "package-tesla-powerwall-10-40.5",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "人工审核",
-    "text": "人工审核：缺少证据、特殊兼容、高额报价及越权折扣必须先人工审核。",
-    "product_id": null
+    "kind": "package",
+    "title": "Powerwall 3 advertised package · 10 kW / 40.5 kWh · 相制不明",
+    "text": "Powerwall 3 advertised package，官网列出的相制不明套餐：功率标签 10 kW，电池容量标签 40.5 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。官网套餐写法未明确对应台数、逆变器配置及相制，暂停推荐；不得把套餐容量当作单机容量。",
+    "product_id": "tesla-powerwall-10-40.5",
+    "sources": [
+      {
+        "id": "tesla-powerwall",
+        "url": "https://papower.com.au/products/home-ess?card=tesla-powerwall",
+        "title": "Powerwall 3 advertised package — unknown",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [
+      "官网套餐写法未明确对应台数、逆变器配置及相制，暂停推荐；不得把套餐容量当作单机容量。"
+    ]
   },
   {
-    "id": "policy-simulation",
+    "id": "package-growatt-sph-6-20",
     "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "kind": "policy",
-    "title": "演示数据说明",
-    "text": "演示数据说明：星桥品牌、产品、客户、价格和评测题均为2026年10月新制模拟资料。",
-    "product_id": null
+    "kind": "package",
+    "title": "Growatt SPH + ALP · 6 kW / 20 kWh · 单相",
+    "text": "Growatt SPH + ALP，官网列出的单相套餐：功率标签 6 kW，电池容量标签 20 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。",
+    "product_id": "growatt-sph-6-20",
+    "sources": [
+      {
+        "id": "growatt-sph",
+        "url": "https://papower.com.au/products/home-ess?card=growatt-sph",
+        "title": "Growatt SPH + ALP — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
+  },
+  {
+    "id": "package-growatt-spm-10-30",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "package",
+    "title": "Growatt SPM + ALP · 10 kW / 30 kWh · 单相",
+    "text": "Growatt SPM + ALP，官网列出的单相套餐：功率标签 10 kW，电池容量标签 30 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。",
+    "product_id": "growatt-spm-10-30",
+    "sources": [
+      {
+        "id": "growatt-spm",
+        "url": "https://papower.com.au/products/home-ess?card=growatt-spm",
+        "title": "Growatt SPM + ALP — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
+  },
+  {
+    "id": "package-hyxi-single-8-21.2",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "package",
+    "title": "HYXi H8K + E50B-H1 · 8 kW / 21.2 kWh · 单相",
+    "text": "HYXi H8K + E50B-H1，官网列出的单相套餐：功率标签 8 kW，电池容量标签 21.2 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。",
+    "product_id": "hyxi-single-8-21.2",
+    "sources": [
+      {
+        "id": "hyxi-single",
+        "url": "https://papower.com.au/products/home-ess?card=hyxi-single",
+        "title": "HYXi H8K + E50B-H1 — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
+  },
+  {
+    "id": "package-goodwe-single-10-24",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "package",
+    "title": "GoodWe ESA · 10 kW / 24 kWh · 单相",
+    "text": "GoodWe ESA，官网列出的单相套餐：功率标签 10 kW，电池容量标签 24 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。",
+    "product_id": "goodwe-single-10-24",
+    "sources": [
+      {
+        "id": "goodwe-single",
+        "url": "https://papower.com.au/products/home-ess?card=goodwe-single",
+        "title": "GoodWe ESA — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
+  },
+  {
+    "id": "guide-journey",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "application_guide",
+    "title": "需求到报价流程",
+    "text": "官网描述：先了解住宅及用电，再提供方案报价，随后安排安装。",
+    "product_id": null,
+    "sources": [
+      {
+        "id": "residential",
+        "url": "https://papower.com.au/residential",
+        "title": "Household service and quote journey",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
+  },
+  {
+    "id": "guide-requirements",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "application_guide",
+    "title": "售前需要问什么",
+    "text": "本应用收集相制、容量目标、套餐功率目标、已有光伏/逆变器、备电需求与预算；缺相制先澄清。",
+    "product_id": null,
+    "sources": [
+      {
+        "id": "residential",
+        "url": "https://papower.com.au/residential",
+        "title": "Household service and quote journey",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
+  },
+  {
+    "id": "guide-capacity",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "application_guide",
+    "title": "kW 和 kWh 怎么用",
+    "text": "本应用按官网功率标签和容量标签初筛。kW 是功率，kWh 是电量；不能把容量标签直接换算成保证备电时长。",
+    "product_id": null,
+    "sources": [
+      {
+        "id": "listing",
+        "url": "https://papower.com.au/products",
+        "title": "Public product listing",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
+  },
+  {
+    "id": "guide-retrofit",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "application_guide",
+    "title": "已有光伏能否加电池",
+    "text": "官网称已有光伏可先评估再设计兼容方案。型号、接线与安装条件需要核对；本应用不把未知旧逆变器判为兼容。",
+    "product_id": null,
+    "sources": [
+      {
+        "id": "residential",
+        "url": "https://papower.com.au/residential",
+        "title": "Household service and quote journey",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
+  },
+  {
+    "id": "guide-backup",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "application_guide",
+    "title": "停电备电检查",
+    "text": "官网把备电列为服务方向；本应用要求人工核对网关/切换设备、备电回路、负载及安装范围，不自动承诺全屋备电。",
+    "product_id": null,
+    "sources": [
+      {
+        "id": "residential",
+        "url": "https://papower.com.au/residential",
+        "title": "Household service and quote journey",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
+  },
+  {
+    "id": "guide-price",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "application_guide",
+    "title": "为什么报价待询价",
+    "text": "公开产品页提供询价入口，没有给出本目录套餐的公开售价。本应用价格缺失返回待询价及空金额，不用模型估价。",
+    "product_id": null,
+    "sources": [
+      {
+        "id": "listing",
+        "url": "https://papower.com.au/products",
+        "title": "Public product listing",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
+  },
+  {
+    "id": "guide-cost_scope",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "application_guide",
+    "title": "安装税费报价范围",
+    "text": "本应用将设备小计与完整安装总价分开；没有明确含税安装价格单时，安装、运输、税费仍待核实。",
+    "product_id": null,
+    "sources": [
+      {
+        "id": "residential",
+        "url": "https://papower.com.au/residential",
+        "title": "Household service and quote journey",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
+  },
+  {
+    "id": "guide-conflict",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "application_guide",
+    "title": "Fox KH 三相资料冲突",
+    "text": "官网 Fox 三相 EP11 页面写 KH；厂家 KH/KA 资料说明单相。本应用隔离这组套餐，保留两侧来源，交人工核实。",
+    "product_id": null,
+    "sources": [
+      {
+        "id": "fox-kh-manufacturer",
+        "url": "https://www.fox-ess.com/wp-content/uploads/2024/12/EN-KH-KA-Datasheet-V2.0-20241127.pdf",
+        "title": "Fox ESS KH/KA datasheet (AU)",
+        "checked_on": "2026-10-24",
+        "publisher": "Fox ESS",
+        "usage": "KH/KA stated single-phase; URL currently serves AU V1.6, 2025/10/09."
+      },
+      {
+        "id": "fox-three-ep11",
+        "url": "https://papower.com.au/products/home-ess?card=fox-three-ep11",
+        "title": "Fox KH + EP11 — three",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [
+      "相制冲突仍待供应商核实。"
+    ]
+  },
+  {
+    "id": "guide-capacity_basis",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "application_guide",
+    "title": "容量口径与模块数量",
+    "text": "本应用保留套餐原始容量标签；名义/可用容量和模块数不明时不自行补值，不将不同页面的容量自动合并。",
+    "product_id": null,
+    "sources": [
+      {
+        "id": "listing",
+        "url": "https://papower.com.au/products",
+        "title": "Public product listing",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
+  },
+  {
+    "id": "guide-budget",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "application_guide",
+    "title": "预算与补贴处理",
+    "text": "本应用在没有完整价格时只保留客户预算，标记预算尚未验证；补贴、回本年限与电价节省不自动计算。",
+    "product_id": null,
+    "sources": [
+      {
+        "id": "residential",
+        "url": "https://papower.com.au/residential",
+        "title": "Household service and quote journey",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
+  },
+  {
+    "id": "guide-approval",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "application_guide",
+    "title": "草稿人工确认",
+    "text": "本应用的选型和报价输出均为售前草稿。同组织经理可以确认草稿；该动作不代表供应商报价、安装批准或完成交易。",
+    "product_id": null,
+    "sources": [
+      {
+        "id": "residential",
+        "url": "https://papower.com.au/residential",
+        "title": "Household service and quote journey",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
+  },
+  {
+    "id": "guide-data_scope",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "application_guide",
+    "title": "公开数据与实习经历",
+    "text": "本目录为 2026-10-24 整理的公开业务资料；没有客户身份、订单或供应商私有价格。来源引用不表示原公司与供应商存在客户关系。",
+    "product_id": null,
+    "sources": [
+      {
+        "id": "listing",
+        "url": "https://papower.com.au/products",
+        "title": "Public product listing",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-00",
@@ -525,10 +793,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant00",
-    "text": "机密审批记录tenant00：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant00",
+    "text": "新造的权限测试哨兵 tenant00，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-00",
@@ -536,10 +806,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role00",
-    "text": "机密审批记录role00：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role00",
+    "text": "新造的权限测试哨兵 role00，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-01",
@@ -547,10 +819,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant01",
-    "text": "机密审批记录tenant01：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant01",
+    "text": "新造的权限测试哨兵 tenant01，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-01",
@@ -558,10 +832,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role01",
-    "text": "机密审批记录role01：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role01",
+    "text": "新造的权限测试哨兵 role01，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-02",
@@ -569,10 +845,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant02",
-    "text": "机密审批记录tenant02：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant02",
+    "text": "新造的权限测试哨兵 tenant02，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-02",
@@ -580,10 +858,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role02",
-    "text": "机密审批记录role02：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role02",
+    "text": "新造的权限测试哨兵 role02，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-03",
@@ -591,10 +871,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant03",
-    "text": "机密审批记录tenant03：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant03",
+    "text": "新造的权限测试哨兵 tenant03，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-03",
@@ -602,10 +884,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role03",
-    "text": "机密审批记录role03：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role03",
+    "text": "新造的权限测试哨兵 role03，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-04",
@@ -613,10 +897,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant04",
-    "text": "机密审批记录tenant04：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant04",
+    "text": "新造的权限测试哨兵 tenant04，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-04",
@@ -624,10 +910,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role04",
-    "text": "机密审批记录role04：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role04",
+    "text": "新造的权限测试哨兵 role04，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-05",
@@ -635,10 +923,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant05",
-    "text": "机密审批记录tenant05：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant05",
+    "text": "新造的权限测试哨兵 tenant05，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-05",
@@ -646,10 +936,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role05",
-    "text": "机密审批记录role05：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role05",
+    "text": "新造的权限测试哨兵 role05，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-06",
@@ -657,10 +949,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant06",
-    "text": "机密审批记录tenant06：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant06",
+    "text": "新造的权限测试哨兵 tenant06，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-06",
@@ -668,10 +962,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role06",
-    "text": "机密审批记录role06：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role06",
+    "text": "新造的权限测试哨兵 role06，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-07",
@@ -679,10 +975,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant07",
-    "text": "机密审批记录tenant07：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant07",
+    "text": "新造的权限测试哨兵 tenant07，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-07",
@@ -690,10 +988,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role07",
-    "text": "机密审批记录role07：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role07",
+    "text": "新造的权限测试哨兵 role07，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-08",
@@ -701,10 +1001,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant08",
-    "text": "机密审批记录tenant08：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant08",
+    "text": "新造的权限测试哨兵 tenant08，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-08",
@@ -712,10 +1014,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role08",
-    "text": "机密审批记录role08：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role08",
+    "text": "新造的权限测试哨兵 role08，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-09",
@@ -723,10 +1027,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant09",
-    "text": "机密审批记录tenant09：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant09",
+    "text": "新造的权限测试哨兵 tenant09，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-09",
@@ -734,10 +1040,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role09",
-    "text": "机密审批记录role09：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role09",
+    "text": "新造的权限测试哨兵 role09，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-10",
@@ -745,10 +1053,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant10",
-    "text": "机密审批记录tenant10：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant10",
+    "text": "新造的权限测试哨兵 tenant10，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-10",
@@ -756,10 +1066,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role10",
-    "text": "机密审批记录role10：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role10",
+    "text": "新造的权限测试哨兵 role10，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-11",
@@ -767,10 +1079,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant11",
-    "text": "机密审批记录tenant11：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant11",
+    "text": "新造的权限测试哨兵 tenant11，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-11",
@@ -778,10 +1092,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role11",
-    "text": "机密审批记录role11：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role11",
+    "text": "新造的权限测试哨兵 role11，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-12",
@@ -789,10 +1105,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant12",
-    "text": "机密审批记录tenant12：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant12",
+    "text": "新造的权限测试哨兵 tenant12，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-12",
@@ -800,10 +1118,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role12",
-    "text": "机密审批记录role12：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role12",
+    "text": "新造的权限测试哨兵 role12，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-13",
@@ -811,10 +1131,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant13",
-    "text": "机密审批记录tenant13：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant13",
+    "text": "新造的权限测试哨兵 tenant13，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-13",
@@ -822,10 +1144,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role13",
-    "text": "机密审批记录role13：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role13",
+    "text": "新造的权限测试哨兵 role13，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-14",
@@ -833,10 +1157,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant14",
-    "text": "机密审批记录tenant14：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant14",
+    "text": "新造的权限测试哨兵 tenant14，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-14",
@@ -844,10 +1170,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role14",
-    "text": "机密审批记录role14：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role14",
+    "text": "新造的权限测试哨兵 role14，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-15",
@@ -855,10 +1183,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant15",
-    "text": "机密审批记录tenant15：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant15",
+    "text": "新造的权限测试哨兵 tenant15，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-15",
@@ -866,10 +1196,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role15",
-    "text": "机密审批记录role15：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role15",
+    "text": "新造的权限测试哨兵 role15，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-16",
@@ -877,10 +1209,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant16",
-    "text": "机密审批记录tenant16：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant16",
+    "text": "新造的权限测试哨兵 tenant16，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-16",
@@ -888,10 +1222,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role16",
-    "text": "机密审批记录role16：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role16",
+    "text": "新造的权限测试哨兵 role16，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-17",
@@ -899,10 +1235,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant17",
-    "text": "机密审批记录tenant17：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant17",
+    "text": "新造的权限测试哨兵 tenant17，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-17",
@@ -910,10 +1248,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role17",
-    "text": "机密审批记录role17：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role17",
+    "text": "新造的权限测试哨兵 role17，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-18",
@@ -921,10 +1261,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant18",
-    "text": "机密审批记录tenant18：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant18",
+    "text": "新造的权限测试哨兵 tenant18，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-18",
@@ -932,10 +1274,12 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role18",
-    "text": "机密审批记录role18：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role18",
+    "text": "新造的权限测试哨兵 role18，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-tenant-19",
@@ -943,10 +1287,12 @@
     "roles": [
       "sales"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录tenant19",
-    "text": "机密审批记录tenant19：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录tenant19",
+    "text": "新造的权限测试哨兵 tenant19，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   },
   {
     "id": "restricted-role-19",
@@ -954,9 +1300,11 @@
     "roles": [
       "manager"
     ],
-    "kind": "restricted",
-    "title": "机密审批记录role19",
-    "text": "机密审批记录role19：仅允许对应租户或经理查看的模拟内部资料。",
-    "product_id": null
+    "kind": "synthetic_acl",
+    "title": "权限测试记录role19",
+    "text": "新造的权限测试哨兵 role19，并非真实公司资料。",
+    "product_id": null,
+    "sources": [],
+    "review_flags": []
   }
 ]

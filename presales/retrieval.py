@@ -2,7 +2,7 @@
 import hashlib
 import json
 import threading
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 import numpy as np
@@ -20,6 +20,8 @@ class Hit:
     text: str
     score: float
     product_id: str | None
+    sources: list = field(default_factory=list)
+    review_flags: list = field(default_factory=list)
 
     def as_dict(self):
         return vars(self)
@@ -63,7 +65,8 @@ class MemoryStore:
         query = self.embedder.query(question)
         scores = self.vectors[indices] @ query
         ordered = sorted(zip(indices, scores), key=lambda pair: pair[1], reverse=True)[:k]
-        return [Hit(d['id'], d['title'], d['text'], float(score), d.get('product_id'))
+        return [Hit(d['id'], d['title'], d['text'], float(score), d.get('product_id'),
+                    d.get('sources',[]), d.get('review_flags',[]))
                 for i, score in ordered for d in [self.docs[i]]]
 
 
@@ -93,6 +96,7 @@ class PostgresStore:
                 product_id text, embedding vector(512) NOT NULL,
                 PRIMARY KEY (acl_key, id)
             ) PARTITION BY LIST (acl_key)''')
+            connection.execute("ALTER TABLE presales_documents ADD COLUMN IF NOT EXISTS metadata jsonb NOT NULL DEFAULT '{}'::jsonb")
             for group in sorted(groups):
                 connection.execute(sql.SQL('CREATE TABLE IF NOT EXISTS {} PARTITION OF presales_documents FOR VALUES IN ({})').format(
                     sql.Identifier('presales_acl_'+group), sql.Literal(group)))
@@ -100,10 +104,12 @@ class PostgresStore:
             connection.execute('DELETE FROM presales_documents')
             with connection.cursor() as cursor:
                 cursor.executemany('''INSERT INTO presales_documents
-                    (acl_key,id,tenant,roles,title,body,product_id,embedding)
-                    VALUES (%s,%s,%s,%s,%s,%s,%s,%s::vector)''',
+                    (acl_key,id,tenant,roles,title,body,product_id,embedding,metadata)
+                    VALUES (%s,%s,%s,%s,%s,%s,%s,%s::vector,%s::jsonb)''',
                     [(acl_key(d), d['id'], d['tenant'], d['roles'], d['title'], d['text'],
-                      d.get('product_id'), json.dumps(v.tolist())) for d, v in zip(documents, vectors)])
+                      d.get('product_id'), json.dumps(v.tolist()),
+                      json.dumps({'sources':d.get('sources',[]),'review_flags':d.get('review_flags',[])},ensure_ascii=False))
+                     for d, v in zip(documents, vectors)])
             connection.execute('ANALYZE presales_documents')
 
     def search(self, question, actor, k=5):
@@ -116,20 +122,21 @@ class PostgresStore:
                 connection.execute('SET LOCAL hnsw.ef_search = 80')
                 results = []
                 for group in groups:
-                    results.extend(connection.execute('''SELECT id,title,body,product_id,
+                    results.extend(connection.execute('''SELECT id,title,body,product_id,metadata,
                         1-(embedding <=> %s::vector) AS score FROM presales_documents
                         WHERE acl_key=%s AND tenant IN ('*',%s) AND %s=ANY(roles)
                         ORDER BY embedding <=> %s::vector LIMIT %s''',
                         (query, group['acl_key'], actor.tenant, actor.role, query, k)).fetchall())
         ordered = sorted(results, key=lambda row: row['score'], reverse=True)[:k]
-        return [Hit(r['id'], r['title'], r['body'], float(r['score']), r['product_id']) for r in ordered]
+        return [Hit(r['id'], r['title'], r['body'], float(r['score']), r['product_id'],
+                    r['metadata'].get('sources',[]),r['metadata'].get('review_flags',[])) for r in ordered]
 
     def explain_index(self, actor, question):
         with self.lock:
             vector = json.dumps(self.embedder.query(question).tolist())
             with self.connect() as connection:
                 group = connection.execute('''SELECT acl_key FROM presales_documents
-                    WHERE tenant=%s AND %s=ANY(roles) LIMIT 1''', (actor.tenant, actor.role)).fetchone()
+                    WHERE tenant IN ('*',%s) AND %s=ANY(roles) LIMIT 1''', (actor.tenant, actor.role)).fetchone()
                 connection.execute('SET LOCAL enable_seqscan=off')
                 return connection.execute('''EXPLAIN (FORMAT JSON) SELECT id FROM presales_documents
                     WHERE acl_key=%s ORDER BY embedding <=> %s::vector LIMIT 5''',

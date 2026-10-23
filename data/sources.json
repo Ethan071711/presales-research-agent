@@ -1,0 +1,114 @@
+[
+  {
+    "id": "fox-single-ep11",
+    "url": "https://papower.com.au/products/home-ess?card=fox-single-ep11",
+    "title": "Fox KH + EP11 — single",
+    "checked_on": "2026-10-24",
+    "publisher": "PA Power",
+    "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+  },
+  {
+    "id": "fox-three-ep11",
+    "url": "https://papower.com.au/products/home-ess?card=fox-three-ep11",
+    "title": "Fox KH + EP11 — three",
+    "checked_on": "2026-10-24",
+    "publisher": "PA Power",
+    "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+  },
+  {
+    "id": "fox-single-cq7",
+    "url": "https://papower.com.au/products/home-ess?card=fox-single-cq7",
+    "title": "Fox KH + CQ7 — single",
+    "checked_on": "2026-10-24",
+    "publisher": "PA Power",
+    "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+  },
+  {
+    "id": "fox-three-cq7",
+    "url": "https://papower.com.au/products/home-ess?card=fox-three-cq7",
+    "title": "Fox H3 + CQ7 — three",
+    "checked_on": "2026-10-24",
+    "publisher": "PA Power",
+    "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+  },
+  {
+    "id": "sigen-single",
+    "url": "https://papower.com.au/products/home-ess?card=sigen-single",
+    "title": "SigenStor — single",
+    "checked_on": "2026-10-24",
+    "publisher": "PA Power",
+    "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+  },
+  {
+    "id": "sigen-three",
+    "url": "https://papower.com.au/products/home-ess?card=sigen-three",
+    "title": "SigenStor — three",
+    "checked_on": "2026-10-24",
+    "publisher": "PA Power",
+    "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+  },
+  {
+    "id": "tesla-powerwall",
+    "url": "https://papower.com.au/products/home-ess?card=tesla-powerwall",
+    "title": "Powerwall 3 advertised package — unknown",
+    "checked_on": "2026-10-24",
+    "publisher": "PA Power",
+    "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+  },
+  {
+    "id": "growatt-sph",
+    "url": "https://papower.com.au/products/home-ess?card=growatt-sph",
+    "title": "Growatt SPH + ALP — single",
+    "checked_on": "2026-10-24",
+    "publisher": "PA Power",
+    "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+  },
+  {
+    "id": "growatt-spm",
+    "url": "https://papower.com.au/products/home-ess?card=growatt-spm",
+    "title": "Growatt SPM + ALP — single",
+    "checked_on": "2026-10-24",
+    "publisher": "PA Power",
+    "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+  },
+  {
+    "id": "hyxi-single",
+    "url": "https://papower.com.au/products/home-ess?card=hyxi-single",
+    "title": "HYXi H8K + E50B-H1 — single",
+    "checked_on": "2026-10-24",
+    "publisher": "PA Power",
+    "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+  },
+  {
+    "id": "goodwe-single",
+    "url": "https://papower.com.au/products/home-ess?card=goodwe-single",
+    "title": "GoodWe ESA — single",
+    "checked_on": "2026-10-24",
+    "publisher": "PA Power",
+    "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+  },
+  {
+    "id": "fox-kh-manufacturer",
+    "url": "https://www.fox-ess.com/wp-content/uploads/2024/12/EN-KH-KA-Datasheet-V2.0-20241127.pdf",
+    "title": "Fox ESS KH/KA datasheet (AU)",
+    "checked_on": "2026-10-24",
+    "publisher": "Fox ESS",
+    "usage": "KH/KA stated single-phase; URL currently serves AU V1.6, 2025/10/09."
+  },
+  {
+    "id": "residential",
+    "url": "https://papower.com.au/residential",
+    "title": "Household service and quote journey",
+    "checked_on": "2026-10-24",
+    "publisher": "PA Power",
+    "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+  },
+  {
+    "id": "listing",
+    "url": "https://papower.com.au/products",
+    "title": "Public product listing",
+    "checked_on": "2026-10-24",
+    "publisher": "PA Power",
+    "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+  }
+]

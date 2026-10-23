@@ -1,1 +1,1 @@
-"""A synthetic-data reconstruction of a presales research and quotation workflow."""
+"""Source-attributed household battery selection, research and quote preparation."""

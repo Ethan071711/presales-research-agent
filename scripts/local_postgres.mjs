@@ -1,4 +1,4 @@
-// Local-only PostgreSQL/WASM + pgvector. Full server deployment uses compose.yaml.
+// Local-only PostgreSQL/WASM + pgvector for development.
 import { mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { PGlite } from '@electric-sql/pglite';

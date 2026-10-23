@@ -26,23 +26,25 @@ async def mcp_smoke(headers):
                 await session.initialize()
                 tools = await session.list_tools()
                 names = [tool.name for tool in tools.tools]
-                assert set(names) == {'search_knowledge', 'create_quote'}
-                retrieval = await session.call_tool('search_knowledge', {'query': '星桥交换机基础版的价格和规格'})
+                assert set(names)=={'search_knowledge','create_quote','select_battery'}
+                retrieval=await session.call_tool('search_knowledge',{'query':'Fox KH 三相 EP11 的资料冲突'})
                 assert not retrieval.isError
-                quoted = await session.call_tool('create_quote', {
-                    'items': [{'product_id': 'DEMO-SW-B', 'quantity': 3}], 'discount': '0.95'})
+                selected=await session.call_tool('select_battery',{'profile':{'phase':'three','min_capacity_kwh':30,'min_package_power_kw':12}})
+                assert not selected.isError
+                assert 'sigen-three-15-36' in '\n'.join(b.text for b in selected.content if hasattr(b,'text'))
+                quoted=await session.call_tool('create_quote',{'items':[{'product_id':'fox-single-ep11-8-31.08','quantity':1}]})
                 assert not quoted.isError
                 text = '\n'.join(block.text for block in quoted.content if hasattr(block, 'text'))
-                assert '2850.00' in text
+                assert 'awaiting_price' in text and '"total_aud": null' in text
                 return {'tools': names, 'protocol_initialize': 'passed',
-                        'knowledge_tool': 'passed', 'quote_tool_expected_yuan': '2850.00'}
+                        'knowledge_tool':'passed','selection_tool':'passed','missing_price_remains_null':True}
 
 
 def main():
     with httpx.Client(timeout=180) as client:
         health = client.get(BASE+'/health').json()
         h = login(client)
-        question = '星桥交换机基础版的价格和规格是什么？基础交换机搭配无线接入点需要注意什么？报价有效期多久？'
+        question='Fox KH 三相 EP11 套餐的相制是否存在资料冲突？已有光伏加装电池需要核对什么？官网没有公开售价时能直接给出金额吗？'
         started = time.perf_counter()
         response = client.post(BASE+'/research', headers=h, json={'question': question})
         response.raise_for_status()
@@ -58,7 +60,7 @@ def main():
         assert events[-1]['stage'] == 'finished'
         assert run['result']['evidence']
         assert client.get(BASE+'/runs/'+rid, headers=login(client, tenant='demo-b')).status_code == 404
-        body = {'decision': 'approved', 'note': '已核对本次模拟证据及引用。'}
+        body={'decision':'approved','note':'自动联调测试：确认公开资料草稿流程，未形成供应商报价。'}
         assert client.post(BASE+'/runs/'+rid+'/review', headers=h, json=body).status_code == 403
         manager = login(client, role='manager')
         approved = client.post(BASE+'/runs/'+rid+'/review', headers=manager, json=body)
@@ -73,7 +75,7 @@ def main():
                   'manager_approval': 'passed', 'mcp': mcp_result,
                   'prometheus_sample': metrics.splitlines(), 'paid_api_calls': 0}
         (ROOT/'results').mkdir(exist_ok=True)
-        path = ROOT/'results/live_smoke_20261024.json'
+        path=ROOT/'results/battery_live_smoke_20261024.json'
         path.write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
         print(json.dumps({'health': health, 'sse_stages': result['sse_stages'], 'mcp': mcp_result,
                           'duration_seconds': result['duration_seconds'],

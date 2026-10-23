@@ -1,410 +1,587 @@
 [
   {
-    "id": "DEMO-SW-B",
-    "name": "星桥交换机基础版",
-    "family": "交换机",
-    "tier": "基础版",
-    "unit_price": 1000,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "fox-single-ep11-5-20.72",
+    "name": "Fox KH + EP11 · 5 kW / 20.72 kWh",
+    "brand": "FoxESS",
+    "system": "Fox KH + EP11",
+    "phase": "single",
+    "advertised_power_kw": 5,
+    "advertised_capacity_kwh": 20.72,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "端口数量：24口",
-    "purpose": "办公室有线网络汇聚",
-    "stock": 25
+    "sources": [
+      {
+        "id": "fox-single-ep11",
+        "url": "https://papower.com.au/products/home-ess?card=fox-single-ep11",
+        "title": "Fox KH + EP11 — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [],
+    "selection_status": "listed_package"
   },
   {
-    "id": "DEMO-SW-P",
-    "name": "星桥交换机增强版",
-    "family": "交换机",
-    "tier": "增强版",
-    "unit_price": 1800,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "fox-single-ep11-8-31.08",
+    "name": "Fox KH + EP11 · 8 kW / 31.08 kWh",
+    "brand": "FoxESS",
+    "system": "Fox KH + EP11",
+    "phase": "single",
+    "advertised_power_kw": 8,
+    "advertised_capacity_kwh": 31.08,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "端口数量：24口",
-    "purpose": "办公室有线网络汇聚",
-    "stock": 25
+    "sources": [
+      {
+        "id": "fox-single-ep11",
+        "url": "https://papower.com.au/products/home-ess?card=fox-single-ep11",
+        "title": "Fox KH + EP11 — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [],
+    "selection_status": "listed_package"
   },
   {
-    "id": "DEMO-SW-H",
-    "name": "星桥交换机高可用版",
-    "family": "交换机",
-    "tier": "高可用版",
-    "unit_price": 3000,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "fox-single-ep11-10-41.44",
+    "name": "Fox KH + EP11 · 10 kW / 41.44 kWh",
+    "brand": "FoxESS",
+    "system": "Fox KH + EP11",
+    "phase": "single",
+    "advertised_power_kw": 10,
+    "advertised_capacity_kwh": 41.44,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "端口数量：24口",
-    "purpose": "办公室有线网络汇聚",
-    "stock": 25
+    "sources": [
+      {
+        "id": "fox-single-ep11",
+        "url": "https://papower.com.au/products/home-ess?card=fox-single-ep11",
+        "title": "Fox KH + EP11 — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [],
+    "selection_status": "listed_package"
   },
   {
-    "id": "DEMO-AP-B",
-    "name": "星桥无线接入点基础版",
-    "family": "无线接入点",
-    "tier": "基础版",
-    "unit_price": 1120,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "fox-three-ep11-5-20.72",
+    "name": "Fox KH + EP11 · 5 kW / 20.72 kWh",
+    "brand": "FoxESS",
+    "system": "Fox KH + EP11",
+    "phase": "three",
+    "advertised_power_kw": 5,
+    "advertised_capacity_kwh": 20.72,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "建议覆盖人数：40人",
-    "purpose": "会议室和开放办公区无线覆盖",
-    "stock": 25
+    "sources": [
+      {
+        "id": "fox-three-ep11",
+        "url": "https://papower.com.au/products/home-ess?card=fox-three-ep11",
+        "title": "Fox KH + EP11 — three",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      },
+      {
+        "id": "fox-kh-manufacturer",
+        "url": "https://www.fox-ess.com/wp-content/uploads/2024/12/EN-KH-KA-Datasheet-V2.0-20241127.pdf",
+        "title": "Fox ESS KH/KA datasheet (AU)",
+        "checked_on": "2026-10-24",
+        "publisher": "Fox ESS",
+        "usage": "KH/KA stated single-phase; URL currently serves AU V1.6, 2025/10/09."
+      }
+    ],
+    "review_flags": [
+      "官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。"
+    ],
+    "selection_status": "quarantined"
   },
   {
-    "id": "DEMO-AP-P",
-    "name": "星桥无线接入点增强版",
-    "family": "无线接入点",
-    "tier": "增强版",
-    "unit_price": 1920,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "fox-three-ep11-8-31.08",
+    "name": "Fox KH + EP11 · 8 kW / 31.08 kWh",
+    "brand": "FoxESS",
+    "system": "Fox KH + EP11",
+    "phase": "three",
+    "advertised_power_kw": 8,
+    "advertised_capacity_kwh": 31.08,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "建议覆盖人数：40人",
-    "purpose": "会议室和开放办公区无线覆盖",
-    "stock": 25
+    "sources": [
+      {
+        "id": "fox-three-ep11",
+        "url": "https://papower.com.au/products/home-ess?card=fox-three-ep11",
+        "title": "Fox KH + EP11 — three",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      },
+      {
+        "id": "fox-kh-manufacturer",
+        "url": "https://www.fox-ess.com/wp-content/uploads/2024/12/EN-KH-KA-Datasheet-V2.0-20241127.pdf",
+        "title": "Fox ESS KH/KA datasheet (AU)",
+        "checked_on": "2026-10-24",
+        "publisher": "Fox ESS",
+        "usage": "KH/KA stated single-phase; URL currently serves AU V1.6, 2025/10/09."
+      }
+    ],
+    "review_flags": [
+      "官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。"
+    ],
+    "selection_status": "quarantined"
   },
   {
-    "id": "DEMO-AP-H",
-    "name": "星桥无线接入点高可用版",
-    "family": "无线接入点",
-    "tier": "高可用版",
-    "unit_price": 3120,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "fox-three-ep11-10-41.44",
+    "name": "Fox KH + EP11 · 10 kW / 41.44 kWh",
+    "brand": "FoxESS",
+    "system": "Fox KH + EP11",
+    "phase": "three",
+    "advertised_power_kw": 10,
+    "advertised_capacity_kwh": 41.44,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "建议覆盖人数：40人",
-    "purpose": "会议室和开放办公区无线覆盖",
-    "stock": 25
+    "sources": [
+      {
+        "id": "fox-three-ep11",
+        "url": "https://papower.com.au/products/home-ess?card=fox-three-ep11",
+        "title": "Fox KH + EP11 — three",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      },
+      {
+        "id": "fox-kh-manufacturer",
+        "url": "https://www.fox-ess.com/wp-content/uploads/2024/12/EN-KH-KA-Datasheet-V2.0-20241127.pdf",
+        "title": "Fox ESS KH/KA datasheet (AU)",
+        "checked_on": "2026-10-24",
+        "publisher": "Fox ESS",
+        "usage": "KH/KA stated single-phase; URL currently serves AU V1.6, 2025/10/09."
+      }
+    ],
+    "review_flags": [
+      "官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。"
+    ],
+    "selection_status": "quarantined"
   },
   {
-    "id": "DEMO-GW-B",
-    "name": "星桥安全网关基础版",
-    "family": "安全网关",
-    "tier": "基础版",
-    "unit_price": 1240,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "fox-single-cq7-10-27.84",
+    "name": "Fox KH + CQ7 · 10 kW / 27.84 kWh",
+    "brand": "FoxESS",
+    "system": "Fox KH + CQ7",
+    "phase": "single",
+    "advertised_power_kw": 10,
+    "advertised_capacity_kwh": 27.84,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "防火墙吞吐：1000Mbps",
-    "purpose": "出口安全过滤和站点互联",
-    "stock": 25
+    "sources": [
+      {
+        "id": "fox-single-cq7",
+        "url": "https://papower.com.au/products/home-ess?card=fox-single-cq7",
+        "title": "Fox KH + CQ7 — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [],
+    "selection_status": "listed_package"
   },
   {
-    "id": "DEMO-GW-P",
-    "name": "星桥安全网关增强版",
-    "family": "安全网关",
-    "tier": "增强版",
-    "unit_price": 2040,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "fox-single-cq7-10-41.76",
+    "name": "Fox KH + CQ7 · 10 kW / 41.76 kWh",
+    "brand": "FoxESS",
+    "system": "Fox KH + CQ7",
+    "phase": "single",
+    "advertised_power_kw": 10,
+    "advertised_capacity_kwh": 41.76,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "防火墙吞吐：1000Mbps",
-    "purpose": "出口安全过滤和站点互联",
-    "stock": 25
+    "sources": [
+      {
+        "id": "fox-single-cq7",
+        "url": "https://papower.com.au/products/home-ess?card=fox-single-cq7",
+        "title": "Fox KH + CQ7 — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [],
+    "selection_status": "listed_package"
   },
   {
-    "id": "DEMO-GW-H",
-    "name": "星桥安全网关高可用版",
-    "family": "安全网关",
-    "tier": "高可用版",
-    "unit_price": 3240,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "fox-three-cq7-10-27.84",
+    "name": "Fox H3 + CQ7 · 10 kW / 27.84 kWh",
+    "brand": "FoxESS",
+    "system": "Fox H3 + CQ7",
+    "phase": "three",
+    "advertised_power_kw": 10,
+    "advertised_capacity_kwh": 27.84,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "防火墙吞吐：1000Mbps",
-    "purpose": "出口安全过滤和站点互联",
-    "stock": 25
+    "sources": [
+      {
+        "id": "fox-three-cq7",
+        "url": "https://papower.com.au/products/home-ess?card=fox-three-cq7",
+        "title": "Fox H3 + CQ7 — three",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [],
+    "selection_status": "listed_package"
   },
   {
-    "id": "DEMO-ES-B",
-    "name": "星桥边缘服务器基础版",
-    "family": "边缘服务器",
-    "tier": "基础版",
-    "unit_price": 1360,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "sigen-single-10-28.84",
+    "name": "SigenStor · 10 kW / 28.84 kWh",
+    "brand": "Sigenergy",
+    "system": "SigenStor",
+    "phase": "single",
+    "advertised_power_kw": 10,
+    "advertised_capacity_kwh": 28.84,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "内存容量：32GB",
-    "purpose": "本地轻量推理与应用部署",
-    "stock": 25
+    "sources": [
+      {
+        "id": "sigen-single",
+        "url": "https://papower.com.au/products/home-ess?card=sigen-single",
+        "title": "SigenStor — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [],
+    "selection_status": "listed_package"
   },
   {
-    "id": "DEMO-ES-P",
-    "name": "星桥边缘服务器增强版",
-    "family": "边缘服务器",
-    "tier": "增强版",
-    "unit_price": 2160,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "sigen-single-10-36",
+    "name": "SigenStor · 10 kW / 36 kWh",
+    "brand": "Sigenergy",
+    "system": "SigenStor",
+    "phase": "single",
+    "advertised_power_kw": 10,
+    "advertised_capacity_kwh": 36,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "内存容量：32GB",
-    "purpose": "本地轻量推理与应用部署",
-    "stock": 25
+    "sources": [
+      {
+        "id": "sigen-single",
+        "url": "https://papower.com.au/products/home-ess?card=sigen-single",
+        "title": "SigenStor — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [],
+    "selection_status": "listed_package"
   },
   {
-    "id": "DEMO-ES-H",
-    "name": "星桥边缘服务器高可用版",
-    "family": "边缘服务器",
-    "tier": "高可用版",
-    "unit_price": 3360,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "sigen-three-10-28.84",
+    "name": "SigenStor · 10 kW / 28.84 kWh",
+    "brand": "Sigenergy",
+    "system": "SigenStor",
+    "phase": "three",
+    "advertised_power_kw": 10,
+    "advertised_capacity_kwh": 28.84,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "内存容量：32GB",
-    "purpose": "本地轻量推理与应用部署",
-    "stock": 25
+    "sources": [
+      {
+        "id": "sigen-three",
+        "url": "https://papower.com.au/products/home-ess?card=sigen-three",
+        "title": "SigenStor — three",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [],
+    "selection_status": "listed_package"
   },
   {
-    "id": "DEMO-NAS-B",
-    "name": "星桥网络存储基础版",
-    "family": "网络存储",
-    "tier": "基础版",
-    "unit_price": 1480,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "sigen-three-15-36",
+    "name": "SigenStor · 15 kW / 36 kWh",
+    "brand": "Sigenergy",
+    "system": "SigenStor",
+    "phase": "three",
+    "advertised_power_kw": 15,
+    "advertised_capacity_kwh": 36,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "可用存储：8TB",
-    "purpose": "团队共享文件和备份",
-    "stock": 25
+    "sources": [
+      {
+        "id": "sigen-three",
+        "url": "https://papower.com.au/products/home-ess?card=sigen-three",
+        "title": "SigenStor — three",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [],
+    "selection_status": "listed_package"
   },
   {
-    "id": "DEMO-NAS-P",
-    "name": "星桥网络存储增强版",
-    "family": "网络存储",
-    "tier": "增强版",
-    "unit_price": 2280,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "tesla-powerwall-10-27",
+    "name": "Powerwall 3 advertised package · 10 kW / 27 kWh",
+    "brand": "Tesla",
+    "system": "Powerwall 3 advertised package",
+    "phase": "unknown",
+    "advertised_power_kw": 10,
+    "advertised_capacity_kwh": 27,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "可用存储：8TB",
-    "purpose": "团队共享文件和备份",
-    "stock": 25
+    "sources": [
+      {
+        "id": "tesla-powerwall",
+        "url": "https://papower.com.au/products/home-ess?card=tesla-powerwall",
+        "title": "Powerwall 3 advertised package — unknown",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [
+      "官网套餐写法未明确对应台数、逆变器配置及相制，暂停推荐；不得把套餐容量当作单机容量。"
+    ],
+    "selection_status": "quarantined"
   },
   {
-    "id": "DEMO-NAS-H",
-    "name": "星桥网络存储高可用版",
-    "family": "网络存储",
-    "tier": "高可用版",
-    "unit_price": 3480,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "tesla-powerwall-10-40.5",
+    "name": "Powerwall 3 advertised package · 10 kW / 40.5 kWh",
+    "brand": "Tesla",
+    "system": "Powerwall 3 advertised package",
+    "phase": "unknown",
+    "advertised_power_kw": 10,
+    "advertised_capacity_kwh": 40.5,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "可用存储：8TB",
-    "purpose": "团队共享文件和备份",
-    "stock": 25
+    "sources": [
+      {
+        "id": "tesla-powerwall",
+        "url": "https://papower.com.au/products/home-ess?card=tesla-powerwall",
+        "title": "Powerwall 3 advertised package — unknown",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [
+      "官网套餐写法未明确对应台数、逆变器配置及相制，暂停推荐；不得把套餐容量当作单机容量。"
+    ],
+    "selection_status": "quarantined"
   },
   {
-    "id": "DEMO-UPS-B",
-    "name": "星桥不间断电源基础版",
-    "family": "不间断电源",
-    "tier": "基础版",
-    "unit_price": 1600,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "growatt-sph-6-20",
+    "name": "Growatt SPH + ALP · 6 kW / 20 kWh",
+    "brand": "Growatt",
+    "system": "Growatt SPH + ALP",
+    "phase": "single",
+    "advertised_power_kw": 6,
+    "advertised_capacity_kwh": 20,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "额定功率：1500VA",
-    "purpose": "关键设备短时供电保护",
-    "stock": 25
+    "sources": [
+      {
+        "id": "growatt-sph",
+        "url": "https://papower.com.au/products/home-ess?card=growatt-sph",
+        "title": "Growatt SPH + ALP — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [],
+    "selection_status": "listed_package"
   },
   {
-    "id": "DEMO-UPS-P",
-    "name": "星桥不间断电源增强版",
-    "family": "不间断电源",
-    "tier": "增强版",
-    "unit_price": 2400,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "growatt-spm-10-30",
+    "name": "Growatt SPM + ALP · 10 kW / 30 kWh",
+    "brand": "Growatt",
+    "system": "Growatt SPM + ALP",
+    "phase": "single",
+    "advertised_power_kw": 10,
+    "advertised_capacity_kwh": 30,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "额定功率：1500VA",
-    "purpose": "关键设备短时供电保护",
-    "stock": 25
+    "sources": [
+      {
+        "id": "growatt-spm",
+        "url": "https://papower.com.au/products/home-ess?card=growatt-spm",
+        "title": "Growatt SPM + ALP — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [],
+    "selection_status": "listed_package"
   },
   {
-    "id": "DEMO-UPS-H",
-    "name": "星桥不间断电源高可用版",
-    "family": "不间断电源",
-    "tier": "高可用版",
-    "unit_price": 3600,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "hyxi-single-8-21.2",
+    "name": "HYXi H8K + E50B-H1 · 8 kW / 21.2 kWh",
+    "brand": "HYXiPOWER",
+    "system": "HYXi H8K + E50B-H1",
+    "phase": "single",
+    "advertised_power_kw": 8,
+    "advertised_capacity_kwh": 21.2,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "额定功率：1500VA",
-    "purpose": "关键设备短时供电保护",
-    "stock": 25
+    "sources": [
+      {
+        "id": "hyxi-single",
+        "url": "https://papower.com.au/products/home-ess?card=hyxi-single",
+        "title": "HYXi H8K + E50B-H1 — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
+    ],
+    "review_flags": [],
+    "selection_status": "listed_package"
   },
   {
-    "id": "DEMO-VC-B",
-    "name": "星桥视频终端基础版",
-    "family": "视频终端",
-    "tier": "基础版",
-    "unit_price": 1720,
-    "currency": "CNY",
-    "tenant": "demo-a",
+    "id": "goodwe-single-10-24",
+    "name": "GoodWe ESA · 10 kW / 24 kWh",
+    "brand": "GoodWe",
+    "system": "GoodWe ESA",
+    "phase": "single",
+    "advertised_power_kw": 10,
+    "advertised_capacity_kwh": 24,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
     "roles": [
       "viewer",
       "sales",
       "manager"
     ],
-    "spec": "摄像分辨率：4K",
-    "purpose": "远程会议音视频接入",
-    "stock": 25
-  },
-  {
-    "id": "DEMO-VC-P",
-    "name": "星桥视频终端增强版",
-    "family": "视频终端",
-    "tier": "增强版",
-    "unit_price": 2520,
-    "currency": "CNY",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
+    "sources": [
+      {
+        "id": "goodwe-single",
+        "url": "https://papower.com.au/products/home-ess?card=goodwe-single",
+        "title": "GoodWe ESA — single",
+        "checked_on": "2026-10-24",
+        "publisher": "PA Power",
+        "usage": "Manually paraphrased public facts; no customer records or vendor price list."
+      }
     ],
-    "spec": "摄像分辨率：4K",
-    "purpose": "远程会议音视频接入",
-    "stock": 25
-  },
-  {
-    "id": "DEMO-VC-H",
-    "name": "星桥视频终端高可用版",
-    "family": "视频终端",
-    "tier": "高可用版",
-    "unit_price": 3720,
-    "currency": "CNY",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "spec": "摄像分辨率：4K",
-    "purpose": "远程会议音视频接入",
-    "stock": 25
-  },
-  {
-    "id": "DEMO-MON-B",
-    "name": "星桥设备监控授权基础版",
-    "family": "设备监控授权",
-    "tier": "基础版",
-    "unit_price": 1840,
-    "currency": "CNY",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "spec": "授权设备数：50台",
-    "purpose": "设备状态、告警与运行监控",
-    "stock": 25
-  },
-  {
-    "id": "DEMO-MON-P",
-    "name": "星桥设备监控授权增强版",
-    "family": "设备监控授权",
-    "tier": "增强版",
-    "unit_price": 2640,
-    "currency": "CNY",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "spec": "授权设备数：50台",
-    "purpose": "设备状态、告警与运行监控",
-    "stock": 25
-  },
-  {
-    "id": "DEMO-MON-H",
-    "name": "星桥设备监控授权高可用版",
-    "family": "设备监控授权",
-    "tier": "高可用版",
-    "unit_price": 3840,
-    "currency": "CNY",
-    "tenant": "demo-a",
-    "roles": [
-      "viewer",
-      "sales",
-      "manager"
-    ],
-    "spec": "授权设备数：50台",
-    "purpose": "设备状态、告警与运行监控",
-    "stock": 25
+    "review_flags": [],
+    "selection_status": "listed_package"
   }
 ]

@@ -11,7 +11,8 @@ from presales.api import create_app
 from presales.auth import Actor, issue_token, verify_token
 from presales.observability import Metrics, RunStore
 from presales.model import LocalModel
-from presales.quotation import quote
+from presales.quotation import PriceEntry, load_pricebook, quote
+from presales.selection import Household, select_packages
 from presales.research import Research
 from presales.retrieval import MemoryStore
 
@@ -59,39 +60,74 @@ def test_jwt_identity_and_tampering():
         verify_token(jwt.encode(claims, KEY, algorithm='HS256'), KEY)
 
 
-def test_quote_exact_money_and_stock_review():
-    result = quote([{'product_id': 'DEMO-SW-B', 'quantity': 3}], SALES, '.95')
-    assert result['total_fen'] == 285000
-    assert result['total_yuan'] == '2850.00'
-    assert result['requires_review'] is False
-    assert quote([{'product_id': 'DEMO-SW-B', 'quantity': 26}], SALES)['requires_review']
+SKU='fox-single-ep11-8-31.08'
+LINE=[{'product_id':SKU,'quantity':1}]
 
 
-@pytest.mark.parametrize('discount', ['nan', 'Infinity', '-1', '1.01', '0.49'])
-def test_invalid_discount(discount):
+def price_entry(**values):
+    return PriceEntry.model_validate({'tenant':'demo-a','product_id':SKU,'currency':'AUD',
+        'amount_cents':1234567,'scope':'installed_system','gst_included':True,
+        'expires_on':'2099-12-31','reference':'TEST ONLY fabricated amount, not a supplier price',**values})
+
+
+def test_missing_price_stays_null_not_free_or_estimated():
+    result=quote(LINE,SALES,budget=20000)
+    assert result['status']=='awaiting_price'
+    assert result['total_aud'] is None and result['known_amount_aud'] is None
+    assert result['budget_status']=='unverified' and result['requires_review']
+    assert result['sources'][0]['url'].startswith('https://papower.com.au/')
+
+
+@pytest.mark.parametrize('budget', ['nan','Infinity',-1])
+def test_invalid_budget(budget):
     with pytest.raises(ValueError):
-        quote([{'product_id': 'DEMO-SW-B', 'quantity': 1}], SALES, discount)
+        quote(LINE,SALES,budget=budget)
 
 
-@pytest.mark.parametrize('quantity', [True, 0, -1, 101, 1.2])
+@pytest.mark.parametrize('quantity', [True,0,-1,2,1.2])
 def test_quantity_must_be_bounded_integer(quantity):
     with pytest.raises(ValueError):
-        quote([{'product_id': 'DEMO-SW-B', 'quantity': quantity}], SALES)
+        quote([{'product_id':SKU,'quantity':quantity}],SALES)
 
 
-def test_quote_role_tenant_discount_budget_and_compatibility():
-    line = [{'product_id': 'DEMO-SW-B', 'quantity': 1}]
+def test_pricebook_money_scope_expiry_tenant_and_budget(tmp_path):
+    result=quote(LINE,SALES,budget=10000,pricebook=[price_entry()])
+    assert result['total_aud']=='12345.67' and result['budget_status']=='over_budget'
+    assert quote(LINE,OTHER,pricebook=[price_entry()])['total_aud'] is None
+    equipment=quote(LINE,SALES,pricebook=[price_entry(scope='equipment_only')])
+    assert equipment['known_amount_aud']=='12345.67' and equipment['total_aud'] is None
+    assert quote(LINE,SALES,pricebook=[price_entry(gst_included=False)])['total_aud'] is None
+    assert quote(LINE,SALES,pricebook=[price_entry(expires_on='2000-01-01')])['known_amount_aud'] is None
+    path=tmp_path/'prices.json'
+    path.write_text(json.dumps([price_entry().model_dump(mode='json')]*2),encoding='utf-8')
+    with pytest.raises(ValueError):
+        load_pricebook(path)
+
+
+def test_quote_role_and_conflicting_package():
     with pytest.raises(PermissionError):
-        quote(line, Actor('reader', 'demo-a', 'viewer'))
+        quote(LINE,Actor('reader','demo-a','viewer'))
     with pytest.raises(ValueError):
-        quote(line, OTHER)
-    assert quote(line, SALES, '.90')['requires_review']
-    assert not quote(line, MANAGER, '.90')['requires_review']
-    assert quote(line, SALES, budget=100)['requires_review']
-    both = line + [{'product_id': 'DEMO-AP-B', 'quantity': 1}]
-    assert any('PoE' in s for s in quote(both, SALES)['review_reasons'])
+        quote([{'product_id':'fox-three-ep11-8-31.08','quantity':1}],SALES)
     with pytest.raises(ValueError):
-        quote(line+line, SALES)
+        quote(LINE+LINE,SALES)
+
+
+def test_selection_phase_capacity_power_brand_and_unknowns():
+    result=select_packages(Household(phase='three',min_capacity_kwh=30,min_package_power_kw=12),SALES)
+    assert [p['id'] for p in result['candidates']]==['sigen-three-15-36']
+    assert result['budget_status']=='unverified' and result['quarantined_packages']==5
+    assert not select_packages(Household(phase='unknown'),SALES)['candidates']
+    assert select_packages(Household(phase='single',brand='Tesla'),SALES)['status']=='no_match'
+    retrofit=select_packages(Household(phase='single',existing_solar=True,backup_required=True),SALES)
+    assert any('尚未提供' in r for r in retrofit['review_reasons'])
+    assert any('网关' in r for r in retrofit['review_reasons'])
+
+
+def test_source_conflict_enters_refinement_not_a_clean_answer(store):
+    store.docs[0]['review_flags']=['相制冲突，待核实']
+    result=Research(store,Metrics()).run('查三相配置',SALES)
+    assert result['rounds']==2 and result['gaps']==['相制冲突，待核实']
 
 
 def test_graph_contains_real_evidence_and_requires_review(store):
@@ -180,11 +216,43 @@ def test_http_auth_and_no_identity_override(client):
 
 
 def test_http_quote_validation(client):
-    body = {'items': [{'product_id': 'DEMO-SW-B', 'quantity': 1}]}
+    body = {'items': LINE.copy()}
     assert client.post('/quotes', headers=headers(client, 'viewer'), json=body).status_code == 403
-    assert client.post('/quotes', headers=headers(client, tenant='demo-b'), json=body).status_code == 422
-    body['items'][0]['quantity'] = True
+    assert client.post('/quotes', headers=headers(client), json={**body,'discount':'0.90'}).status_code==422
+    body={'items':[{'product_id':SKU,'quantity':True}]}
     assert client.post('/quotes', headers=headers(client), json=body).status_code == 422
+
+
+def test_selection_http_rejects_identity_injection_and_nan(client):
+    h=headers(client)
+    assert client.post('/selection',headers=h,json={'phase':'three','tenant':'demo-b'}).status_code==422
+    assert client.post('/selection',headers=h,json={'min_capacity_kwh':'NaN'}).status_code==422
+    result=client.post('/selection',headers=h,json={'phase':'three','min_capacity_kwh':30,'min_package_power_kw':12}).json()
+    assert [p['id'] for p in result['candidates']]==['sigen-three-15-36']
+
+
+def test_resume_endpoint_after_application_restart(store,tmp_path):
+    from threading import Event
+    crashed=Event()
+    class CrashModel:
+        def plan(self,q):
+            return [q]
+        def synthesize(self,q,h):
+            crashed.set()
+            raise KeyboardInterrupt('deliberate process-loss simulation')
+    with TestClient(create_app(store,tmp_path,model=CrashModel()),base_url='http://127.0.0.1:8128') as first:
+        rid=first.post('/research',headers=headers(first),json={'question':'查资料'}).json()['run_id']
+        assert crashed.wait(5)
+    with TestClient(create_app(store,tmp_path),base_url='http://127.0.0.1:8128') as second:
+        h=headers(second)
+        assert second.get('/runs/'+rid,headers=h).json()['status']=='interrupted'
+        assert second.post('/runs/'+rid+'/resume',headers=headers(second,tenant='demo-b')).status_code==404
+        assert second.post('/runs/'+rid+'/resume',headers=h).status_code==202
+        with second.stream('GET','/runs/'+rid+'/events',headers=h) as response:
+            stream=''.join(response.iter_text())
+        assert 'resume' in stream and 'finished' in stream
+        assert second.get('/runs/'+rid,headers=h).json()['status']=='needs_review'
+        assert second.post('/runs/'+rid+'/resume',headers=h).status_code==409
 
 
 def test_sse_run_and_human_gate(client):
@@ -210,12 +278,12 @@ def test_mcp_auth_list_and_tools(client):
     response = client.post('/tools/mcp', headers=h, json=message)
     assert response.status_code == 200
     names = {t['name'] for t in response.json()['result']['tools']}
-    assert names == {'search_knowledge', 'create_quote'}
+    assert names == {'search_knowledge','create_quote','select_battery'}
     call = {'jsonrpc': '2.0', 'id': 2, 'method': 'tools/call',
             'params': {'name': 'search_knowledge', 'arguments': {'query': '查机密'}}}
     result = client.post('/tools/mcp', headers=h, json=call).json()['result']
     assert 'other-tenant' not in json.dumps(result) and 'allowed' in json.dumps(result)
-    call['params'] = {'name': 'create_quote', 'arguments': {'items': [{'product_id': 'DEMO-SW-B', 'quantity': 1}]}}
+    call['params'] = {'name':'create_quote','arguments':{'items':LINE}}
     result = client.post('/tools/mcp', headers={**headers(client, 'viewer'), **accept}, json=call).json()['result']
     assert result.get('isError') is True
 
@@ -229,9 +297,29 @@ def test_eval_provenance_and_scope():
     root = Path(__file__).resolve().parents[1]
     cases = [json.loads(line) for line in (root/'eval/cases.jsonl').read_text(encoding='utf-8').splitlines()]
     assert len(cases) == 200 and len({c['id'] for c in cases}) == 200
-    assert sum(bool(c['relevant_ids']) for c in cases) == 160
-    assert sum(bool(c['forbidden_ids']) for c in cases) == 40
-    assert all(c['provenance'] == 'new-synthetic-2026-10-24' for c in cases)
+    assert all(c['relevant_ids'] and not c['forbidden_ids'] for c in cases)
+    attacks=[json.loads(line) for line in (root/'eval/acl_cases.jsonl').read_text(encoding='utf-8').splitlines()]
+    assert len(attacks)==40 and all(c['forbidden_ids'] and not c['relevant_ids'] for c in attacks)
+    assert all(c['provenance']=='new-battery-evaluation-2026-10-24' for c in cases+attacks)
+
+
+def test_graph_resume_after_crash_uses_checkpoint_and_checks_identity(store,tmp_path):
+    class CrashModel:
+        mode='fault-injection'
+        def plan(self,q):
+            return [q]
+        def synthesize(self,q,h):
+            raise KeyboardInterrupt('simulated process loss after retrieval checkpoint')
+    path=tmp_path/'checkpoints.sqlite3'
+    with pytest.raises(KeyboardInterrupt):
+        Research(store,Metrics(),model=CrashModel(),checkpoint_path=path).run('查资料',SALES,run_id='restart-test')
+    with pytest.raises(PermissionError):
+        Research(store,Metrics(),checkpoint_path=path).run('查资料',OTHER,run_id='restart-test',resume=True)
+    class NoRepeatStore:
+        def search(self,*args,**kwargs):
+            pytest.fail('checkpoint recovery must not repeat completed retrieval')
+    result=Research(NoRepeatStore(),Metrics(),checkpoint_path=path).run('查资料',SALES,run_id='restart-test',resume=True)
+    assert result['status']=='needs_review' and '[allowed]' in result['report']
 
 
 def test_model_plan_decodes_one_json_array_not_all_brackets(monkeypatch):
