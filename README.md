@@ -48,6 +48,8 @@ flowchart LR
 
 已验证 Python 3.13、Node.js、Windows。首次安装需要网络和模型下载空间。
 
+本地模型加载所需的 `accelerate` 已列入 requirements。已在不共享原项目包的新虚拟环境中重新安装全部 Python 依赖，通过依赖检查、微型 Qwen3 加载/前向计算和 32 项测试，见 [安装记录](results/installation_20261024.json)。默认包源提供 CPU 版 PyTorch；完整本地 Qwen 的既有 GPU 联调使用另行安装的 CUDA 版本。
+
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
