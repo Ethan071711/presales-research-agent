@@ -1,0 +1,52 @@
+{
+  "actual_database": "PostgreSQL/pgvector",
+  "injected_sql_delay_seconds": 0.3,
+  "queries": 3,
+  "distinct_connections": 3,
+  "sql_execution_overlapped": true,
+  "measurements": {
+    "serialized": {
+      "seconds": 1.089,
+      "intervals": [
+        {
+          "pid": 32140,
+          "start": 52666.2839053,
+          "end": 52666.595071
+        },
+        {
+          "pid": 32220,
+          "start": 52666.6486793,
+          "end": 52666.9515732
+        },
+        {
+          "pid": 34684,
+          "start": 52667.0018937,
+          "end": 52667.3039375
+        }
+      ],
+      "nonempty_queries": 3
+    },
+    "parallel": {
+      "seconds": 0.407,
+      "intervals": [
+        {
+          "pid": 35196,
+          "start": 52667.3612959,
+          "end": 52667.6693508
+        },
+        {
+          "pid": 23956,
+          "start": 52667.3861788,
+          "end": 52667.6869384
+        },
+        {
+          "pid": 35580,
+          "start": 52667.4111453,
+          "end": 52667.7125286
+        }
+      ],
+      "nonempty_queries": 3
+    }
+  },
+  "note": "Injected pg_sleep validates concurrency; these timings are not production query latency."
+}

@@ -23,14 +23,15 @@ def main():
     env = dict(os.environ)
     # Existing user API keys cannot turn on a paid backend in this project.
     env.setdefault('PRESALES_MODEL_MODE', 'extractive')
-    env['PRESALES_DATABASE_URL'] = 'postgresql://postgres@127.0.0.1:55432/postgres?sslmode=disable'
+    supplied_database=bool(env.get('PRESALES_DATABASE_URL'))
+    env.setdefault('PRESALES_DATABASE_URL','postgresql://postgres@127.0.0.1:55432/postgres?sslmode=disable')
     logs = ROOT/'.storage'
     logs.mkdir(exist_ok=True)
     handles = []
     try:
         if port_open(8128):
             raise SystemExit('Port 8128 is already in use. Existing processes were left running.')
-        if not port_open(55432):
+        if not supplied_database and not port_open(55432):
             node = shutil.which('node')
             if not node or not (ROOT/'node_modules/@electric-sql/pglite').exists():
                 raise SystemExit('Install Node.js and run npm ci first.')

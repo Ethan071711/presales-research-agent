@@ -2,6 +2,7 @@ import json
 import sqlite3
 import time
 import uuid
+from decimal import Decimal
 from pathlib import Path
 
 from prometheus_client import CollectorRegistry, Counter, Histogram, generate_latest
@@ -16,9 +17,24 @@ class Metrics:
         self.fallbacks = Counter('presales_fallbacks_total', 'Fallbacks by cause', ['cause'], registry=self.registry)
         self.denied = Counter('presales_denied_total', 'Denied requests', ['kind'], registry=self.registry)
         self.retrievals = Counter('presales_retrievals_total', 'Authorized retrieval requests', registry=self.registry)
+        self.retrieval_candidates=Counter('presales_retrieval_candidates_total','Records audited after pre-filtered retrieval',registry=self.registry)
+        self.retrieval_unauthorized=Counter('presales_retrieval_unauthorized_total','Records blocked by independent retrieval permission audit',registry=self.registry)
         self.llm_time = Histogram('presales_llm_seconds', 'Actual model generation latency', ['mode'], registry=self.registry)
         self.llm_tokens = Counter('presales_llm_tokens_total', 'Measured model tokens', ['direction'], registry=self.registry)
-        self.cost = Counter('presales_llm_cost_cny_total', 'Paid API cost; zero for local/extractive modes', registry=self.registry)
+        self.cost = Counter('presales_llm_cost_cny_total', 'Token cost estimated from configured CNY rates; not a provider invoice', registry=self.registry)
+
+    def usage(self,mode,seconds,input_tokens,output_tokens,input_rate='0',output_rate='0'):
+        rates=[Decimal(str(input_rate)),Decimal(str(output_rate))]
+        if any(not r.is_finite() or r<0 for r in rates):
+            raise ValueError('Model prices must be non-negative finite CNY amounts per million tokens')
+        if any(type(v) is not int or v<0 for v in [input_tokens,output_tokens]):
+            raise ValueError('Token usage must be non-negative integers')
+        amount=(rates[0]*input_tokens+rates[1]*output_tokens)/Decimal(1000000)
+        self.llm_time.labels(mode).observe(seconds)
+        self.llm_tokens.labels('input').inc(input_tokens)
+        self.llm_tokens.labels('output').inc(output_tokens)
+        self.cost.inc(float(amount))
+        return str(amount)
 
     def render(self):
         return generate_latest(self.registry)

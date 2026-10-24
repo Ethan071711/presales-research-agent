@@ -59,6 +59,9 @@ def main():
         assert run['status'] == 'needs_review', run
         assert events[-1]['stage'] == 'finished'
         assert run['result']['evidence']
+        usage=[e['payload'] for e in events if e['stage']=='llm_call']
+        if health['model']=='local-transformers':
+            assert usage and all('estimated_cost_cny' in u for u in usage)
         assert client.get(BASE+'/runs/'+rid, headers=login(client, tenant='demo-b')).status_code == 404
         body={'decision':'approved','note':'自动联调测试：确认公开资料草稿流程，未形成供应商报价。'}
         assert client.post(BASE+'/runs/'+rid+'/review', headers=h, json=body).status_code == 403
@@ -73,7 +76,8 @@ def main():
                   'sse_stages': [e['stage'] for e in events], 'research_result': run['result'],
                   'cross_tenant_run_denied': True, 'sales_self_approval_denied': True,
                   'manager_approval': 'passed', 'mcp': mcp_result,
-                  'prometheus_sample': metrics.splitlines(), 'paid_api_calls': 0}
+                  'prometheus_sample':metrics.splitlines(),'model_usage':usage,
+                  'cost_scope':'Configured-rate token estimate; local test, not a vendor invoice','paid_api_calls':0}
         (ROOT/'results').mkdir(exist_ok=True)
         path=ROOT/'results/battery_live_smoke_20261024.json'
         path.write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')

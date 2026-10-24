@@ -22,6 +22,7 @@ from .observability import Metrics, RunStore
 from .quotation import CATALOG, quote
 from .research import Research
 from .selection import Household, select_packages
+from .retrieval import guarded_search
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -90,8 +91,7 @@ def create_app(store, storage_dir: Path, model=None, demo_mode=True, metrics=Non
     def search_knowledge(query: Annotated[str, Field(min_length=2, max_length=1000)],
                          k: Annotated[int, Field(ge=1, le=10)] = 5) -> dict:
         """Search source-attributed battery facts with the authenticated identity's ACL."""
-        metrics.retrievals.inc()
-        return {'hits': [h.as_dict() for h in store.search(query, tool_actor(), k)]}
+        return {'hits':[h.as_dict() for h in guarded_search(store,query,tool_actor(),metrics,k)]}
 
     @mcp.tool()
     def create_quote(items: list[Line], budget: float | None = None) -> dict:
@@ -156,8 +156,10 @@ def create_app(store, storage_dir: Path, model=None, demo_mode=True, metrics=Non
 
     @app.post('/search')
     def search(value: Question, actor: Actor = Depends(identity)):
-        metrics.retrievals.inc()
-        return {'hits': [h.as_dict() for h in store.search(value.question, actor)]}
+        try:
+            return {'hits':[h.as_dict() for h in guarded_search(store,value.question,actor,metrics)]}
+        except PermissionError:
+            raise HTTPException(503,'检索权限校验失败，结果未返回，请联系维护人员')
 
     @app.post('/selection')
     def selection(value:Household,actor:Actor=Depends(identity)):

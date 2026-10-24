@@ -34,12 +34,12 @@ flowchart LR
 | 能力 | 实现 |
 |---|---|
 | 家庭选型 | 相制、容量、功率、品牌筛选；冲突隔离；不自动拼接跨品牌系统 |
-| Deep Research | LangGraph：拆解 → 并发派发检索 → 证据检查 → 缺口精炼 → 汇总，最多两轮 |
+| Deep Research | LangGraph：拆解 → 并行检索 → 证据检查 → 缺口精炼 → 汇总，最多两轮；原生 PostgreSQL 独立连接并行，PGlite 自动识别并串行 |
 | 三层处理 | 输入/轮次/队列限制；模型与检索异常降级；草稿人工确认 |
 | 检索与权限 | BGE 向量 + pgvector/HNSW；先选择已授权租户/角色分区，再取 Top K |
 | 持久化 | LangGraph SQLite 节点检查点；重启后原身份可恢复中断任务；另存事件和审核记录 |
 | MCP 工具 | 官方 SDK：`search_knowledge`、`select_battery`、`create_quote`；JWT 身份来自验证后的令牌 |
-| 过程和监控 | SSE、来源链接、运行 Trace；Prometheus 记录模型 token、延迟、付费成本、降级和拒绝计数及对应分母 |
+| 过程和监控 | SSE、来源链接、运行 Trace；Prometheus 记录实际 token/延迟、按配置费率估算的成本、降级率、HTTP 拒绝率及独立的检索越权记录率 |
 | 报价 | AUD、整数澳分；价格按组织隔离；过期作废；含税安装总价和部分费用分开 |
 
 ![研究与来源](docs/images/research.png)
@@ -59,6 +59,10 @@ npm ci
 
 如暂不安装 Node，直接运行 `run.py`，且不设 `PRESALES_DATABASE_URL`，会采用内存精确检索；这个模式不称为 HNSW。已有 PostgreSQL/pgvector 时可设置自己的 `PRESALES_DATABASE_URL`，**请使用专用开发库**：启动会重载本项目 `presales_documents` 表。
 
+真正的 SQL 并行使用原生 PostgreSQL；每个检索任务使用独立连接，PGlite 才使用串行锁。启动器保留外部设置的数据库地址。实际多连接验证见 `results/parallel_postgres_20261024.json`：三个不同后端连接的 SQL 执行区间重叠。该验证注入 `pg_sleep(0.3)` 检查并行性，耗时不是生产查询性能。
+
+成本默认按本地模式记零；如有明确计价费率，可配置 `PRESALES_INPUT_CNY_PER_MILLION` / `PRESALES_OUTPUT_CNY_PER_MILLION`，按实际输入/输出 token 计算并记录到 Trace 和 Prometheus。这是费率估算，不冒充供应商账单。检索额外独立核验返回记录的租户和角色，异常记录阻断后计入越权分子，以全部核验记录为分母。
+
 可选本地 Qwen 生成：
 
 ```powershell
@@ -74,7 +78,7 @@ $env:PRESALES_MODEL_MODE = 'local'
 
 | 验证 | 当前结果 |
 |---|---|
-| 自动测试 | 30 项通过，包含价格状态/有效期/预算、冲突隔离、JWT、检索前 ACL、异常降级、SSE、MCP、进程中断模拟及 API 恢复 |
+| 自动测试 | 32 项通过，包含价格状态/有效期/预算、冲突隔离、JWT、检索前 ACL、独立越权阻断/计数、非零费率成本计算、异常降级、SSE、MCP、进程中断模拟及 API 恢复 |
 | 资料检索 | 200 条新编选型资料题，目标来源 Recall@5 为 200/200 |
 | 越权 | 另设 40 条攻击题；全部 240 次检索的返回内容中，越权记录为 0 |
 | 数据库 | 实际创建 pgvector HNSW 索引，并用 EXPLAIN 验证索引路径 |
@@ -88,6 +92,8 @@ $env:PRESALES_MODEL_MODE = 'local'
 # 先用另一个终端运行 npm run db，或已通过启动器开启数据库
 $env:PRESALES_DATABASE_URL = 'postgresql://postgres@127.0.0.1:55432/postgres?sslmode=disable'
 .\.venv\Scripts\python.exe scripts/evaluate.py
+# 使用原生 PostgreSQL 时验证独立连接的实际并行
+.\.venv\Scripts\python.exe scripts/verify_parallel.py
 # 应用运行时检查 HTTP、SSE 和官方 MCP 客户端
 .\.venv\Scripts\python.exe scripts/smoke_live.py
 # 可选网页检查，需要已安装 Playwright 和 Edge

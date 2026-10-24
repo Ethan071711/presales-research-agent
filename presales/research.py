@@ -9,7 +9,7 @@ from langgraph.graph import END, START, StateGraph
 from langgraph.checkpoint.sqlite import SqliteSaver
 
 from .auth import Actor
-from .retrieval import Hit
+from .retrieval import Hit,guarded_search
 from .model import model_events
 
 
@@ -62,8 +62,7 @@ class Research:
 
             def lookup(query):
                 self.metrics.attempts.labels('retrieval').inc()
-                self.metrics.retrievals.inc()
-                return query, self.store.search(query, actor, k=5)
+                return query,guarded_search(self.store,query,actor,self.metrics,k=5)
 
             # Independent searches are dispatched together. PGlite serializes SQL internally;
             # normal PostgreSQL can execute the same searches on separate connections.

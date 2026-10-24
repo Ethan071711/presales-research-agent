@@ -64,7 +64,7 @@ def main():
                'limitations': ['Template-based queries share a small public-fact corpus; not independent real-user data.',
                               'Recall@5 measures retrieval, not quotation accuracy or generated-answer factuality.',
                               'Small tables may use sequential scan by default; forced EXPLAIN only verifies the HNSW path.',
-                              'PGlite/WASM is local development PostgreSQL, not a production-load benchmark.']}
+                              ('PGlite/WASM serializes database work.' if store.serial_queries else 'Native PostgreSQL uses independent connections; this is not a production-load benchmark.')]}
     out = ROOT/'results'
     out.mkdir(exist_ok=True)
     (out/'battery_retrieval_20261024.json').write_text(json.dumps({'summary':summary,'details':details},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

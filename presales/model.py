@@ -2,6 +2,7 @@
 import json
 import threading
 import time
+import os
 from contextlib import contextmanager
 from contextvars import ContextVar
 
@@ -43,12 +44,11 @@ class LocalModel:
                                              max_time=40, pad_token_id=self.tokenizer.eos_token_id)
             count = inputs['input_ids'].shape[1]
             elapsed=time.perf_counter()-start
-            self.metrics.llm_time.labels(self.mode).observe(elapsed)
-            self.metrics.llm_tokens.labels('input').inc(count)
-            self.metrics.llm_tokens.labels('output').inc(output.shape[1]-count)
+            cost=self.metrics.usage(self.mode,elapsed,count,output.shape[1]-count,
+                os.getenv('PRESALES_INPUT_CNY_PER_MILLION','0'),os.getenv('PRESALES_OUTPUT_CNY_PER_MILLION','0'))
             _events.get()('llm_call',{'model':self.model_name,'seconds':round(elapsed,3),
                                     'input_tokens':count,'output_tokens':output.shape[1]-count,
-                                    'paid_api_cost':0,'mode':self.mode})
+                                    'paid_api_cost':0,'estimated_cost_cny':cost,'mode':self.mode})
             return self.tokenizer.decode(output[0, count:], skip_special_tokens=True).strip()
 
     def plan(self, question):
