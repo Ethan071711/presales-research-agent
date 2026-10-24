@@ -1,0 +1,22 @@
+{
+  "checked_on": "2026-10-25",
+  "desktop_viewport": [
+    1440,
+    1100
+  ],
+  "mobile_viewport": [
+    390,
+    844
+  ],
+  "quote_missing_price": "null, awaiting supplier price",
+  "unknown_phase": "clarification, no recommendation",
+  "conditional_public_offer": "AUD 3157.00, final total unverified",
+  "three_phase_30kwh_12kw": "SigenStor 15kW / 36kWh",
+  "source_links": true,
+  "sse_final_event": true,
+  "role_switch_clears_protected_content": true,
+  "manager_review": true,
+  "desktop_overflow": false,
+  "mobile_overflow": false,
+  "page_errors": []
+}

@@ -153,4 +153,4 @@ class Research:
                 'gaps': state['gaps'], 'rounds': state['round'], 'errors': state['errors'],
                 'review_reasons': state['review_reasons'], 'status': 'needs_review',
                 'duration_seconds': round(time.perf_counter()-start, 3),
-                'data_provenance': 'public-battery-facts-2026-10-24', 'paid_api_calls': 0}
+                'data_provenance': 'Public battery facts; publication/check dates are attached to each source', 'paid_api_calls': 0}

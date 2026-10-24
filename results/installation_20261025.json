@@ -1,0 +1,24 @@
+{
+  "measured_at_utc": "2026-10-24T17:17:36.464822+00:00",
+  "python": "3.13.11",
+  "isolated_environment": true,
+  "system_site_packages": false,
+  "requirements_sha256": "69f056c4637c9749751216eaca01739466a0eaed16369fc1d04779de0016a45c",
+  "dependency_check": "uv pip check: all 105 packages compatible",
+  "tests": 39,
+  "test_failures": 0,
+  "test_errors": 0,
+  "packages": {
+    "torch": "2.11.0",
+    "transformers": "5.20.1",
+    "accelerate": "1.15.0",
+    "sentence-transformers": "6.1.0",
+    "jieba": "0.42.1",
+    "rank-bm25": "0.2.2",
+    "psycopg": "3.3.6",
+    "langgraph": "1.2.16",
+    "mcp": "1.30.0"
+  },
+  "scope": "Fresh independent CPU environment installed from requirements; all unit tests. Real GPU model and native PostgreSQL evaluated separately.",
+  "paid_api_calls": 0
+}

@@ -8,6 +8,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from .auth import Actor
 
 CATALOG=json.loads((Path(__file__).resolve().parents[1]/'data/catalog.json').read_text(encoding='utf-8'))
+PUBLIC_OFFERS=json.loads((Path(__file__).resolve().parents[1]/'data/public_offers.json').read_text(encoding='utf-8'))
 
 
 class PriceEntry(BaseModel):
@@ -49,6 +50,14 @@ def quote(items,actor:Actor,budget=None,pricebook=None):
     if price and price.expires_on<date.today():
         reasons.append('已配置价格单过期，金额作废并重新询价。')
         price=None
+    offer=next((o for o in PUBLIC_OFFERS if o['product_id']==p['id']),None) if not price else None
+    if offer and date.today()>=date.fromisoformat(offer['installation_before']):
+        reasons.append('公开促销要求的安装窗口已结束，参考金额不再用于本次草稿。')
+        offer=None
+    reference={**offer,'amount_aud':f"{Decimal(offer['amount_cents'])/100:.2f}"} if offer else None
+    if reference:
+        reasons.append('仅有公开套餐条件价：客户资格、勘测和最终安装费用未核实，总价与预算状态仍待确认。')
+        reasons.extend(reference['conditions'])
     amount=f'{Decimal(price.amount_cents)/100:.2f}' if price else None
     complete=bool(price and price.scope=='installed_system' and price.gst_included)
     if not price:
@@ -60,12 +69,13 @@ def quote(items,actor:Actor,budget=None,pricebook=None):
             reasons.append('已配置的完整安装价格超过客户预算。')
         elif not complete:
             reasons.append('完整价格未知，尚不能判断预算是否足够。')
-    return {'currency':'AUD','status':'draft_for_review' if price else 'awaiting_price',
+    return {'currency':'AUD','status':'draft_for_review' if price else ('reference_for_review' if reference else 'awaiting_price'),
             'lines':[{'product_id':p['id'],'name':p['name'],'quantity':1,'amount_aud':amount}],
             'known_amount_aud':amount,'total_aud':amount if complete else None,
             'price_scope':price.scope if price else None,'gst_included':price.gst_included if price else None,
             'price_reference':price.reference if price else None,
             'price_expires_on':price.expires_on.isoformat() if price else None,
+            'public_reference':reference,
             'budget_status':('over_budget' if Decimal(amount)>Decimal(str(budget)) else 'within_configured_price') if complete and budget is not None else 'unverified',
             'requires_review':True,'review_reasons':reasons,'sources':p['sources'],
-            'data_provenance':'public-battery-facts-2026-10-24; prices only from an explicitly configured tenant pricebook'}
+            'data_provenance':'Public facts and conditional vendor offer; final amounts require a configured tenant pricebook'}

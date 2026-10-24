@@ -72,6 +72,11 @@ class MemoryStore:
                     d.get('sources',[]), d.get('review_flags',[]),d['tenant'],d['roles'])
                 for i, score in ordered for d in [self.docs[i]]]
 
+    def authorized_documents(self, actor):
+        return [Hit(d['id'],d['title'],d['text'],0,d.get('product_id'),
+                    d.get('sources',[]),d.get('review_flags',[]),d['tenant'],d['roles'])
+                for d in self.docs if actor.can_read(d)]
+
 
 class PostgresStore:
     backend = 'pgvector-hnsw-acl-partitions'
@@ -150,6 +155,17 @@ class PostgresStore:
                     WHERE acl_key=%s AND tenant IN ('*',%s) AND %s=ANY(roles)
                     ORDER BY embedding <=> %s::vector LIMIT 5''',
                     (group['acl_key'], actor.tenant, actor.role, vector)).fetchone()['QUERY PLAN']
+
+    def authorized_documents(self, actor):
+        # BM25 corpus is selected by SQL permissions before tokenization or scoring.
+        with self.lock if self.serial_queries else nullcontext():
+            with self.connect() as connection:
+                connection.execute("SET LOCAL statement_timeout='10s'")
+                rows=connection.execute('''SELECT id,title,body,product_id,metadata,tenant,roles
+                    FROM presales_documents WHERE tenant IN ('*',%s) AND %s=ANY(roles)
+                    ORDER BY id''',(actor.tenant,actor.role)).fetchall()
+        return [Hit(r['id'],r['title'],r['body'],0,r['product_id'],r['metadata'].get('sources',[]),
+                    r['metadata'].get('review_flags',[]),r['tenant'],r['roles']) for r in rows]
 
 
 def cached_vectors(embedder, directory):

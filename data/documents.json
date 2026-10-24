@@ -619,7 +619,7 @@
     ],
     "kind": "application_guide",
     "title": "为什么报价待询价",
-    "text": "公开产品页提供询价入口，没有给出本目录套餐的公开售价。本应用价格缺失返回待询价及空金额，不用模型估价。",
+    "text": "公开产品页提供询价入口。目录中单独标注的公开促销金额只作有条件参考；缺少有效供应商价格单时，完整安装总价为空，不用模型估价。",
     "product_id": null,
     "sources": [
       {
@@ -1306,5 +1306,29 @@
     "product_id": null,
     "sources": [],
     "review_flags": []
+  },
+  {
+    "id": "package-hyxi-three-e200-10-21.2",
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "kind": "package",
+    "title": "HYXI E200 + HYX-H10K-HT · 10 kW / 21.2 kWh · 三相",
+    "product_id": "hyxi-three-e200-10-21.2",
+    "sources": [
+      {
+        "id": "pa-power-three-phase-20261001",
+        "url": "https://www.ozbargain.com.au/node/977206",
+        "title": "PA Power three-phase installed battery offer, 1 October 2026",
+        "checked_on": "2026-10-25",
+        "publisher": "MilkteaS (PA Power associated account, OzBargain)",
+        "usage": "Paraphrased vendor-associated public offer; availability and eligibility unconfirmed."
+      }
+    ],
+    "review_flags": [],
+    "text": "商家关联账号于 2026-10-01 发布的三相套餐：HYXI E200，21.2 kWh；HYX-H10K-HT，10 kW。公开条件价 AUD 3157。容量口径未注明。金额仅作参考，不能视为客户已获最终报价。仅按该帖列出的 HYXI E200 + HYX-H10K-HT 三相套餐匹配，不适用于 H8K/E50B-H1 单相系统。 商家所述金额含 GST、墨尔本都市圈标准安装及满足条件后的联邦电池优惠；客户资格尚未核实。 标准范围为单层住宅、线缆不超过 10 米；额外工程、出行费用及备电选项需另行确认。 先勘测再确认最终费用、库存及适用性；商家要求在 2026-11-01 前安装，受并网审批、库存及天气影响。"
   }
 ]

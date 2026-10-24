@@ -583,5 +583,34 @@
     ],
     "review_flags": [],
     "selection_status": "listed_package"
+  },
+  {
+    "id": "hyxi-three-e200-10-21.2",
+    "name": "HYXI E200 + HYX-H10K-HT · 10 kW / 21.2 kWh",
+    "brand": "HYXiPOWER",
+    "system": "HYXI E200 + HYX-H10K-HT",
+    "phase": "three",
+    "advertised_power_kw": 10,
+    "advertised_capacity_kwh": 21.2,
+    "capacity_basis": "vendor_advertised_basis_unspecified",
+    "price_aud": null,
+    "tenant": "*",
+    "roles": [
+      "viewer",
+      "sales",
+      "manager"
+    ],
+    "sources": [
+      {
+        "id": "pa-power-three-phase-20261001",
+        "url": "https://www.ozbargain.com.au/node/977206",
+        "title": "PA Power three-phase installed battery offer, 1 October 2026",
+        "checked_on": "2026-10-25",
+        "publisher": "MilkteaS (PA Power associated account, OzBargain)",
+        "usage": "Paraphrased vendor-associated public offer; availability and eligibility unconfirmed."
+      }
+    ],
+    "review_flags": [],
+    "selection_status": "listed_package"
   }
 ]

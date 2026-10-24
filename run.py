@@ -10,6 +10,7 @@ from presales.model import LocalModel
 from presales.observability import Metrics
 from presales.quotation import load_pricebook
 from presales.retrieval import Embedder, MemoryStore, PostgresStore, cached_vectors
+from presales.hybrid import HybridStore
 
 ROOT = Path(__file__).resolve().parent
 
@@ -24,6 +25,7 @@ def build_app():
         store.load(docs, vectors)
     else:
         store = MemoryStore(docs, vectors, embedder)
+    store = HybridStore(store)
     mode = os.getenv('PRESALES_MODEL_MODE', 'extractive')
     if mode not in {'extractive', 'local'}:
         raise ValueError('PRESALES_MODEL_MODE must be extractive or local')

@@ -65,7 +65,7 @@ def generate():
         ('capacity','kW 和 kWh 怎么用','本应用按官网功率标签和容量标签初筛。kW 是功率，kWh 是电量；不能把容量标签直接换算成保证备电时长。',listing),
         ('retrofit','已有光伏能否加电池','官网称已有光伏可先评估再设计兼容方案。型号、接线与安装条件需要核对；本应用不把未知旧逆变器判为兼容。',residential),
         ('backup','停电备电检查','官网把备电列为服务方向；本应用要求人工核对网关/切换设备、备电回路、负载及安装范围，不自动承诺全屋备电。',residential),
-        ('price','为什么报价待询价','公开产品页提供询价入口，没有给出本目录套餐的公开售价。本应用价格缺失返回待询价及空金额，不用模型估价。',listing),
+        ('price','为什么报价待询价','公开产品页提供询价入口。目录中单独标注的公开促销金额只作有条件参考；缺少有效供应商价格单时，完整安装总价为空，不用模型估价。',listing),
         ('cost_scope','安装税费报价范围','本应用将设备小计与完整安装总价分开；没有明确含税安装价格单时，安装、运输、税费仍待核实。',residential),
         ('conflict','Fox KH 三相资料冲突','官网 Fox 三相 EP11 页面写 KH；厂家 KH/KA 资料说明单相。本应用隔离这组套餐，保留两侧来源，交人工核实。',manufacturer),
         ('capacity_basis','容量口径与模块数量','本应用保留套餐原始容量标签；名义/可用容量和模块数不明时不自行补值，不将不同页面的容量自动合并。',listing),
@@ -107,7 +107,33 @@ def generate():
     for group,prefix in [(cases,'battery-retrieval'),(attacks,'battery-acl')]:
         for i,c in enumerate(group,1):
             c.update(id=f'{prefix}-{i:03}',provenance='new-battery-evaluation-2026-10-24')
-    for name,value in [('data/catalog.json',products),('data/documents.json',docs),('data/sources.json',list(sources.values()))]:
+    # Keep the original 200 questions unchanged when adding a separately sourced package.
+    offer_source={'id':'pa-power-three-phase-20261001','url':'https://www.ozbargain.com.au/node/977206',
+        'title':'PA Power three-phase installed battery offer, 1 October 2026',
+        'checked_on':'2026-10-25','publisher':'MilkteaS (PA Power associated account, OzBargain)',
+        'usage':'Paraphrased vendor-associated public offer; availability and eligibility unconfirmed.'}
+    sources[offer_source['id']]=offer_source
+    sku='hyxi-three-e200-10-21.2'
+    conditions=['仅按该帖列出的 HYXI E200 + HYX-H10K-HT 三相套餐匹配，不适用于 H8K/E50B-H1 单相系统。',
+        '商家所述金额含 GST、墨尔本都市圈标准安装及满足条件后的联邦电池优惠；客户资格尚未核实。',
+        '标准范围为单层住宅、线缆不超过 10 米；额外工程、出行费用及备电选项需另行确认。',
+        '先勘测再确认最终费用、库存及适用性；商家要求在 2026-11-01 前安装，受并网审批、库存及天气影响。']
+    public_offer={'product_id':sku,'currency':'AUD','amount_cents':315700,'gst_included':True,
+        'scope':'conditional_standard_installation','published_on':'2026-10-01','checked_on':'2026-10-25',
+        'installation_before':'2026-11-01','availability':'unconfirmed','conditions':conditions,'source':offer_source}
+    product={'id':sku,'name':'HYXI E200 + HYX-H10K-HT · 10 kW / 21.2 kWh',
+        'brand':'HYXiPOWER','system':'HYXI E200 + HYX-H10K-HT','phase':'three',
+        'advertised_power_kw':10,'advertised_capacity_kwh':21.2,
+        'capacity_basis':'vendor_advertised_basis_unspecified','price_aud':None,
+        'tenant':'*','roles':['viewer','sales','manager'],'sources':[offer_source],
+        'review_flags':[],'selection_status':'listed_package'}
+    products.append(product)
+    docs.append({'id':'package-'+sku,'tenant':'*','roles':product['roles'],'kind':'package',
+        'title':product['name']+' · 三相','product_id':sku,'sources':[offer_source],'review_flags':[],
+        'text':'商家关联账号于 2026-10-01 发布的三相套餐：HYXI E200，21.2 kWh；HYX-H10K-HT，10 kW。'
+               '公开条件价 AUD 3157。容量口径未注明。金额仅作参考，不能视为客户已获最终报价。'+' '.join(conditions)})
+    for name,value in [('data/catalog.json',products),('data/documents.json',docs),
+                       ('data/sources.json',list(sources.values())),('data/public_offers.json',[public_offer])]:
         (ROOT/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     for name,value in [('eval/cases.jsonl',cases),('eval/acl_cases.jsonl',attacks)]:
         (ROOT/name).write_text('\n'.join(json.dumps(c,ensure_ascii=False) for c in value)+'\n',encoding='utf-8')

@@ -19,8 +19,8 @@ class Household(BaseModel):
 def select_packages(home: Household, actor):
     visible=[p for p in CATALOG if actor.can_read(p)]
     eligible=[p for p in visible if p['selection_status']=='listed_package']
-    questions,review=[],['相制和功率仅按官网套餐标签初筛；具体型号、接线和安装条件由安装方复核。',
-                         '官网未公开价格：预算尚未验证，需要取得有效价格单。',
+    questions,review=[],['相制和功率仅按公开套餐标签初筛；具体型号、接线和安装条件由安装方复核。',
+                         '公开促销仅作有条件参考：预算尚未验证，需要取得有效价格单。',
                          '容量口径未注明，尚未核实可用电量；不承诺备电时长。']
     if home.phase=='unknown':
         questions.append('请确认电表/供电为单相还是三相，再进行套餐初筛。')

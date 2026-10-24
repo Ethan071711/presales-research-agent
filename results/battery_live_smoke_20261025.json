@@ -1,0 +1,461 @@
+{
+  "measured_at_utc": "2026-10-24T17:22:06.335085+00:00",
+  "health": {
+    "status": "ok",
+    "backend": "pgvector-hnsw-acl-partitions-bm25-rrf-rerank",
+    "demo_mode": true,
+    "model": "local-transformers",
+    "paid_api_calls": 0
+  },
+  "run_id": "94245a5542114227980989ddb1be0753",
+  "duration_seconds": 21.161,
+  "sse_stages": [
+    "llm_call",
+    "decompose",
+    "parallel_search",
+    "assess",
+    "refine",
+    "parallel_search",
+    "assess",
+    "llm_call",
+    "synthesize",
+    "finished"
+  ],
+  "research_result": {
+    "report": "1. Fox KH 三相 EP11 套餐的相制存在资料冲突：官网三相栏目标注 KH，但厂家 KH/KA 资料标明为单相，准确相制未核实，[guide-conflict]。  \n\n2. 已有光伏加装电池需核对：需确认已有逆变器型号、接线方式与安装条件，官网仅称“可评估再设计兼容方案”，未知旧逆变器不视为兼容，[guide-retrofit]。  \n\n3. 官网未公开售价时不能直接给出金额：官网未提供价格、现货数量或安装范围，需供应商询价，公开页面仅提供询价入口，[guide-price]。",
+    "evidence": [
+      {
+        "id": "guide-conflict",
+        "title": "Fox KH 三相资料冲突",
+        "text": "官网 Fox 三相 EP11 页面写 KH；厂家 KH/KA 资料说明单相。本应用隔离这组套餐，保留两侧来源，交人工核实。",
+        "score": 0.9995446801185608,
+        "product_id": null,
+        "sources": [
+          {
+            "id": "fox-kh-manufacturer",
+            "url": "https://www.fox-ess.com/wp-content/uploads/2024/12/EN-KH-KA-Datasheet-V2.0-20241127.pdf",
+            "title": "Fox ESS KH/KA datasheet (AU)",
+            "usage": "KH/KA stated single-phase; URL currently serves AU V1.6, 2025/10/09.",
+            "publisher": "Fox ESS",
+            "checked_on": "2026-10-24"
+          },
+          {
+            "id": "fox-three-ep11",
+            "url": "https://papower.com.au/products/home-ess?card=fox-three-ep11",
+            "title": "Fox KH + EP11 — three",
+            "usage": "Manually paraphrased public facts; no customer records or vendor price list.",
+            "publisher": "PA Power",
+            "checked_on": "2026-10-24"
+          }
+        ],
+        "review_flags": [
+          "相制冲突仍待供应商核实。"
+        ]
+      },
+      {
+        "id": "guide-retrofit",
+        "title": "已有光伏能否加电池",
+        "text": "官网称已有光伏可先评估再设计兼容方案。型号、接线与安装条件需要核对；本应用不把未知旧逆变器判为兼容。",
+        "score": 0.9977523684501648,
+        "product_id": null,
+        "sources": [
+          {
+            "id": "residential",
+            "url": "https://papower.com.au/residential",
+            "title": "Household service and quote journey",
+            "usage": "Manually paraphrased public facts; no customer records or vendor price list.",
+            "publisher": "PA Power",
+            "checked_on": "2026-10-24"
+          }
+        ],
+        "review_flags": []
+      },
+      {
+        "id": "package-fox-three-ep11-8-31.08",
+        "title": "Fox KH + EP11 · 8 kW / 31.08 kWh · 三相",
+        "text": "Fox KH + EP11，官网列出的三相套餐：功率标签 8 kW，电池容量标签 31.08 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。",
+        "score": 0.9966679215431213,
+        "product_id": "fox-three-ep11-8-31.08",
+        "sources": [
+          {
+            "id": "fox-three-ep11",
+            "url": "https://papower.com.au/products/home-ess?card=fox-three-ep11",
+            "title": "Fox KH + EP11 — three",
+            "usage": "Manually paraphrased public facts; no customer records or vendor price list.",
+            "publisher": "PA Power",
+            "checked_on": "2026-10-24"
+          },
+          {
+            "id": "fox-kh-manufacturer",
+            "url": "https://www.fox-ess.com/wp-content/uploads/2024/12/EN-KH-KA-Datasheet-V2.0-20241127.pdf",
+            "title": "Fox ESS KH/KA datasheet (AU)",
+            "usage": "KH/KA stated single-phase; URL currently serves AU V1.6, 2025/10/09.",
+            "publisher": "Fox ESS",
+            "checked_on": "2026-10-24"
+          }
+        ],
+        "review_flags": [
+          "官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。"
+        ]
+      },
+      {
+        "id": "package-fox-three-ep11-5-20.72",
+        "title": "Fox KH + EP11 · 5 kW / 20.72 kWh · 三相",
+        "text": "Fox KH + EP11，官网列出的三相套餐：功率标签 5 kW，电池容量标签 20.72 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。",
+        "score": 0.9966565370559692,
+        "product_id": "fox-three-ep11-5-20.72",
+        "sources": [
+          {
+            "id": "fox-three-ep11",
+            "url": "https://papower.com.au/products/home-ess?card=fox-three-ep11",
+            "title": "Fox KH + EP11 — three",
+            "usage": "Manually paraphrased public facts; no customer records or vendor price list.",
+            "publisher": "PA Power",
+            "checked_on": "2026-10-24"
+          },
+          {
+            "id": "fox-kh-manufacturer",
+            "url": "https://www.fox-ess.com/wp-content/uploads/2024/12/EN-KH-KA-Datasheet-V2.0-20241127.pdf",
+            "title": "Fox ESS KH/KA datasheet (AU)",
+            "usage": "KH/KA stated single-phase; URL currently serves AU V1.6, 2025/10/09.",
+            "publisher": "Fox ESS",
+            "checked_on": "2026-10-24"
+          }
+        ],
+        "review_flags": [
+          "官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。"
+        ]
+      },
+      {
+        "id": "package-fox-three-ep11-10-41.44",
+        "title": "Fox KH + EP11 · 10 kW / 41.44 kWh · 三相",
+        "text": "Fox KH + EP11，官网列出的三相套餐：功率标签 10 kW，电池容量标签 41.44 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。",
+        "score": 0.9948586225509644,
+        "product_id": "fox-three-ep11-10-41.44",
+        "sources": [
+          {
+            "id": "fox-three-ep11",
+            "url": "https://papower.com.au/products/home-ess?card=fox-three-ep11",
+            "title": "Fox KH + EP11 — three",
+            "usage": "Manually paraphrased public facts; no customer records or vendor price list.",
+            "publisher": "PA Power",
+            "checked_on": "2026-10-24"
+          },
+          {
+            "id": "fox-kh-manufacturer",
+            "url": "https://www.fox-ess.com/wp-content/uploads/2024/12/EN-KH-KA-Datasheet-V2.0-20241127.pdf",
+            "title": "Fox ESS KH/KA datasheet (AU)",
+            "usage": "KH/KA stated single-phase; URL currently serves AU V1.6, 2025/10/09.",
+            "publisher": "Fox ESS",
+            "checked_on": "2026-10-24"
+          }
+        ],
+        "review_flags": [
+          "官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。"
+        ]
+      },
+      {
+        "id": "package-tesla-powerwall-10-40.5",
+        "title": "Powerwall 3 advertised package · 10 kW / 40.5 kWh · 相制不明",
+        "text": "Powerwall 3 advertised package，官网列出的相制不明套餐：功率标签 10 kW，电池容量标签 40.5 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。官网套餐写法未明确对应台数、逆变器配置及相制，暂停推荐；不得把套餐容量当作单机容量。",
+        "score": 0.9867649078369141,
+        "product_id": "tesla-powerwall-10-40.5",
+        "sources": [
+          {
+            "id": "tesla-powerwall",
+            "url": "https://papower.com.au/products/home-ess?card=tesla-powerwall",
+            "title": "Powerwall 3 advertised package — unknown",
+            "usage": "Manually paraphrased public facts; no customer records or vendor price list.",
+            "publisher": "PA Power",
+            "checked_on": "2026-10-24"
+          }
+        ],
+        "review_flags": [
+          "官网套餐写法未明确对应台数、逆变器配置及相制，暂停推荐；不得把套餐容量当作单机容量。"
+        ]
+      },
+      {
+        "id": "guide-requirements",
+        "title": "售前需要问什么",
+        "text": "本应用收集相制、容量目标、套餐功率目标、已有光伏/逆变器、备电需求与预算；缺相制先澄清。",
+        "score": 0.8917946219444275,
+        "product_id": null,
+        "sources": [
+          {
+            "id": "residential",
+            "url": "https://papower.com.au/residential",
+            "title": "Household service and quote journey",
+            "usage": "Manually paraphrased public facts; no customer records or vendor price list.",
+            "publisher": "PA Power",
+            "checked_on": "2026-10-24"
+          }
+        ],
+        "review_flags": []
+      },
+      {
+        "id": "package-fox-single-ep11-5-20.72",
+        "title": "Fox KH + EP11 · 5 kW / 20.72 kWh · 单相",
+        "text": "Fox KH + EP11，官网列出的单相套餐：功率标签 5 kW，电池容量标签 20.72 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。",
+        "score": 0.8832300305366516,
+        "product_id": "fox-single-ep11-5-20.72",
+        "sources": [
+          {
+            "id": "fox-single-ep11",
+            "url": "https://papower.com.au/products/home-ess?card=fox-single-ep11",
+            "title": "Fox KH + EP11 — single",
+            "usage": "Manually paraphrased public facts; no customer records or vendor price list.",
+            "publisher": "PA Power",
+            "checked_on": "2026-10-24"
+          }
+        ],
+        "review_flags": []
+      },
+      {
+        "id": "guide-price",
+        "title": "为什么报价待询价",
+        "text": "公开产品页提供询价入口。目录中单独标注的公开促销金额只作有条件参考；缺少有效供应商价格单时，完整安装总价为空，不用模型估价。",
+        "score": 0.8330798745155334,
+        "product_id": null,
+        "sources": [
+          {
+            "id": "listing",
+            "url": "https://papower.com.au/products",
+            "title": "Public product listing",
+            "usage": "Manually paraphrased public facts; no customer records or vendor price list.",
+            "publisher": "PA Power",
+            "checked_on": "2026-10-24"
+          }
+        ],
+        "review_flags": []
+      },
+      {
+        "id": "package-tesla-powerwall-10-27",
+        "title": "Powerwall 3 advertised package · 10 kW / 27 kWh · 相制不明",
+        "text": "Powerwall 3 advertised package，官网列出的相制不明套餐：功率标签 10 kW，电池容量标签 27 kWh。容量口径未注明，不能直接视作可用电量或据此承诺续航。官网未公开该套餐价格、现货数量或完整安装范围；需供应商询价。官网套餐写法未明确对应台数、逆变器配置及相制，暂停推荐；不得把套餐容量当作单机容量。",
+        "score": 0.6629900932312012,
+        "product_id": "tesla-powerwall-10-27",
+        "sources": [
+          {
+            "id": "tesla-powerwall",
+            "url": "https://papower.com.au/products/home-ess?card=tesla-powerwall",
+            "title": "Powerwall 3 advertised package — unknown",
+            "usage": "Manually paraphrased public facts; no customer records or vendor price list.",
+            "publisher": "PA Power",
+            "checked_on": "2026-10-24"
+          }
+        ],
+        "review_flags": [
+          "官网套餐写法未明确对应台数、逆变器配置及相制，暂停推荐；不得把套餐容量当作单机容量。"
+        ]
+      }
+    ],
+    "gaps": [
+      "相制冲突仍待供应商核实。",
+      "官网三相栏目写 KH，但厂家 KH/KA 资料标为单相；准确逆变器型号及相制未核实，暂停推荐。",
+      "官网套餐写法未明确对应台数、逆变器配置及相制，暂停推荐；不得把套餐容量当作单机容量。"
+    ],
+    "rounds": 2,
+    "errors": [],
+    "review_reasons": [
+      "方案为研究草稿，发布及正式报价须人工确认",
+      "部分需求缺乏足够检索证据"
+    ],
+    "status": "needs_review",
+    "duration_seconds": 19.203,
+    "data_provenance": "Public battery facts; publication/check dates are attached to each source",
+    "paid_api_calls": 0
+  },
+  "cross_tenant_run_denied": true,
+  "sales_self_approval_denied": true,
+  "manager_approval": "passed",
+  "mcp": {
+    "tools": [
+      "search_knowledge",
+      "create_quote",
+      "select_battery"
+    ],
+    "protocol_initialize": "passed",
+    "knowledge_tool": "passed",
+    "selection_tool": "passed",
+    "missing_price_remains_null": true,
+    "public_quote_status": "reference_for_review",
+    "public_offer_not_final_total": true
+  },
+  "public_quote": {
+    "currency": "AUD",
+    "status": "reference_for_review",
+    "lines": [
+      {
+        "product_id": "hyxi-three-e200-10-21.2",
+        "name": "HYXI E200 + HYX-H10K-HT · 10 kW / 21.2 kWh",
+        "quantity": 1,
+        "amount_aud": null
+      }
+    ],
+    "known_amount_aud": null,
+    "total_aud": null,
+    "price_scope": null,
+    "gst_included": null,
+    "price_reference": null,
+    "price_expires_on": null,
+    "public_reference": {
+      "product_id": "hyxi-three-e200-10-21.2",
+      "currency": "AUD",
+      "amount_cents": 315700,
+      "gst_included": true,
+      "scope": "conditional_standard_installation",
+      "published_on": "2026-10-01",
+      "checked_on": "2026-10-25",
+      "installation_before": "2026-11-01",
+      "availability": "unconfirmed",
+      "conditions": [
+        "仅按该帖列出的 HYXI E200 + HYX-H10K-HT 三相套餐匹配，不适用于 H8K/E50B-H1 单相系统。",
+        "商家所述金额含 GST、墨尔本都市圈标准安装及满足条件后的联邦电池优惠；客户资格尚未核实。",
+        "标准范围为单层住宅、线缆不超过 10 米；额外工程、出行费用及备电选项需另行确认。",
+        "先勘测再确认最终费用、库存及适用性；商家要求在 2026-11-01 前安装，受并网审批、库存及天气影响。"
+      ],
+      "source": {
+        "id": "pa-power-three-phase-20261001",
+        "url": "https://www.ozbargain.com.au/node/977206",
+        "title": "PA Power three-phase installed battery offer, 1 October 2026",
+        "checked_on": "2026-10-25",
+        "publisher": "MilkteaS (PA Power associated account, OzBargain)",
+        "usage": "Paraphrased vendor-associated public offer; availability and eligibility unconfirmed."
+      },
+      "amount_aud": "3157.00"
+    },
+    "budget_status": "unverified",
+    "requires_review": true,
+    "review_reasons": [
+      "需确认精确型号、安装勘测、备电配件及供应商正式报价；经理确认仅代表内部草稿审核。",
+      "仅有公开套餐条件价：客户资格、勘测和最终安装费用未核实，总价与预算状态仍待确认。",
+      "仅按该帖列出的 HYXI E200 + HYX-H10K-HT 三相套餐匹配，不适用于 H8K/E50B-H1 单相系统。",
+      "商家所述金额含 GST、墨尔本都市圈标准安装及满足条件后的联邦电池优惠；客户资格尚未核实。",
+      "标准范围为单层住宅、线缆不超过 10 米；额外工程、出行费用及备电选项需另行确认。",
+      "先勘测再确认最终费用、库存及适用性；商家要求在 2026-11-01 前安装，受并网审批、库存及天气影响。",
+      "缺少有效供应商价格单，设备、安装、运输和税费待询价。",
+      "完整价格未知，尚不能判断预算是否足够。"
+    ],
+    "sources": [
+      {
+        "id": "pa-power-three-phase-20261001",
+        "url": "https://www.ozbargain.com.au/node/977206",
+        "title": "PA Power three-phase installed battery offer, 1 October 2026",
+        "checked_on": "2026-10-25",
+        "publisher": "MilkteaS (PA Power associated account, OzBargain)",
+        "usage": "Paraphrased vendor-associated public offer; availability and eligibility unconfirmed."
+      }
+    ],
+    "data_provenance": "Public facts and conditional vendor offer; final amounts require a configured tenant pricebook"
+  },
+  "prometheus_sample": [
+    "# HELP presales_http_requests_total HTTP requests, denominator for rejected-request rate",
+    "# TYPE presales_http_requests_total counter",
+    "presales_http_requests_total 12.0",
+    "# HELP presales_http_requests_created HTTP requests, denominator for rejected-request rate",
+    "# TYPE presales_http_requests_created gauge",
+    "presales_http_requests_created 1.792862442779764e+09",
+    "# HELP presales_stage_attempts_total Stage attempts, denominator for fallback rate",
+    "# TYPE presales_stage_attempts_total counter",
+    "presales_stage_attempts_total{cause=\"planner\"} 1.0",
+    "presales_stage_attempts_total{cause=\"retrieval\"} 5.0",
+    "presales_stage_attempts_total{cause=\"synthesis\"} 1.0",
+    "# HELP presales_stage_attempts_created Stage attempts, denominator for fallback rate",
+    "# TYPE presales_stage_attempts_created gauge",
+    "presales_stage_attempts_created{cause=\"planner\"} 1.792862505191583e+09",
+    "presales_stage_attempts_created{cause=\"retrieval\"} 1.7928625118275383e+09",
+    "presales_stage_attempts_created{cause=\"synthesis\"} 1.792862518193177e+09",
+    "# HELP presales_runs_total Research runs by final status",
+    "# TYPE presales_runs_total counter",
+    "presales_runs_total{status=\"needs_review\"} 1.0",
+    "# HELP presales_runs_created Research runs by final status",
+    "# TYPE presales_runs_created gauge",
+    "presales_runs_created{status=\"needs_review\"} 1.7928625243811564e+09",
+    "# HELP presales_fallbacks_total Fallbacks by cause",
+    "# TYPE presales_fallbacks_total counter",
+    "# HELP presales_denied_total Denied requests",
+    "# TYPE presales_denied_total counter",
+    "presales_denied_total{kind=\"run-acl\"} 1.0",
+    "presales_denied_total{kind=\"review-role\"} 1.0",
+    "# HELP presales_denied_created Denied requests",
+    "# TYPE presales_denied_created gauge",
+    "presales_denied_created{kind=\"run-acl\"} 1.792862524528208e+09",
+    "presales_denied_created{kind=\"review-role\"} 1.7928625245295703e+09",
+    "# HELP presales_retrievals_total Authorized retrieval requests",
+    "# TYPE presales_retrievals_total counter",
+    "presales_retrievals_total 5.0",
+    "# HELP presales_retrievals_created Authorized retrieval requests",
+    "# TYPE presales_retrievals_created gauge",
+    "presales_retrievals_created 1.7928624427798014e+09",
+    "# HELP presales_retrieval_candidates_total Records audited after pre-filtered retrieval",
+    "# TYPE presales_retrieval_candidates_total counter",
+    "presales_retrieval_candidates_total 25.0",
+    "# HELP presales_retrieval_candidates_created Records audited after pre-filtered retrieval",
+    "# TYPE presales_retrieval_candidates_created gauge",
+    "presales_retrieval_candidates_created 1.7928624427798052e+09",
+    "# HELP presales_retrieval_unauthorized_total Records blocked by independent retrieval permission audit",
+    "# TYPE presales_retrieval_unauthorized_total counter",
+    "presales_retrieval_unauthorized_total 0.0",
+    "# HELP presales_retrieval_unauthorized_created Records blocked by independent retrieval permission audit",
+    "# TYPE presales_retrieval_unauthorized_created gauge",
+    "presales_retrieval_unauthorized_created 1.7928624427798085e+09",
+    "# HELP presales_llm_seconds Actual model generation latency",
+    "# TYPE presales_llm_seconds histogram",
+    "presales_llm_seconds_bucket{le=\"0.005\",mode=\"local-transformers\"} 0.0",
+    "presales_llm_seconds_bucket{le=\"0.01\",mode=\"local-transformers\"} 0.0",
+    "presales_llm_seconds_bucket{le=\"0.025\",mode=\"local-transformers\"} 0.0",
+    "presales_llm_seconds_bucket{le=\"0.05\",mode=\"local-transformers\"} 0.0",
+    "presales_llm_seconds_bucket{le=\"0.075\",mode=\"local-transformers\"} 0.0",
+    "presales_llm_seconds_bucket{le=\"0.1\",mode=\"local-transformers\"} 0.0",
+    "presales_llm_seconds_bucket{le=\"0.25\",mode=\"local-transformers\"} 0.0",
+    "presales_llm_seconds_bucket{le=\"0.5\",mode=\"local-transformers\"} 0.0",
+    "presales_llm_seconds_bucket{le=\"0.75\",mode=\"local-transformers\"} 0.0",
+    "presales_llm_seconds_bucket{le=\"1.0\",mode=\"local-transformers\"} 0.0",
+    "presales_llm_seconds_bucket{le=\"2.5\",mode=\"local-transformers\"} 1.0",
+    "presales_llm_seconds_bucket{le=\"5.0\",mode=\"local-transformers\"} 1.0",
+    "presales_llm_seconds_bucket{le=\"7.5\",mode=\"local-transformers\"} 2.0",
+    "presales_llm_seconds_bucket{le=\"10.0\",mode=\"local-transformers\"} 2.0",
+    "presales_llm_seconds_bucket{le=\"+Inf\",mode=\"local-transformers\"} 2.0",
+    "presales_llm_seconds_count{mode=\"local-transformers\"} 2.0",
+    "presales_llm_seconds_sum{mode=\"local-transformers\"} 8.057864900009008",
+    "# HELP presales_llm_seconds_created Actual model generation latency",
+    "# TYPE presales_llm_seconds_created gauge",
+    "presales_llm_seconds_created{mode=\"local-transformers\"} 1.7928625118214877e+09",
+    "# HELP presales_llm_tokens_total Measured model tokens",
+    "# TYPE presales_llm_tokens_total counter",
+    "presales_llm_tokens_total{direction=\"input\"} 1235.0",
+    "presales_llm_tokens_total{direction=\"output\"} 199.0",
+    "# HELP presales_llm_tokens_created Measured model tokens",
+    "# TYPE presales_llm_tokens_created gauge",
+    "presales_llm_tokens_created{direction=\"input\"} 1.792862511821524e+09",
+    "presales_llm_tokens_created{direction=\"output\"} 1.7928625118215296e+09",
+    "# HELP presales_llm_cost_cny_total Token cost estimated from configured CNY rates; not a provider invoice",
+    "# TYPE presales_llm_cost_cny_total counter",
+    "presales_llm_cost_cny_total 0.0",
+    "# HELP presales_llm_cost_cny_created Token cost estimated from configured CNY rates; not a provider invoice",
+    "# TYPE presales_llm_cost_cny_created gauge",
+    "presales_llm_cost_cny_created 1.792862442779829e+09"
+  ],
+  "model_usage": [
+    {
+      "model": "Qwen/Qwen3-4B-Instruct-2507",
+      "seconds": 1.881,
+      "input_tokens": 114,
+      "output_tokens": 44,
+      "paid_api_cost": 0,
+      "estimated_cost_cny": "0",
+      "mode": "local-transformers"
+    },
+    {
+      "model": "Qwen/Qwen3-4B-Instruct-2507",
+      "seconds": 6.177,
+      "input_tokens": 1121,
+      "output_tokens": 155,
+      "paid_api_cost": 0,
+      "estimated_cost_cny": "0",
+      "mode": "local-transformers"
+    }
+  ],
+  "cost_scope": "Configured-rate token estimate; local test, not a vendor invoice",
+  "paid_api_calls": 0
+}
