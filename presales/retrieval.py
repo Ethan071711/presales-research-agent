@@ -144,9 +144,12 @@ class PostgresStore:
                 group = connection.execute('''SELECT acl_key FROM presales_documents
                     WHERE tenant IN ('*',%s) AND %s=ANY(roles) LIMIT 1''', (actor.tenant, actor.role)).fetchone()
                 connection.execute('SET LOCAL enable_seqscan=off')
+                connection.execute('SET LOCAL enable_bitmapscan=off')
+                connection.execute('SET LOCAL enable_sort=off')
                 return connection.execute('''EXPLAIN (FORMAT JSON) SELECT id FROM presales_documents
-                    WHERE acl_key=%s ORDER BY embedding <=> %s::vector LIMIT 5''',
-                    (group['acl_key'], vector)).fetchone()['QUERY PLAN']
+                    WHERE acl_key=%s AND tenant IN ('*',%s) AND %s=ANY(roles)
+                    ORDER BY embedding <=> %s::vector LIMIT 5''',
+                    (group['acl_key'], actor.tenant, actor.role, vector)).fetchone()['QUERY PLAN']
 
 
 def cached_vectors(embedder, directory):

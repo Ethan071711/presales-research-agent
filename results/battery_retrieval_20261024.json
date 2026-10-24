@@ -1,6 +1,6 @@
 {
   "summary": {
-    "measured_at_utc": "2026-10-24T02:14:59.087216+00:00",
+    "measured_at_utc": "2026-10-24T02:37:40.681693+00:00",
     "provenance": "NEW battery questions against manually curated public facts; not historic internship results",
     "backend": "pgvector-hnsw-acl-partitions",
     "database": "PostgreSQL 16.2 on x86_64-pc-mingw64, compiled by gcc.exe (x86_64-posix-seh-rev2, Built by MinGW-W64 project) 12.2.0, 64-bit",
@@ -19,7 +19,7 @@
       "guide_total": 48,
       "guide_hits": 48
     },
-    "elapsed_seconds": 16.411,
+    "elapsed_seconds": 16.428,
     "hnsw_indexes": [
       {
         "indexname": "presales_hnsw",
@@ -44,56 +44,33 @@
           "Node Type": "Limit",
           "Parallel Aware": false,
           "Async Capable": false,
-          "Startup Cost": 16.36,
-          "Total Cost": 16.37,
+          "Startup Cost": 48.23,
+          "Total Cost": 54.83,
           "Plan Rows": 5,
           "Plan Width": 32,
           "Plans": [
             {
-              "Node Type": "Sort",
+              "Node Type": "Index Scan",
               "Parent Relationship": "Outer",
               "Parallel Aware": false,
               "Async Capable": false,
-              "Startup Cost": 16.36,
-              "Total Cost": 16.44,
+              "Scan Direction": "Forward",
+              "Index Name": "presales_acl_bae60710762d7f06_embedding_idx",
+              "Relation Name": "presales_acl_bae60710762d7f06",
+              "Alias": "presales_documents",
+              "Startup Cost": 48.23,
+              "Total Cost": 89.16,
               "Plan Rows": 31,
               "Plan Width": 32,
-              "Sort Key": [
-                "((presales_documents.embedding <=> '[-0.06858493,-0.017531892,-0.047509167,-0.0014875911,0.0216474,-0.017919127,-0.023922876,0.047088176,0.0071432334,-0.0528219,0.070153326,-0.20581736,-0.09559635,0.00019635053,-0.038917385,0.02014495,-0.028222695,-0.004727018,0.038665704,-0.0013470363,-0.040824622,-0.051326033,-0.034438714,-0.087611884,-0.04303146,-0.058161058,-0.0038050055,0.010357141,0.047637243,-0.012292493,-0.0123445885,0.02117363,-0.04058245,-0.036157332,-0.04887391,-0.08357295,-0.00050024514,-0.04868551,0.06797773,-0.026239067,0.004782086,0.048332363,0.02191886,0.0368002,-0.03812273,-0.07302657,-0.009909494,0.0037953965,0.015989555,0.018945007,-0.034167252,-0.002555208,0.047019858,-0.04377516,0.06003357,-0.09664727,-0.026187869,0.028789943,0.032798097,0.040717516,0.09601017,-0.050700046,0.018451976,0.026446076,0.030734599,-0.07037172,0.031951085,0.040070634,0.01572464,-0.0004627114,-0.04400358,0.032747112,0.009551065,-0.01404133,0.023814466,-0.04369502,0.021944422,-0.049549572,-0.03704705,0.07724663,-0.0678976,-0.03199557,0.012389218,0.027337236,0.016528042,0.034955774,-0.020315755,-0.03564726,-0.012675635,-0.014190887,0.014365535,0.051067587,0.07037409,-0.009447149,-0.068166405,0.03578556,-0.05998533,0.04492088,-0.008738225,0.013482812,0.0395861,0.03772778,0.053206135,-0.067800626,0.017302422,0.024769347,-0.011023813,-0.03466199,0.06591029,0.025964884,-0.109916896,0.033094637,0.04983285,0.11677472,0.015098212,-0.06399516,-0.0459918,0.011718701,-0.027976416,0.016166601,0.043694124,0.040113375,0.06417427,-0.07751084,-0.03526077,0.03217331,0.055143073,-0.01854035,0.007588037,-0.015201364,0.013294255,-0.0145666115,0.020453822,-0.03886894,-0.058245886,0.027537568,0.01263646,-0.024570094,0.0049150903,-0.03630475,-0.04925919,0.019758824,-0.005860992,0.03456348,0.036793187,-0.06474564,-0.06191322,0.010094823,0.016801499,0.007229359,-0.017151704,-0.064276926,0.039112948,0.0047973967,0.007561995,-0.014367926,-0.02017609,-0.06845153,-0.016373143,0.069439456,0.06315263,0.08464553,0.017875627,0.025072286,0.07959525,-0.025976786,0.029881738,-0.0102844015,-0.039846394,-0.031915043,-0.0013689573,0.010164333,0.03998417,-0.089868374,-0.002366756,-0.002402822,0.019728156,0.08022627,0.023789393,-0.011356622,0.006269799,-0.04355213,0.028475016,-0.016331064,0.03835559,-0.013859929,-0.013392334,0.0592772,0.0017180856,-0.05737842,0.02149904,-0.08041276,-0.00073894596,-0.0055149314,-0.014748843,0.029793562,0.0074637774,0.0088342065,0.022525338,0.017075513,-0.049256843,-0.01507236,0.0057197553,-0.02614902,-0.014101742,-0.04373521,-0.057961397,-0.011913956,-0.039084878,-0.03939965,0.008940243,-0.0054740123,0.012117771,-0.018334648,0.048310727,0.0064594336,0.04047708,0.034589253,0.0114310775,-0.01479336,-0.05228142,0.09342642,-0.024331609,-0.07623006,-0.036314648,-0.06005368,0.026416183,-0.019341983,-0.026084537,0.0067783203,-0.072005436,-0.016267473,0.028357038,-0.03546973,-0.03599215,-0.08224204,-0.044477098,-0.02678192,-0.046164084,-0.02211975,-0.035544712,0.06683407,-0.015276412,0.0028831519,-0.052118324,0.06967597,-0.011479,0.043483965,0.0028006013,0.013423233,0.008765165,0.024457116,0.013151547,0.018187508,-0.06395306,-0.026363656,0.0066854376,0.005266295,0.007811902,0.02283801,0.03332853,0.0036906553,-0.10084469,-0.005102879,-0.07151418,-0.018896302,0.022283932,0.036122594,-0.11410618,0.01537953,0.015266058,0.008730127,-0.0098724235,-0.011761484,0.019624569,0.02514286,0.067737564,0.020039625,-0.0035693762,0.107744165,0.06887501,-0.013954729,-0.0830202,0.018897507,0.011695979,0.07825645,-0.062461648,0.040354673,-0.036453262,0.027025389,0.05229761,0.053901598,0.016146185,0.016363679,0.0015705967,0.030055998,-0.057491254,0.046683326,0.044210743,0.04404669,0.052562494,-0.006708346,0.0015838521,0.0019021847,-0.11156608,0.020009812,-0.016250854,0.09257909,-0.041736685,-0.0103667155,-0.06750511,-0.03545605,-0.011689608,-0.0037392587,0.040529374,-0.030035224,-1.1858438e-05,0.06693528,0.0085350275,0.040706847,-0.038662143,0.039564107,-0.057433657,-0.008471705,-0.05079073,-0.040985875,0.04727422,-0.033075195,-0.0050934483,0.030617936,-0.043263715,0.027191466,-0.002388283,0.029162265,-0.01969454,-0.020110887,-0.011823668,-0.054872736,0.0011589114,0.074704714,-0.0105960835,0.046302203,0.004821619,-0.07389118,0.06819997,0.04868107,0.006810585,-0.0038632601,0.026550667,-0.0528919,-0.06629372,0.028143812,0.024335237,-0.06748929,-0.00042316204,0.034007806,0.0040115877,-0.015678471,-0.055490963,0.0208015,-0.0047518434,-0.012169749,-0.0075525176,0.04119657,0.0036020258,0.036169842,-0.0056408755,-0.0030487645,0.022377722,0.003039729,-0.009719248,-0.09148746,0.037059702,0.025590863,-0.030778946,-0.02422409,-0.04738189,0.018464956,-0.033236306,0.0073160087,-0.044933703,0.04388028,-0.0019380301,0.016885912,0.09772672,-0.017112121,-0.03178318,0.0041856673,0.01988141,0.027464608,0.055478558,0.01894084,-0.0014239058,0.043984834,0.034411754,0.015844133,0.0029871997,0.006378987,-0.057443507,-0.054817095,0.03586016,-0.045468733,-0.07582898,0.048214037,0.0076307184,0.03650463,-0.016652703,0.055798735,-0.03451512,0.015659269,0.23930399,0.078548044,-0.01927974,-0.03185848,0.005725288,0.03660062,-0.03863272,0.009608737,0.051287062,-0.011357464,0.0039384505,-0.0669615,-0.04299464,-0.05277947,-0.03301617,0.02399777,0.010046691,-0.014613017,-0.10135277,0.022563878,-0.038886167,-0.002260201,0.057397068,0.054917976,0.022427153,0.002903289,-0.017634062,-0.03615791,0.020568809,0.008461349,-0.019390758,0.065146185,0.0062849494,0.04594127,-0.018226761,-0.023825012,0.022754354,0.024548696,-0.012694479,0.06403842,-0.033446718,0.06914471,-0.011504932,0.04286197,-0.048354033,-0.063334145,-0.09308392,-0.002082914,0.0012171332,0.034537666,-0.060337383,-0.092507854,-0.08301303,0.05559116,-0.06362829,0.021838566,0.0031690407,-0.05880374,0.08536799,-0.00958397,-0.05193844,0.044210225,-0.043741394,0.089558445,0.0024336416,-0.016603475,0.026844505,0.0359105,-0.032556124,-0.052757576,0.014047595,-0.08153164,0.037888244,-0.0481274,0.025918487,0.036664303,-0.035004616,0.0056547425,-0.021780942,-0.025202982,0.018481003,0.038183168,0.035084292,-0.0051391236,-0.0046094293,0.009862906,0.012546151,0.008237652,-0.057997767,-0.034351293,-0.057821203,-0.04819081,-0.00703869,0.06984421,0.027951784,-0.063281946,0.039314073,0.006660914,0.018936338,0.03035701,0.027222665,-0.14400144]'::vector))"
-              ],
-              "Plans": [
-                {
-                  "Node Type": "Bitmap Heap Scan",
-                  "Parent Relationship": "Outer",
-                  "Parallel Aware": false,
-                  "Async Capable": false,
-                  "Relation Name": "presales_acl_bae60710762d7f06",
-                  "Alias": "presales_documents",
-                  "Startup Cost": 8.38,
-                  "Total Cost": 15.84,
-                  "Plan Rows": 31,
-                  "Plan Width": 32,
-                  "Recheck Cond": "(acl_key = 'bae60710762d7f06'::text)",
-                  "Plans": [
-                    {
-                      "Node Type": "Bitmap Index Scan",
-                      "Parent Relationship": "Outer",
-                      "Parallel Aware": false,
-                      "Async Capable": false,
-                      "Index Name": "presales_acl_bae60710762d7f06_pkey",
-                      "Startup Cost": 0.0,
-                      "Total Cost": 8.37,
-                      "Plan Rows": 31,
-                      "Plan Width": 0,
-                      "Index Cond": "(acl_key = 'bae60710762d7f06'::text)"
-                    }
-                  ]
-                }
-              ]
+              "Order By": "(embedding <=> '[-0.06858493,-0.017531892,-0.047509167,-0.0014875911,0.0216474,-0.017919127,-0.023922876,0.047088176,0.0071432334,-0.0528219,0.070153326,-0.20581736,-0.09559635,0.00019635053,-0.038917385,0.02014495,-0.028222695,-0.004727018,0.038665704,-0.0013470363,-0.040824622,-0.051326033,-0.034438714,-0.087611884,-0.04303146,-0.058161058,-0.0038050055,0.010357141,0.047637243,-0.012292493,-0.0123445885,0.02117363,-0.04058245,-0.036157332,-0.04887391,-0.08357295,-0.00050024514,-0.04868551,0.06797773,-0.026239067,0.004782086,0.048332363,0.02191886,0.0368002,-0.03812273,-0.07302657,-0.009909494,0.0037953965,0.015989555,0.018945007,-0.034167252,-0.002555208,0.047019858,-0.04377516,0.06003357,-0.09664727,-0.026187869,0.028789943,0.032798097,0.040717516,0.09601017,-0.050700046,0.018451976,0.026446076,0.030734599,-0.07037172,0.031951085,0.040070634,0.01572464,-0.0004627114,-0.04400358,0.032747112,0.009551065,-0.01404133,0.023814466,-0.04369502,0.021944422,-0.049549572,-0.03704705,0.07724663,-0.0678976,-0.03199557,0.012389218,0.027337236,0.016528042,0.034955774,-0.020315755,-0.03564726,-0.012675635,-0.014190887,0.014365535,0.051067587,0.07037409,-0.009447149,-0.068166405,0.03578556,-0.05998533,0.04492088,-0.008738225,0.013482812,0.0395861,0.03772778,0.053206135,-0.067800626,0.017302422,0.024769347,-0.011023813,-0.03466199,0.06591029,0.025964884,-0.109916896,0.033094637,0.04983285,0.11677472,0.015098212,-0.06399516,-0.0459918,0.011718701,-0.027976416,0.016166601,0.043694124,0.040113375,0.06417427,-0.07751084,-0.03526077,0.03217331,0.055143073,-0.01854035,0.007588037,-0.015201364,0.013294255,-0.0145666115,0.020453822,-0.03886894,-0.058245886,0.027537568,0.01263646,-0.024570094,0.0049150903,-0.03630475,-0.04925919,0.019758824,-0.005860992,0.03456348,0.036793187,-0.06474564,-0.06191322,0.010094823,0.016801499,0.007229359,-0.017151704,-0.064276926,0.039112948,0.0047973967,0.007561995,-0.014367926,-0.02017609,-0.06845153,-0.016373143,0.069439456,0.06315263,0.08464553,0.017875627,0.025072286,0.07959525,-0.025976786,0.029881738,-0.0102844015,-0.039846394,-0.031915043,-0.0013689573,0.010164333,0.03998417,-0.089868374,-0.002366756,-0.002402822,0.019728156,0.08022627,0.023789393,-0.011356622,0.006269799,-0.04355213,0.028475016,-0.016331064,0.03835559,-0.013859929,-0.013392334,0.0592772,0.0017180856,-0.05737842,0.02149904,-0.08041276,-0.00073894596,-0.0055149314,-0.014748843,0.029793562,0.0074637774,0.0088342065,0.022525338,0.017075513,-0.049256843,-0.01507236,0.0057197553,-0.02614902,-0.014101742,-0.04373521,-0.057961397,-0.011913956,-0.039084878,-0.03939965,0.008940243,-0.0054740123,0.012117771,-0.018334648,0.048310727,0.0064594336,0.04047708,0.034589253,0.0114310775,-0.01479336,-0.05228142,0.09342642,-0.024331609,-0.07623006,-0.036314648,-0.06005368,0.026416183,-0.019341983,-0.026084537,0.0067783203,-0.072005436,-0.016267473,0.028357038,-0.03546973,-0.03599215,-0.08224204,-0.044477098,-0.02678192,-0.046164084,-0.02211975,-0.035544712,0.06683407,-0.015276412,0.0028831519,-0.052118324,0.06967597,-0.011479,0.043483965,0.0028006013,0.013423233,0.008765165,0.024457116,0.013151547,0.018187508,-0.06395306,-0.026363656,0.0066854376,0.005266295,0.007811902,0.02283801,0.03332853,0.0036906553,-0.10084469,-0.005102879,-0.07151418,-0.018896302,0.022283932,0.036122594,-0.11410618,0.01537953,0.015266058,0.008730127,-0.0098724235,-0.011761484,0.019624569,0.02514286,0.067737564,0.020039625,-0.0035693762,0.107744165,0.06887501,-0.013954729,-0.0830202,0.018897507,0.011695979,0.07825645,-0.062461648,0.040354673,-0.036453262,0.027025389,0.05229761,0.053901598,0.016146185,0.016363679,0.0015705967,0.030055998,-0.057491254,0.046683326,0.044210743,0.04404669,0.052562494,-0.006708346,0.0015838521,0.0019021847,-0.11156608,0.020009812,-0.016250854,0.09257909,-0.041736685,-0.0103667155,-0.06750511,-0.03545605,-0.011689608,-0.0037392587,0.040529374,-0.030035224,-1.1858438e-05,0.06693528,0.0085350275,0.040706847,-0.038662143,0.039564107,-0.057433657,-0.008471705,-0.05079073,-0.040985875,0.04727422,-0.033075195,-0.0050934483,0.030617936,-0.043263715,0.027191466,-0.002388283,0.029162265,-0.01969454,-0.020110887,-0.011823668,-0.054872736,0.0011589114,0.074704714,-0.0105960835,0.046302203,0.004821619,-0.07389118,0.06819997,0.04868107,0.006810585,-0.0038632601,0.026550667,-0.0528919,-0.06629372,0.028143812,0.024335237,-0.06748929,-0.00042316204,0.034007806,0.0040115877,-0.015678471,-0.055490963,0.0208015,-0.0047518434,-0.012169749,-0.0075525176,0.04119657,0.0036020258,0.036169842,-0.0056408755,-0.0030487645,0.022377722,0.003039729,-0.009719248,-0.09148746,0.037059702,0.025590863,-0.030778946,-0.02422409,-0.04738189,0.018464956,-0.033236306,0.0073160087,-0.044933703,0.04388028,-0.0019380301,0.016885912,0.09772672,-0.017112121,-0.03178318,0.0041856673,0.01988141,0.027464608,0.055478558,0.01894084,-0.0014239058,0.043984834,0.034411754,0.015844133,0.0029871997,0.006378987,-0.057443507,-0.054817095,0.03586016,-0.045468733,-0.07582898,0.048214037,0.0076307184,0.03650463,-0.016652703,0.055798735,-0.03451512,0.015659269,0.23930399,0.078548044,-0.01927974,-0.03185848,0.005725288,0.03660062,-0.03863272,0.009608737,0.051287062,-0.011357464,0.0039384505,-0.0669615,-0.04299464,-0.05277947,-0.03301617,0.02399777,0.010046691,-0.014613017,-0.10135277,0.022563878,-0.038886167,-0.002260201,0.057397068,0.054917976,0.022427153,0.002903289,-0.017634062,-0.03615791,0.020568809,0.008461349,-0.019390758,0.065146185,0.0062849494,0.04594127,-0.018226761,-0.023825012,0.022754354,0.024548696,-0.012694479,0.06403842,-0.033446718,0.06914471,-0.011504932,0.04286197,-0.048354033,-0.063334145,-0.09308392,-0.002082914,0.0012171332,0.034537666,-0.060337383,-0.092507854,-0.08301303,0.05559116,-0.06362829,0.021838566,0.0031690407,-0.05880374,0.08536799,-0.00958397,-0.05193844,0.044210225,-0.043741394,0.089558445,0.0024336416,-0.016603475,0.026844505,0.0359105,-0.032556124,-0.052757576,0.014047595,-0.08153164,0.037888244,-0.0481274,0.025918487,0.036664303,-0.035004616,0.0056547425,-0.021780942,-0.025202982,0.018481003,0.038183168,0.035084292,-0.0051391236,-0.0046094293,0.009862906,0.012546151,0.008237652,-0.057997767,-0.034351293,-0.057821203,-0.04819081,-0.00703869,0.06984421,0.027951784,-0.063281946,0.039314073,0.006660914,0.018936338,0.03035701,0.027222665,-0.14400144]'::vector)",
+              "Filter": "((tenant = ANY ('{*,demo-a}'::text[])) AND (acl_key = 'bae60710762d7f06'::text) AND ('sales'::text = ANY (roles)))"
             }
           ]
         }
       }
+    ],
+    "verified_hnsw_indexes": [
+      "presales_acl_bae60710762d7f06_embedding_idx"
     ],
     "paid_api_calls": 0,
     "limitations": [
@@ -120,7 +97,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0855
+      "latency_seconds": 0.0973
     },
     {
       "id": "battery-retrieval-002",
@@ -138,7 +115,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0673
+      "latency_seconds": 0.0631
     },
     {
       "id": "battery-retrieval-003",
@@ -156,7 +133,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0716
+      "latency_seconds": 0.0693
     },
     {
       "id": "battery-retrieval-004",
@@ -174,7 +151,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0715
+      "latency_seconds": 0.0627
     },
     {
       "id": "battery-retrieval-005",
@@ -192,7 +169,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0603
+      "latency_seconds": 0.0654
     },
     {
       "id": "battery-retrieval-006",
@@ -210,7 +187,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0716
+      "latency_seconds": 0.0591
     },
     {
       "id": "battery-retrieval-007",
@@ -228,7 +205,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0584
+      "latency_seconds": 0.0644
     },
     {
       "id": "battery-retrieval-008",
@@ -246,7 +223,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.061
+      "latency_seconds": 0.0636
     },
     {
       "id": "battery-retrieval-009",
@@ -264,7 +241,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0598
+      "latency_seconds": 0.0648
     },
     {
       "id": "battery-retrieval-010",
@@ -282,7 +259,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0559
+      "latency_seconds": 0.071
     },
     {
       "id": "battery-retrieval-011",
@@ -300,7 +277,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0597
+      "latency_seconds": 0.0824
     },
     {
       "id": "battery-retrieval-012",
@@ -318,7 +295,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0743
+      "latency_seconds": 0.0824
     },
     {
       "id": "battery-retrieval-013",
@@ -336,7 +313,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0746
+      "latency_seconds": 0.07
     },
     {
       "id": "battery-retrieval-014",
@@ -354,7 +331,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.066
+      "latency_seconds": 0.0754
     },
     {
       "id": "battery-retrieval-015",
@@ -372,7 +349,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0746
+      "latency_seconds": 0.0661
     },
     {
       "id": "battery-retrieval-016",
@@ -390,7 +367,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0652
+      "latency_seconds": 0.0749
     },
     {
       "id": "battery-retrieval-017",
@@ -408,7 +385,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0717
+      "latency_seconds": 0.0732
     },
     {
       "id": "battery-retrieval-018",
@@ -426,7 +403,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0758
+      "latency_seconds": 0.064
     },
     {
       "id": "battery-retrieval-019",
@@ -444,7 +421,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.071
+      "latency_seconds": 0.075
     },
     {
       "id": "battery-retrieval-020",
@@ -462,7 +439,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0728
+      "latency_seconds": 0.0708
     },
     {
       "id": "battery-retrieval-021",
@@ -480,7 +457,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0716
+      "latency_seconds": 0.0713
     },
     {
       "id": "battery-retrieval-022",
@@ -498,7 +475,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0643
+      "latency_seconds": 0.0687
     },
     {
       "id": "battery-retrieval-023",
@@ -516,7 +493,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0688
+      "latency_seconds": 0.0726
     },
     {
       "id": "battery-retrieval-024",
@@ -534,7 +511,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0717
+      "latency_seconds": 0.0662
     },
     {
       "id": "battery-retrieval-025",
@@ -552,7 +529,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0754
+      "latency_seconds": 0.0747
     },
     {
       "id": "battery-retrieval-026",
@@ -570,7 +547,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0651
+      "latency_seconds": 0.064
     },
     {
       "id": "battery-retrieval-027",
@@ -588,7 +565,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0712
+      "latency_seconds": 0.0639
     },
     {
       "id": "battery-retrieval-028",
@@ -606,7 +583,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0733
+      "latency_seconds": 0.0624
     },
     {
       "id": "battery-retrieval-029",
@@ -624,7 +601,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0597
+      "latency_seconds": 0.0641
     },
     {
       "id": "battery-retrieval-030",
@@ -642,7 +619,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0695
+      "latency_seconds": 0.0666
     },
     {
       "id": "battery-retrieval-031",
@@ -660,7 +637,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0719
+      "latency_seconds": 0.0617
     },
     {
       "id": "battery-retrieval-032",
@@ -678,7 +655,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0739
+      "latency_seconds": 0.0729
     },
     {
       "id": "battery-retrieval-033",
@@ -696,7 +673,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0787
+      "latency_seconds": 0.061
     },
     {
       "id": "battery-retrieval-034",
@@ -714,7 +691,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0709
+      "latency_seconds": 0.073
     },
     {
       "id": "battery-retrieval-035",
@@ -732,7 +709,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0649
+      "latency_seconds": 0.0686
     },
     {
       "id": "battery-retrieval-036",
@@ -750,7 +727,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0661
+      "latency_seconds": 0.0619
     },
     {
       "id": "battery-retrieval-037",
@@ -768,7 +745,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0574
+      "latency_seconds": 0.0639
     },
     {
       "id": "battery-retrieval-038",
@@ -786,7 +763,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0724
+      "latency_seconds": 0.0745
     },
     {
       "id": "battery-retrieval-039",
@@ -804,7 +781,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0717
+      "latency_seconds": 0.0674
     },
     {
       "id": "battery-retrieval-040",
@@ -822,7 +799,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0714
+      "latency_seconds": 0.0787
     },
     {
       "id": "battery-retrieval-041",
@@ -840,7 +817,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0704
+      "latency_seconds": 0.0795
     },
     {
       "id": "battery-retrieval-042",
@@ -858,7 +835,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.07
+      "latency_seconds": 0.0735
     },
     {
       "id": "battery-retrieval-043",
@@ -876,7 +853,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0591
+      "latency_seconds": 0.072
     },
     {
       "id": "battery-retrieval-044",
@@ -894,7 +871,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0679
+      "latency_seconds": 0.0697
     },
     {
       "id": "battery-retrieval-045",
@@ -912,7 +889,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0665
+      "latency_seconds": 0.0706
     },
     {
       "id": "battery-retrieval-046",
@@ -930,7 +907,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0687
+      "latency_seconds": 0.0735
     },
     {
       "id": "battery-retrieval-047",
@@ -948,7 +925,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0613
+      "latency_seconds": 0.0652
     },
     {
       "id": "battery-retrieval-048",
@@ -966,7 +943,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.07
+      "latency_seconds": 0.0673
     },
     {
       "id": "battery-retrieval-049",
@@ -984,7 +961,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0548
+      "latency_seconds": 0.0614
     },
     {
       "id": "battery-retrieval-050",
@@ -1002,7 +979,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0642
+      "latency_seconds": 0.071
     },
     {
       "id": "battery-retrieval-051",
@@ -1020,7 +997,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0696
+      "latency_seconds": 0.075
     },
     {
       "id": "battery-retrieval-052",
@@ -1038,7 +1015,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0704
+      "latency_seconds": 0.0713
     },
     {
       "id": "battery-retrieval-053",
@@ -1056,7 +1033,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.068
+      "latency_seconds": 0.0727
     },
     {
       "id": "battery-retrieval-054",
@@ -1074,7 +1051,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0706
+      "latency_seconds": 0.0615
     },
     {
       "id": "battery-retrieval-055",
@@ -1092,7 +1069,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0638
+      "latency_seconds": 0.0714
     },
     {
       "id": "battery-retrieval-056",
@@ -1110,7 +1087,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0746
+      "latency_seconds": 0.0715
     },
     {
       "id": "battery-retrieval-057",
@@ -1128,7 +1105,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0628
+      "latency_seconds": 0.0735
     },
     {
       "id": "battery-retrieval-058",
@@ -1146,7 +1123,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0608
+      "latency_seconds": 0.0739
     },
     {
       "id": "battery-retrieval-059",
@@ -1164,7 +1141,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0628
+      "latency_seconds": 0.0747
     },
     {
       "id": "battery-retrieval-060",
@@ -1182,7 +1159,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0667
+      "latency_seconds": 0.0613
     },
     {
       "id": "battery-retrieval-061",
@@ -1200,7 +1177,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0639
+      "latency_seconds": 0.0756
     },
     {
       "id": "battery-retrieval-062",
@@ -1218,7 +1195,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0761
+      "latency_seconds": 0.0681
     },
     {
       "id": "battery-retrieval-063",
@@ -1236,7 +1213,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0727
+      "latency_seconds": 0.0652
     },
     {
       "id": "battery-retrieval-064",
@@ -1254,7 +1231,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0732
+      "latency_seconds": 0.0757
     },
     {
       "id": "battery-retrieval-065",
@@ -1272,7 +1249,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0637
+      "latency_seconds": 0.0709
     },
     {
       "id": "battery-retrieval-066",
@@ -1290,7 +1267,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0769
+      "latency_seconds": 0.0666
     },
     {
       "id": "battery-retrieval-067",
@@ -1308,7 +1285,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0768
+      "latency_seconds": 0.0776
     },
     {
       "id": "battery-retrieval-068",
@@ -1326,7 +1303,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.075
+      "latency_seconds": 0.0744
     },
     {
       "id": "battery-retrieval-069",
@@ -1344,7 +1321,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0688
+      "latency_seconds": 0.0788
     },
     {
       "id": "battery-retrieval-070",
@@ -1362,7 +1339,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0732
+      "latency_seconds": 0.0739
     },
     {
       "id": "battery-retrieval-071",
@@ -1380,7 +1357,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0802
+      "latency_seconds": 0.0724
     },
     {
       "id": "battery-retrieval-072",
@@ -1398,7 +1375,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0699
+      "latency_seconds": 0.093
     },
     {
       "id": "battery-retrieval-073",
@@ -1416,7 +1393,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.069
+      "latency_seconds": 0.0698
     },
     {
       "id": "battery-retrieval-074",
@@ -1434,7 +1411,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0746
+      "latency_seconds": 0.0695
     },
     {
       "id": "battery-retrieval-075",
@@ -1452,7 +1429,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.071
+      "latency_seconds": 0.0683
     },
     {
       "id": "battery-retrieval-076",
@@ -1470,7 +1447,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0602
+      "latency_seconds": 0.0593
     },
     {
       "id": "battery-retrieval-077",
@@ -1488,7 +1465,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0735
+      "latency_seconds": 0.0647
     },
     {
       "id": "battery-retrieval-078",
@@ -1506,7 +1483,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0716
+      "latency_seconds": 0.0624
     },
     {
       "id": "battery-retrieval-079",
@@ -1524,7 +1501,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0602
+      "latency_seconds": 0.0694
     },
     {
       "id": "battery-retrieval-080",
@@ -1542,7 +1519,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0719
+      "latency_seconds": 0.0751
     },
     {
       "id": "battery-retrieval-081",
@@ -1560,7 +1537,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0684
+      "latency_seconds": 0.0715
     },
     {
       "id": "battery-retrieval-082",
@@ -1578,7 +1555,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0694
+      "latency_seconds": 0.0602
     },
     {
       "id": "battery-retrieval-083",
@@ -1596,7 +1573,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.058
+      "latency_seconds": 0.0579
     },
     {
       "id": "battery-retrieval-084",
@@ -1614,7 +1591,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0737
+      "latency_seconds": 0.0615
     },
     {
       "id": "battery-retrieval-085",
@@ -1632,7 +1609,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0698
+      "latency_seconds": 0.0721
     },
     {
       "id": "battery-retrieval-086",
@@ -1650,7 +1627,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0563
+      "latency_seconds": 0.0661
     },
     {
       "id": "battery-retrieval-087",
@@ -1668,7 +1645,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0739
+      "latency_seconds": 0.0652
     },
     {
       "id": "battery-retrieval-088",
@@ -1686,7 +1663,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0703
+      "latency_seconds": 0.0626
     },
     {
       "id": "battery-retrieval-089",
@@ -1704,7 +1681,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0708
+      "latency_seconds": 0.0688
     },
     {
       "id": "battery-retrieval-090",
@@ -1722,7 +1699,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0696
+      "latency_seconds": 0.0725
     },
     {
       "id": "battery-retrieval-091",
@@ -1740,7 +1717,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.068
+      "latency_seconds": 0.0672
     },
     {
       "id": "battery-retrieval-092",
@@ -1758,7 +1735,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0623
+      "latency_seconds": 0.0701
     },
     {
       "id": "battery-retrieval-093",
@@ -1776,7 +1753,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0619
+      "latency_seconds": 0.0617
     },
     {
       "id": "battery-retrieval-094",
@@ -1794,7 +1771,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.073
+      "latency_seconds": 0.0624
     },
     {
       "id": "battery-retrieval-095",
@@ -1812,7 +1789,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0679
+      "latency_seconds": 0.071
     },
     {
       "id": "battery-retrieval-096",
@@ -1830,7 +1807,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.066
+      "latency_seconds": 0.0642
     },
     {
       "id": "battery-retrieval-097",
@@ -1848,7 +1825,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0734
+      "latency_seconds": 0.0673
     },
     {
       "id": "battery-retrieval-098",
@@ -1866,7 +1843,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.068
+      "latency_seconds": 0.0681
     },
     {
       "id": "battery-retrieval-099",
@@ -1884,7 +1861,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0644
+      "latency_seconds": 0.0632
     },
     {
       "id": "battery-retrieval-100",
@@ -1902,7 +1879,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0759
+      "latency_seconds": 0.0568
     },
     {
       "id": "battery-retrieval-101",
@@ -1920,7 +1897,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0634
+      "latency_seconds": 0.0557
     },
     {
       "id": "battery-retrieval-102",
@@ -1938,7 +1915,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0702
+      "latency_seconds": 0.0553
     },
     {
       "id": "battery-retrieval-103",
@@ -1956,7 +1933,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0702
+      "latency_seconds": 0.0554
     },
     {
       "id": "battery-retrieval-104",
@@ -1974,7 +1951,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0738
+      "latency_seconds": 0.0621
     },
     {
       "id": "battery-retrieval-105",
@@ -1992,7 +1969,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0735
+      "latency_seconds": 0.0718
     },
     {
       "id": "battery-retrieval-106",
@@ -2010,7 +1987,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0637
+      "latency_seconds": 0.0748
     },
     {
       "id": "battery-retrieval-107",
@@ -2028,7 +2005,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0758
+      "latency_seconds": 0.0709
     },
     {
       "id": "battery-retrieval-108",
@@ -2046,7 +2023,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0696
+      "latency_seconds": 0.0633
     },
     {
       "id": "battery-retrieval-109",
@@ -2064,7 +2041,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0744
+      "latency_seconds": 0.0681
     },
     {
       "id": "battery-retrieval-110",
@@ -2082,7 +2059,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0742
+      "latency_seconds": 0.0618
     },
     {
       "id": "battery-retrieval-111",
@@ -2100,7 +2077,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0633
+      "latency_seconds": 0.0726
     },
     {
       "id": "battery-retrieval-112",
@@ -2118,7 +2095,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0614
+      "latency_seconds": 0.0732
     },
     {
       "id": "battery-retrieval-113",
@@ -2136,7 +2113,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.076
+      "latency_seconds": 0.0729
     },
     {
       "id": "battery-retrieval-114",
@@ -2154,7 +2131,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0712
+      "latency_seconds": 0.0718
     },
     {
       "id": "battery-retrieval-115",
@@ -2172,7 +2149,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0819
+      "latency_seconds": 0.0721
     },
     {
       "id": "battery-retrieval-116",
@@ -2190,7 +2167,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0698
+      "latency_seconds": 0.06
     },
     {
       "id": "battery-retrieval-117",
@@ -2208,7 +2185,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0742
+      "latency_seconds": 0.0624
     },
     {
       "id": "battery-retrieval-118",
@@ -2226,7 +2203,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0635
+      "latency_seconds": 0.0705
     },
     {
       "id": "battery-retrieval-119",
@@ -2244,7 +2221,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0617
+      "latency_seconds": 0.0662
     },
     {
       "id": "battery-retrieval-120",
@@ -2262,7 +2239,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0647
+      "latency_seconds": 0.0687
     },
     {
       "id": "battery-retrieval-121",
@@ -2280,7 +2257,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0719
+      "latency_seconds": 0.0706
     },
     {
       "id": "battery-retrieval-122",
@@ -2298,7 +2275,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.074
+      "latency_seconds": 0.0603
     },
     {
       "id": "battery-retrieval-123",
@@ -2316,7 +2293,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0721
+      "latency_seconds": 0.064
     },
     {
       "id": "battery-retrieval-124",
@@ -2334,7 +2311,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0758
+      "latency_seconds": 0.0687
     },
     {
       "id": "battery-retrieval-125",
@@ -2352,7 +2329,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0729
+      "latency_seconds": 0.0614
     },
     {
       "id": "battery-retrieval-126",
@@ -2370,7 +2347,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.07
+      "latency_seconds": 0.0643
     },
     {
       "id": "battery-retrieval-127",
@@ -2388,7 +2365,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0778
+      "latency_seconds": 0.0636
     },
     {
       "id": "battery-retrieval-128",
@@ -2406,7 +2383,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0732
+      "latency_seconds": 0.0583
     },
     {
       "id": "battery-retrieval-129",
@@ -2424,7 +2401,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.074
+      "latency_seconds": 0.0684
     },
     {
       "id": "battery-retrieval-130",
@@ -2442,7 +2419,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0699
+      "latency_seconds": 0.064
     },
     {
       "id": "battery-retrieval-131",
@@ -2460,7 +2437,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0728
+      "latency_seconds": 0.0745
     },
     {
       "id": "battery-retrieval-132",
@@ -2478,7 +2455,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0688
+      "latency_seconds": 0.0717
     },
     {
       "id": "battery-retrieval-133",
@@ -2496,7 +2473,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0625
+      "latency_seconds": 0.0688
     },
     {
       "id": "battery-retrieval-134",
@@ -2514,7 +2491,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0719
+      "latency_seconds": 0.0678
     },
     {
       "id": "battery-retrieval-135",
@@ -2532,7 +2509,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0746
+      "latency_seconds": 0.0731
     },
     {
       "id": "battery-retrieval-136",
@@ -2550,7 +2527,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0795
+      "latency_seconds": 0.0643
     },
     {
       "id": "battery-retrieval-137",
@@ -2568,7 +2545,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0726
+      "latency_seconds": 0.0702
     },
     {
       "id": "battery-retrieval-138",
@@ -2586,7 +2563,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0606
+      "latency_seconds": 0.0644
     },
     {
       "id": "battery-retrieval-139",
@@ -2604,7 +2581,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0727
+      "latency_seconds": 0.072
     },
     {
       "id": "battery-retrieval-140",
@@ -2622,7 +2599,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0697
+      "latency_seconds": 0.0797
     },
     {
       "id": "battery-retrieval-141",
@@ -2640,7 +2617,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.072
+      "latency_seconds": 0.0643
     },
     {
       "id": "battery-retrieval-142",
@@ -2658,7 +2635,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0722
+      "latency_seconds": 0.061
     },
     {
       "id": "battery-retrieval-143",
@@ -2676,7 +2653,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0724
+      "latency_seconds": 0.0626
     },
     {
       "id": "battery-retrieval-144",
@@ -2694,7 +2671,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0667
+      "latency_seconds": 0.0676
     },
     {
       "id": "battery-retrieval-145",
@@ -2712,7 +2689,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0726
+      "latency_seconds": 0.0733
     },
     {
       "id": "battery-retrieval-146",
@@ -2730,7 +2707,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0589
+      "latency_seconds": 0.0728
     },
     {
       "id": "battery-retrieval-147",
@@ -2748,7 +2725,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0725
+      "latency_seconds": 0.0732
     },
     {
       "id": "battery-retrieval-148",
@@ -2766,7 +2743,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0672
+      "latency_seconds": 0.0632
     },
     {
       "id": "battery-retrieval-149",
@@ -2784,7 +2761,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0599
+      "latency_seconds": 0.0657
     },
     {
       "id": "battery-retrieval-150",
@@ -2802,7 +2779,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0697
+      "latency_seconds": 0.0648
     },
     {
       "id": "battery-retrieval-151",
@@ -2820,7 +2797,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0631
+      "latency_seconds": 0.0638
     },
     {
       "id": "battery-retrieval-152",
@@ -2838,7 +2815,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0706
+      "latency_seconds": 0.0716
     },
     {
       "id": "battery-retrieval-153",
@@ -2856,7 +2833,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0574
+      "latency_seconds": 0.0662
     },
     {
       "id": "battery-retrieval-154",
@@ -2874,7 +2851,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0573
+      "latency_seconds": 0.0772
     },
     {
       "id": "battery-retrieval-155",
@@ -2892,7 +2869,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0633
+      "latency_seconds": 0.0719
     },
     {
       "id": "battery-retrieval-156",
@@ -2910,7 +2887,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.067
+      "latency_seconds": 0.0664
     },
     {
       "id": "battery-retrieval-157",
@@ -2928,7 +2905,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0613
+      "latency_seconds": 0.0714
     },
     {
       "id": "battery-retrieval-158",
@@ -2946,7 +2923,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0728
+      "latency_seconds": 0.0676
     },
     {
       "id": "battery-retrieval-159",
@@ -2964,7 +2941,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0606
+      "latency_seconds": 0.0707
     },
     {
       "id": "battery-retrieval-160",
@@ -2982,7 +2959,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0646
+      "latency_seconds": 0.07
     },
     {
       "id": "battery-retrieval-161",
@@ -3000,7 +2977,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0698
+      "latency_seconds": 0.0562
     },
     {
       "id": "battery-retrieval-162",
@@ -3018,7 +2995,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0698
+      "latency_seconds": 0.0705
     },
     {
       "id": "battery-retrieval-163",
@@ -3036,7 +3013,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0694
+      "latency_seconds": 0.0601
     },
     {
       "id": "battery-retrieval-164",
@@ -3054,7 +3031,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0724
+      "latency_seconds": 0.0569
     },
     {
       "id": "battery-retrieval-165",
@@ -3072,7 +3049,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0595
+      "latency_seconds": 0.0552
     },
     {
       "id": "battery-retrieval-166",
@@ -3090,7 +3067,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0696
+      "latency_seconds": 0.0572
     },
     {
       "id": "battery-retrieval-167",
@@ -3108,7 +3085,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0707
+      "latency_seconds": 0.0651
     },
     {
       "id": "battery-retrieval-168",
@@ -3126,7 +3103,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0725
+      "latency_seconds": 0.0625
     },
     {
       "id": "battery-retrieval-169",
@@ -3144,7 +3121,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0876
+      "latency_seconds": 0.0622
     },
     {
       "id": "battery-retrieval-170",
@@ -3162,7 +3139,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.067
+      "latency_seconds": 0.0618
     },
     {
       "id": "battery-retrieval-171",
@@ -3180,7 +3157,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0627
+      "latency_seconds": 0.0683
     },
     {
       "id": "battery-retrieval-172",
@@ -3198,7 +3175,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0682
+      "latency_seconds": 0.0668
     },
     {
       "id": "battery-retrieval-173",
@@ -3216,7 +3193,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0733
+      "latency_seconds": 0.0564
     },
     {
       "id": "battery-retrieval-174",
@@ -3234,7 +3211,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0646
+      "latency_seconds": 0.0697
     },
     {
       "id": "battery-retrieval-175",
@@ -3252,7 +3229,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0733
+      "latency_seconds": 0.0608
     },
     {
       "id": "battery-retrieval-176",
@@ -3270,7 +3247,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0687
+      "latency_seconds": 0.0705
     },
     {
       "id": "battery-retrieval-177",
@@ -3288,7 +3265,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0597
+      "latency_seconds": 0.0701
     },
     {
       "id": "battery-retrieval-178",
@@ -3306,7 +3283,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0708
+      "latency_seconds": 0.0711
     },
     {
       "id": "battery-retrieval-179",
@@ -3324,7 +3301,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0667
+      "latency_seconds": 0.0563
     },
     {
       "id": "battery-retrieval-180",
@@ -3342,7 +3319,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0636
+      "latency_seconds": 0.0695
     },
     {
       "id": "battery-retrieval-181",
@@ -3360,7 +3337,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0584
+      "latency_seconds": 0.0709
     },
     {
       "id": "battery-retrieval-182",
@@ -3378,7 +3355,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0693
+      "latency_seconds": 0.0657
     },
     {
       "id": "battery-retrieval-183",
@@ -3396,7 +3373,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0596
+      "latency_seconds": 0.0715
     },
     {
       "id": "battery-retrieval-184",
@@ -3414,7 +3391,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0614
+      "latency_seconds": 0.0622
     },
     {
       "id": "battery-retrieval-185",
@@ -3432,7 +3409,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0624
+      "latency_seconds": 0.0637
     },
     {
       "id": "battery-retrieval-186",
@@ -3450,7 +3427,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0622
+      "latency_seconds": 0.0742
     },
     {
       "id": "battery-retrieval-187",
@@ -3468,7 +3445,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.061
+      "latency_seconds": 0.0748
     },
     {
       "id": "battery-retrieval-188",
@@ -3486,7 +3463,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0691
+      "latency_seconds": 0.0729
     },
     {
       "id": "battery-retrieval-189",
@@ -3504,7 +3481,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0671
+      "latency_seconds": 0.0753
     },
     {
       "id": "battery-retrieval-190",
@@ -3522,7 +3499,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0581
+      "latency_seconds": 0.0713
     },
     {
       "id": "battery-retrieval-191",
@@ -3540,7 +3517,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0695
+      "latency_seconds": 0.0651
     },
     {
       "id": "battery-retrieval-192",
@@ -3558,7 +3535,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.07
+      "latency_seconds": 0.071
     },
     {
       "id": "battery-retrieval-193",
@@ -3576,7 +3553,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0689
+      "latency_seconds": 0.0747
     },
     {
       "id": "battery-retrieval-194",
@@ -3594,7 +3571,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0572
+      "latency_seconds": 0.0616
     },
     {
       "id": "battery-retrieval-195",
@@ -3612,7 +3589,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0711
+      "latency_seconds": 0.0677
     },
     {
       "id": "battery-retrieval-196",
@@ -3630,7 +3607,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0669
+      "latency_seconds": 0.0606
     },
     {
       "id": "battery-retrieval-197",
@@ -3648,7 +3625,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0592
+      "latency_seconds": 0.0722
     },
     {
       "id": "battery-retrieval-198",
@@ -3666,7 +3643,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0616
+      "latency_seconds": 0.0726
     },
     {
       "id": "battery-retrieval-199",
@@ -3684,7 +3661,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0584
+      "latency_seconds": 0.0604
     },
     {
       "id": "battery-retrieval-200",
@@ -3702,7 +3679,7 @@
       ],
       "hit_at_5": true,
       "acl_violations": [],
-      "latency_seconds": 0.0581
+      "latency_seconds": 0.0736
     },
     {
       "id": "battery-acl-001",
@@ -3718,7 +3695,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0711
+      "latency_seconds": 0.0749
     },
     {
       "id": "battery-acl-002",
@@ -3734,7 +3711,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0657
+      "latency_seconds": 0.0636
     },
     {
       "id": "battery-acl-003",
@@ -3750,7 +3727,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0678
+      "latency_seconds": 0.0736
     },
     {
       "id": "battery-acl-004",
@@ -3766,7 +3743,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0711
+      "latency_seconds": 0.0667
     },
     {
       "id": "battery-acl-005",
@@ -3782,7 +3759,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0605
+      "latency_seconds": 0.0718
     },
     {
       "id": "battery-acl-006",
@@ -3798,7 +3775,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.073
+      "latency_seconds": 0.0665
     },
     {
       "id": "battery-acl-007",
@@ -3814,7 +3791,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0598
+      "latency_seconds": 0.069
     },
     {
       "id": "battery-acl-008",
@@ -3830,7 +3807,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0704
+      "latency_seconds": 0.0653
     },
     {
       "id": "battery-acl-009",
@@ -3846,7 +3823,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.07
+      "latency_seconds": 0.0707
     },
     {
       "id": "battery-acl-010",
@@ -3862,7 +3839,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.074
+      "latency_seconds": 0.0631
     },
     {
       "id": "battery-acl-011",
@@ -3878,7 +3855,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0616
+      "latency_seconds": 0.0716
     },
     {
       "id": "battery-acl-012",
@@ -3894,7 +3871,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0671
+      "latency_seconds": 0.0574
     },
     {
       "id": "battery-acl-013",
@@ -3910,7 +3887,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0703
+      "latency_seconds": 0.0592
     },
     {
       "id": "battery-acl-014",
@@ -3926,7 +3903,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.068
+      "latency_seconds": 0.0686
     },
     {
       "id": "battery-acl-015",
@@ -3942,7 +3919,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0726
+      "latency_seconds": 0.0691
     },
     {
       "id": "battery-acl-016",
@@ -3958,7 +3935,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0558
+      "latency_seconds": 0.0714
     },
     {
       "id": "battery-acl-017",
@@ -3974,7 +3951,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0726
+      "latency_seconds": 0.0636
     },
     {
       "id": "battery-acl-018",
@@ -3990,7 +3967,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0705
+      "latency_seconds": 0.0721
     },
     {
       "id": "battery-acl-019",
@@ -4006,7 +3983,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0688
+      "latency_seconds": 0.0692
     },
     {
       "id": "battery-acl-020",
@@ -4022,7 +3999,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0672
+      "latency_seconds": 0.058
     },
     {
       "id": "battery-acl-021",
@@ -4038,7 +4015,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0696
+      "latency_seconds": 0.0693
     },
     {
       "id": "battery-acl-022",
@@ -4054,7 +4031,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.071
+      "latency_seconds": 0.068
     },
     {
       "id": "battery-acl-023",
@@ -4070,7 +4047,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0581
+      "latency_seconds": 0.0614
     },
     {
       "id": "battery-acl-024",
@@ -4086,7 +4063,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0723
+      "latency_seconds": 0.07
     },
     {
       "id": "battery-acl-025",
@@ -4102,7 +4079,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0635
+      "latency_seconds": 0.0639
     },
     {
       "id": "battery-acl-026",
@@ -4118,7 +4095,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0581
+      "latency_seconds": 0.0552
     },
     {
       "id": "battery-acl-027",
@@ -4134,7 +4111,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0616
+      "latency_seconds": 0.0701
     },
     {
       "id": "battery-acl-028",
@@ -4150,7 +4127,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0568
+      "latency_seconds": 0.0702
     },
     {
       "id": "battery-acl-029",
@@ -4166,7 +4143,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0682
+      "latency_seconds": 0.0701
     },
     {
       "id": "battery-acl-030",
@@ -4182,7 +4159,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0599
+      "latency_seconds": 0.069
     },
     {
       "id": "battery-acl-031",
@@ -4198,7 +4175,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0708
+      "latency_seconds": 0.0589
     },
     {
       "id": "battery-acl-032",
@@ -4214,7 +4191,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0617
+      "latency_seconds": 0.0661
     },
     {
       "id": "battery-acl-033",
@@ -4230,7 +4207,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0569
+      "latency_seconds": 0.0619
     },
     {
       "id": "battery-acl-034",
@@ -4246,7 +4223,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0586
+      "latency_seconds": 0.0701
     },
     {
       "id": "battery-acl-035",
@@ -4262,7 +4239,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0709
+      "latency_seconds": 0.0736
     },
     {
       "id": "battery-acl-036",
@@ -4278,7 +4255,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0604
+      "latency_seconds": 0.0592
     },
     {
       "id": "battery-acl-037",
@@ -4294,7 +4271,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0776
+      "latency_seconds": 0.0611
     },
     {
       "id": "battery-acl-038",
@@ -4310,7 +4287,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0662
+      "latency_seconds": 0.0721
     },
     {
       "id": "battery-acl-039",
@@ -4326,7 +4303,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0539
+      "latency_seconds": 0.0696
     },
     {
       "id": "battery-acl-040",
@@ -4342,7 +4319,7 @@
       ],
       "hit_at_5": null,
       "acl_violations": [],
-      "latency_seconds": 0.0544
+      "latency_seconds": 0.0702
     }
   ]
 }

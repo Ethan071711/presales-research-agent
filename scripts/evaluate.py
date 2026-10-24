@@ -52,6 +52,14 @@ def main():
         version = connection.execute('SELECT version() AS value').fetchone()['value']
         indexes = connection.execute("SELECT indexname,indexdef FROM pg_indexes WHERE tablename LIKE 'presales_%' AND indexdef LIKE '%USING hnsw%'").fetchall()
     plan = store.explain_index(Actor('eval','demo-a','sales'),'Fox KH EP11 单相 8kW 31.08kWh')
+    def index_names(value):
+        if isinstance(value,dict):
+            return ({value['Index Name']} if 'Index Name' in value else set()).union(
+                *(index_names(item) for item in value.values()))
+        if isinstance(value,list):
+            return set().union(*(index_names(item) for item in value))
+        return set()
+    used_hnsw=sorted(index_names(plan)&{row['indexname'] for row in indexes})
     summary = {'measured_at_utc': datetime.now(timezone.utc).isoformat(),
                'provenance': 'NEW battery questions against manually curated public facts; not historic internship results',
                'backend': store.backend, 'database': version, 'embedding_model': embedder.model_name,
@@ -60,7 +68,8 @@ def main():
                'hits_at_5': hits, 'acl_attack_cases': sum(bool(c['forbidden_ids']) for c in cases),
                'acl_violating_queries_all_240': violations, 'categories': dict(categories),
                'elapsed_seconds': round(time.perf_counter()-start, 3), 'hnsw_indexes': indexes,
-               'forced_index_explain_for_validation': plan, 'paid_api_calls': 0,
+               'forced_index_explain_for_validation': plan, 'verified_hnsw_indexes': used_hnsw,
+               'paid_api_calls': 0,
                'limitations': ['Template-based queries share a small public-fact corpus; not independent real-user data.',
                               'Recall@5 measures retrieval, not quotation accuracy or generated-answer factuality.',
                               'Small tables may use sequential scan by default; forced EXPLAIN only verifies the HNSW path.',
@@ -70,7 +79,7 @@ def main():
     (out/'battery_retrieval_20261024.json').write_text(json.dumps({'summary':summary,'details':details},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:v for k,v in summary.items() if k not in {'forced_index_explain_for_validation','hnsw_indexes'}}, ensure_ascii=False, indent=2))
     assert violations == 0, 'ACL violation found'
-    assert indexes and 'Index Scan' in json.dumps(plan), 'HNSW index path was not verified'
+    assert used_hnsw, 'EXPLAIN did not use a declared HNSW index'
 
 
 if __name__ == '__main__':
